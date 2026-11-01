@@ -1,0 +1,122 @@
+{
+  "tag": "after_final",
+  "seconds": 60,
+  "cdp": {
+    "count": 12,
+    "byPath": {
+      "/local/status": 11,
+      "/sw.js": 1
+    }
+  },
+  "drain": {
+    "count": 14,
+    "bytes": 37182
+  },
+  "inPage": {
+    "count": 12,
+    "byPath": {
+      "/local/status": 12,
+      "/sw.js": 1
+    }
+  },
+  "navigations": 1,
+  "layout": {
+    "reads": 24,
+    "mutations": 312,
+    "frames": 18002
+  },
+  "cpu": {
+    "busyMs": 179,
+    "ranked": [
+      {
+        "name": "(idle) @ :0",
+        "ms": 58844
+      },
+      {
+        "name": "(program) @ :0",
+        "ms": 1500
+      },
+      {
+        "name": "requestAnimationFrame @ :0",
+        "ms": 128
+      },
+      {
+        "name": "(garbage collector) @ :0",
+        "ms": 42
+      },
+      {
+        "name": "tick @ :6",
+        "ms": 28
+      },
+      {
+        "name": "tick @ :42",
+        "ms": 6
+      },
+      {
+        "name": "querySelector @ :0",
+        "ms": 5
+      },
+      {
+        "name": "getBoundingClientRect @ :0",
+        "ms": 3
+      },
+      {
+        "name": "fetch @ :0",
+        "ms": 2
+      },
+      {
+        "name": "json @ :0",
+        "ms": 1
+      },
+      {
+        "name": "querySelectorAll @ :0",
+        "ms": 1
+      },
+      {
+        "name": "window.fetch @ :15",
+        "ms": 1
+      },
+      {
+        "name": "qwenContextFetch @ context-control.js?v=3:228",
+        "ms": 1
+      },
+      {
+        "name": "bump @ :6",
+        "ms": 1
+      },
+      {
+        "name": "(anonymous) @ mode-control.js?v=16:135",
+        "ms": 1
+      },
+      {
+        "name": "update @ :0",
+        "ms": 1
+      }
+    ],
+    "injectedMs": 2,
+    "injected": [
+      {
+        "name": "qwenContextFetch @ context-control.js?v=3:228",
+        "ms": 1
+      },
+      {
+        "name": "(anonymous) @ mode-control.js?v=16:135",
+        "ms": 1
+      }
+    ]
+  },
+  "counters": {
+    "tasks": 2,
+    "taskMs": 240,
+    "frames": 18496,
+    "t": 69337.5,
+    "calls": 14,
+    "installCount": 1,
+    "label": "idle",
+    "errors": [],
+    "navTime": 1789736524636.8,
+    "docId": 1,
+    "href": "http://127.0.0.1:8081/",
+    "reloads": 0
+  }
+}

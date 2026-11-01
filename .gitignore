@@ -1,0 +1,37 @@
+# Weights, runtimes and local state are never committed.
+models/
+runtime/
+runtime-*/
+voices/
+logs/
+backups/
+*.gguf
+*.safetensors
+*.onnx
+*.bin
+*.wav
+*.mp4
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Generated at runtime
+settings.json
+share.config.json
+*.process.json
+supervisor.status.json
+supervisor.lock
+supervisor.run.lock
+service-control.lock
+service.stop
+*.log
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

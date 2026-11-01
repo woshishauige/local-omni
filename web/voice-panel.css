@@ -1,0 +1,919 @@
+/* 语音对话 — one screen with three surfaces and no overlap between them:
+ *
+ *   ┌───────────────┬──────────────────────────────────────────┬───────────┐
+ *   │ 对话历史 rail │ 正文（转录）+ 底部录音/输入 dock          │ 设置抽屉  │
+ *   └───────────────┴──────────────────────────────────────────┴───────────┘
+ *
+ * That split is the fix for "历史对话和音色还混在一起，排版这么乱": the rail used to hold
+ * 对话历史 + 音色 (nine chips) + 运行状态 + 选项 in one 244px column, and the four blocks
+ * fought over the height until the history list measured 0px with its rows squeezed to 13px
+ * slivers. Settings now live behind 设置, the three numbers a turn depends on moved into the
+ * header, and the rail has exactly one job.
+ *
+ * Colours come from the page's own tokens (shadcn-style oklch values, which flip with the
+ * light/dark theme) with neutral translucent overlays for surfaces, so nothing here is
+ * hard-coded to one theme.
+ */
+
+.local-voice-launch {
+  display: none !important;   /* voice is entered from the mode tabs, like every other view */
+}
+.local-voice-launch-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c34b50;
+  opacity: 0;
+}
+
+/* ---------------------------------------------------------------- the page */
+
+.local-voice-panel {
+  --qv-accent: #479c76;
+  --qv-accent-strong: #3d8765;
+  --qv-danger: #d4605f;
+  --qv-line: rgba(128, 138, 132, .22);
+  --qv-line: color-mix(in srgb, var(--foreground, #111) 16%, transparent);
+  --qv-surface: rgba(128, 138, 132, .10);
+  --qv-surface: color-mix(in srgb, var(--foreground, #111) 7%, transparent);
+  --qv-surface-hover: rgba(128, 138, 132, .20);
+  --qv-surface-hover: color-mix(in srgb, var(--foreground, #111) 13%, transparent);
+  /* Rows are the rail's cards, so they get a touch more body than an inline chip. */
+  --qv-row: rgba(128, 138, 132, .13);
+  --qv-row: color-mix(in srgb, var(--foreground, #111) 9%, transparent);
+  --qv-row-hover: rgba(128, 138, 132, .24);
+  --qv-row-hover: color-mix(in srgb, var(--foreground, #111) 16%, transparent);
+  --qv-tint: rgba(71, 156, 118, .16);
+  --qv-tint: color-mix(in srgb, var(--qv-accent) 18%, transparent);
+  --qv-text-soft: var(--muted-foreground, #7d857f);
+  /* The chat app underneath must not show through, and it must be its own screen. */
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  inset: var(--local-toolbar-height, 60px) 0 0;
+  min-height: 0;
+  background: var(--background, #fff);
+  color: var(--foreground, inherit);
+  z-index: 30;
+  overflow: hidden;
+}
+.local-voice-panel.is-open { display: flex; }
+.local-voice-panel[hidden] { display: none !important; }
+
+/* ---------------------------------------------------------------- header */
+
+.local-voice-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--qv-line);
+  flex-shrink: 0;
+}
+.local-voice-title {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+.local-voice-title strong { font-size: 15px; font-weight: 650; letter-spacing: .01em; }
+.local-voice-title span {
+  color: var(--qv-text-soft);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The three numbers a spoken turn depends on. Reads as a status strip, not as settings. */
+.local-voice-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  min-width: 0;
+  overflow: hidden;
+}
+.local-voice-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--qv-line);
+  border-radius: 999px;
+  background: var(--qv-surface);
+  font-size: 12px;
+  white-space: nowrap;
+  max-width: 240px;
+}
+.local-voice-chip em { font-style: normal; color: var(--qv-text-soft); font-size: 11px; }
+.local-voice-chip-value {
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.local-voice-status[data-level="tight"] .local-voice-chip:last-child { border-color: #c9a22780; }
+.local-voice-status[data-level="critical"] .local-voice-chip:last-child,
+.local-voice-status[data-level="full"] .local-voice-chip:last-child {
+  border-color: #c34b5080;
+  background: #c34b5018;
+}
+
+.local-voice-top-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.local-voice-close,
+.local-voice-settings-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border: 1px solid var(--qv-line);
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.local-voice-close:hover,
+.local-voice-settings-toggle:hover { background: var(--qv-surface-hover); }
+.local-voice-settings-toggle svg { width: 15px; height: 15px; }
+.local-voice-settings-toggle[aria-expanded="true"] {
+  background: var(--qv-tint);
+  border-color: color-mix(in srgb, var(--qv-accent) 55%, transparent);
+  color: var(--qv-accent);
+}
+.local-voice-close:focus-visible,
+.local-voice-settings-toggle:focus-visible { outline: 2px solid var(--qv-accent); outline-offset: 2px; }
+
+/* ---------------------------------------------------------------- body */
+
+.local-voice-body {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  /* A fixed rail track plus `minmax(0, 1fr)` for the conversation: the textbook
+   * `minmax(0, 244px) minmax(0, 1fr)` came back as `244px 1166px` in this browser (the `fr`
+   * inside `minmax()` was not resolved) and squeezed the transcript to zero width. */
+  grid-template-columns: 268px minmax(0, 1fr);
+}
+.local-voice-side {
+  grid-column: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--qv-line);
+  /* No tint of its own: the rows are the surfaces. A tinted rail behind tinted rows left the
+   * two within a few percent of each other, so the cards had no edge. */
+  background: transparent;
+}
+.local-voice-main {
+  grid-column: 2;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 900px) {
+  .local-voice-body { grid-template-columns: minmax(0, 1fr); }
+  .local-voice-side { display: none; }
+  .local-voice-status { display: none; }
+}
+
+/* ---------------------------------------------------------------- the history rail
+ * One header, one list, nothing else. The list scrolls on its own; the header never does.
+ */
+.local-voice-rail-head {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 14px 12px;
+  border-bottom: 1px solid var(--qv-line);
+  flex-shrink: 0;
+}
+.local-voice-rail-title { display: flex; align-items: center; gap: 8px; }
+.local-voice-rail-title h3 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--qv-text-soft);
+}
+/* The collapse control sits in the header it collapses, aligned to the far end. */
+.local-voice-rail-toggle {
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--qv-line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--qv-text-soft);
+  cursor: pointer;
+  transition: background .14s ease, color .14s ease, border-color .14s ease;
+}
+.local-voice-rail-toggle:hover { background: var(--qv-surface-hover); color: inherit; }
+.local-voice-rail-toggle svg { width: 14px; height: 14px; }
+.local-voice-rail-toggle.is-strip { margin: 0; }
+.local-voice-rail-toggle.is-strip svg { transform: rotate(180deg); }
+
+/* Collapsed: the rail keeps a strip, not nothing. The strip carries the way back and the
+   count, so "where did my history go" is answered by looking at it. */
+.local-voice-rail-strip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+}
+.local-voice-rail-strip[hidden] { display: none; }
+.local-voice-panel.is-rail-collapsed .local-voice-body { grid-template-columns: 52px minmax(0, 1fr); }
+.local-voice-panel.is-rail-collapsed .local-voice-rail-head,
+.local-voice-panel.is-rail-collapsed .local-voice-history-list { display: none; }
+.local-voice-count {
+  min-width: 20px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--qv-surface-hover);
+  color: var(--qv-text-soft);
+  font-size: 11px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.local-voice-history-actions { display: flex; align-items: center; gap: 8px; }
+.local-voice-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid var(--qv-line);
+  border-radius: 9px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.local-voice-link svg { width: 13px; height: 13px; }
+.local-voice-link:hover { background: var(--qv-surface-hover); }
+.local-voice-link.is-primary {
+  flex: 1;
+  border-color: color-mix(in srgb, var(--qv-accent) 55%, transparent);
+  background: var(--qv-tint);
+  color: var(--qv-accent);
+  font-weight: 550;
+}
+.local-voice-link.is-primary:hover { background: color-mix(in srgb, var(--qv-accent) 26%, transparent); }
+.local-voice-link.is-danger { color: var(--qv-text-soft); }
+.local-voice-link.is-danger:hover {
+  border-color: #c34b5066;
+  background: #c34b5018;
+  color: var(--qv-danger);
+}
+
+.local-voice-search {
+  width: 100%;
+  padding: 7px 11px;
+  border: 1px solid var(--qv-line);
+  border-radius: 9px;
+  background: var(--background, #fff);
+  color: inherit;
+  font: inherit;
+  font-size: 12.5px;
+}
+.local-voice-search::placeholder { color: var(--qv-text-soft); }
+.local-voice-search:focus-visible {
+  outline: none;
+  border-color: var(--qv-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--qv-accent) 20%, transparent);
+}
+
+.local-voice-history-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 10px 16px;
+  scrollbar-width: thin;
+}
+.local-voice-history-list::-webkit-scrollbar { width: 8px; }
+.local-voice-history-list::-webkit-scrollbar-thumb {
+  background: var(--qv-line);
+  border-radius: 999px;
+}
+.local-voice-history-empty {
+  margin: 6px 4px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--qv-text-soft);
+}
+
+.local-voice-history-item {
+  position: relative;
+  /* Rows must never be squeezed: with the old flex column they shrank to 13px slivers, which
+   * is why the titles were invisible. A row is its own size, the list scrolls. */
+  flex: 0 0 auto;
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  background: var(--qv-row);
+  overflow: hidden;
+  transition: background .14s ease, border-color .14s ease;
+}
+.local-voice-history-item:hover { background: var(--qv-row-hover); }
+.local-voice-history-item[data-active="true"] {
+  border-color: color-mix(in srgb, var(--qv-accent) 45%, transparent);
+  background: var(--qv-tint);
+}
+/* The active row is marked by a bar as well as a tint: colour alone is easy to miss. */
+.local-voice-history-item[data-active="true"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  bottom: 7px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--qv-accent);
+}
+.local-voice-history-open {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  padding: 9px 4px 9px 12px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.local-voice-history-open:focus-visible {
+  outline: 2px solid var(--qv-accent);
+  outline-offset: -2px;
+}
+.local-voice-history-title {
+  max-width: 100%;
+  font-size: 13px;
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.local-voice-history-item[data-active="true"] .local-voice-history-title { color: var(--qv-accent); }
+.local-voice-history-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--qv-text-soft);
+}
+.local-voice-history-count,
+.local-voice-history-when {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* Date and time, bottom right of the row. Tabular figures keep the stamps aligned down the
+   rail instead of wobbling with the digits. */
+.local-voice-history-when { font-variant-numeric: tabular-nums; flex-shrink: 0; }
+/* Inline rename: the title becomes an input where it already was. */
+.local-voice-history-rename-input {
+  width: 100%;
+  padding: 3px 6px;
+  border: 1px solid var(--qv-accent);
+  border-radius: 7px;
+  background: var(--background, #fff);
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 550;
+}
+.local-voice-history-rename-input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--qv-accent) 22%, transparent);
+}
+/* Always visible — a control the owner has to hover to discover is one they report as
+   missing — but quiet until it is wanted. */
+.local-voice-history-rename,
+.local-voice-history-delete {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  border: 0;
+  background: transparent;
+  color: var(--qv-text-soft);
+  opacity: .45;
+  cursor: pointer;
+  transition: opacity .14s ease, background .14s ease, color .14s ease;
+}
+.local-voice-history-rename svg,
+.local-voice-history-delete svg { width: 14px; height: 14px; }
+.local-voice-history-item:hover .local-voice-history-rename,
+.local-voice-history-item:hover .local-voice-history-delete { opacity: .85; }
+.local-voice-history-rename:hover,
+.local-voice-history-rename:focus-visible {
+  opacity: 1;
+  background: var(--qv-surface-hover);
+  color: var(--qv-accent);
+  outline: none;
+}
+.local-voice-history-delete:hover,
+.local-voice-history-delete:focus-visible {
+  opacity: 1;
+  background: #c34b5020;
+  color: var(--qv-danger);
+  outline: none;
+}
+
+/* ---------------------------------------------------------------- transcript */
+
+.local-voice-log {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* The reading column is capped and centred, so a 1440px window does not produce 1100px lines. */
+  padding: 26px max(26px, calc((100% - 920px) / 2)) 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+.local-voice-log::-webkit-scrollbar { width: 10px; }
+.local-voice-log::-webkit-scrollbar-thumb { background: var(--qv-line); border-radius: 999px; }
+
+.local-voice-empty {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  color: var(--qv-text-soft);
+  font-size: 13.5px;
+  line-height: 1.9;
+  animation: local-voice-in .35s ease both;
+}
+.local-voice-empty-mark {
+  width: 62px;
+  height: 62px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--qv-tint);
+  color: var(--qv-accent);
+}
+.local-voice-empty-mark svg { width: 26px; height: 26px; }
+.local-voice-empty strong { display: block; font-size: 17px; font-weight: 600; color: var(--foreground, inherit); }
+.local-voice-empty span { max-width: 380px; }
+
+.local-voice-turn { display: flex; gap: 11px; max-width: 82%; animation: local-voice-in .22s ease both; }
+/* A short thread sits just above the composer, the way a chat does, instead of floating at the
+ * top of a mostly empty column. `margin-top: auto` (rather than `justify-content: flex-end` on
+ * the log) is what keeps the first turn reachable once the thread is long enough to scroll. */
+.local-voice-log > .local-voice-turn:first-child { margin-top: auto; }
+.local-voice-turn.is-user { margin-left: auto; flex-direction: row-reverse; }
+.local-voice-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  background: var(--qv-surface-hover);
+  color: var(--qv-text-soft);
+}
+.local-voice-turn.is-user .local-voice-avatar { background: var(--qv-accent); color: #fff; }
+.local-voice-bubble {
+  padding: 11px 15px;
+  border-radius: 16px;
+  border-bottom-left-radius: 6px;
+  background: var(--qv-surface);
+  line-height: 1.68;
+  font-size: 14.5px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.local-voice-turn.is-user .local-voice-bubble {
+  background: var(--qv-accent);
+  border-radius: 16px;
+  border-bottom-right-radius: 6px;
+  color: #fff;
+}
+.local-voice-bubble.is-live { color: var(--qv-text-soft); font-style: italic; }
+.local-voice-state { font-size: 11.5px; color: var(--qv-text-soft); margin-top: 6px; }
+
+/* ------------------------------------------------------------ spoken reply bar */
+
+.local-voice-bar {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 15px;
+  border-radius: 16px;
+  border-bottom-left-radius: 6px;
+  background: var(--qv-surface);
+  min-width: 210px;
+  max-width: 340px;
+  cursor: pointer;
+}
+.local-voice-bar:focus-visible { outline: 2px solid var(--qv-accent); outline-offset: 2px; }
+.local-voice-bar-play {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--qv-accent);
+  color: #fff;
+  display: grid;
+  place-items: center;
+}
+.local-voice-bar-play svg { width: 15px; height: 15px; }
+.local-voice-bar.is-playing .local-voice-bar-play { animation: local-voice-pulse 1.1s ease-in-out infinite; }
+.local-voice-bar-wave { display: flex; align-items: center; gap: 2px; height: 26px; flex: 1; }
+.local-voice-bar-wave span { width: 2px; border-radius: 1px; background: var(--qv-accent); opacity: .45; }
+.local-voice-bar.is-playing .local-voice-bar-wave span { opacity: .9; }
+.local-voice-bar-time {
+  font-size: 12.5px;
+  color: var(--qv-text-soft);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+.local-voice-bar-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 220px;
+  max-width: 560px;
+}
+.local-voice-bar-toggle {
+  margin-top: 2px;
+  padding: 4px 11px;
+  border: 1px solid var(--qv-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--qv-text-soft);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.local-voice-bar-toggle:hover { background: var(--qv-surface-hover); color: inherit; }
+.local-voice-transcript {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px dashed var(--qv-line);
+  background: var(--background, #fff);
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.local-voice-transcript[hidden] { display: none; }
+
+/* ---------------------------------------------------------------- dock */
+
+.local-voice-dock {
+  flex-shrink: 0;
+  border-top: 1px solid var(--qv-line);
+  padding: 16px max(26px, calc((100% - 920px) / 2)) 18px;
+  background: var(--qv-surface);
+}
+.local-voice-dock-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.local-voice-heard {
+  min-height: 20px;
+  font-size: 13.5px;
+  color: var(--qv-text-soft);
+  text-align: center;
+  max-width: 720px;
+  overflow-wrap: anywhere;
+}
+.local-voice-heard.is-live { color: var(--qv-accent); }
+
+/* Microphone, field and send button on one line: the old dock stacked four rows (heard,
+   controls, composer, hint) and the microphone floated beside the level bar instead of
+   belonging to the input it records next to. */
+.local-voice-controls {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+.local-voice-mic {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: none;
+  background: var(--qv-accent);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--qv-accent) 80%, transparent);
+  transition: transform .12s ease, background .15s ease;
+}
+.local-voice-mic:hover:not(:disabled) { transform: scale(1.04); background: var(--qv-accent-strong); }
+.local-voice-mic:disabled { background: var(--qv-surface-hover); color: var(--qv-text-soft); cursor: default; }
+.local-voice-mic:focus-visible { outline: 3px solid color-mix(in srgb, var(--qv-accent) 60%, transparent); outline-offset: 3px; }
+.local-voice-mic svg { width: 23px; height: 23px; }
+.local-voice-mic[data-recording="true"] { background: #c34b50; }
+.local-voice-mic[data-recording="true"]::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid #c34b50;
+  animation: local-voice-ring 1.4s ease-out infinite;
+}
+
+.local-voice-composer { display: flex; gap: 9px; flex: 1; min-width: 0; align-items: flex-start; }
+.local-voice-field { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 7px; }
+.local-voice-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--qv-line);
+  border-radius: 12px;
+  background: var(--background, #fff);
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+}
+.local-voice-input::placeholder { color: var(--qv-text-soft); }
+.local-voice-input:focus-visible {
+  outline: none;
+  border-color: var(--qv-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--qv-accent) 22%, transparent);
+}
+.local-voice-send {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--qv-accent);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.local-voice-send:hover { background: var(--qv-accent-strong); }
+.local-voice-send:disabled { background: var(--qv-surface-hover); color: var(--qv-text-soft); cursor: default; }
+.local-voice-hint { font-size: 12px; color: var(--qv-text-soft); text-align: center; }
+
+/* Level meter: width tracks microphone RMS once per frame. It sits under the input it belongs
+   to, and stays out of the way when nothing is being recorded. */
+.local-voice-level {
+  height: 4px;
+  border-radius: 3px;
+  background: var(--qv-line);
+  overflow: hidden;
+  opacity: .5;
+  transition: opacity .2s ease;
+}
+.local-voice-panel:has(.local-voice-mic[data-recording="true"]) .local-voice-level { opacity: 1; }
+.local-voice-level > i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--qv-accent);
+  transition: width .08s linear;
+}
+
+/* ---------------------------------------------------------------- settings drawer */
+
+.local-voice-scrim {
+  position: absolute;
+  inset: 0;
+  background: #0006;
+  backdrop-filter: blur(1px);
+  z-index: 5;
+  animation: local-voice-fade .16s ease both;
+}
+.local-voice-scrim[hidden] { display: none !important; }
+
+.local-voice-settings {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 336px;
+  max-width: 92vw;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  padding: 18px 18px 26px;
+  background: var(--popover, var(--card, #fff));
+  border-left: 1px solid var(--qv-line);
+  box-shadow: -24px 0 48px -30px #000a;
+  animation: local-voice-slide .2s ease both;
+  scrollbar-width: thin;
+}
+.local-voice-settings[hidden] { display: none !important; }
+.local-voice-settings-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 14px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--qv-line);
+}
+.local-voice-settings-head h2 { margin: 0; font-size: 15px; font-weight: 650; }
+.local-voice-settings-head span { font-size: 12px; color: var(--qv-text-soft); margin-right: auto; }
+.local-voice-settings-close {
+  align-self: center;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--qv-line);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.local-voice-settings-close:hover { background: var(--qv-surface-hover); }
+.local-voice-settings-close svg { width: 14px; height: 14px; }
+
+.local-voice-group { display: flex; flex-direction: column; gap: 10px; padding: 14px 0; }
+.local-voice-group + .local-voice-group { border-top: 1px solid var(--qv-line); }
+.local-voice-group > h3 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--qv-text-soft);
+}
+
+/* 音色: a grid of cards, because nine wrapped pills read as a tag cloud rather than a choice. */
+.local-voice-voices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.local-voice-voice {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 8px;
+  border: 1px solid var(--qv-line);
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 12.5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background .14s ease, border-color .14s ease, color .14s ease;
+}
+.local-voice-voice:hover { background: var(--qv-surface-hover); }
+.local-voice-voice small { color: var(--qv-text-soft); font-size: 10.5px; }
+.local-voice-voice[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--qv-accent) 60%, transparent);
+  background: var(--qv-tint);
+  color: var(--qv-accent);
+  font-weight: 600;
+}
+.local-voice-voice[aria-pressed="true"] small { color: color-mix(in srgb, var(--qv-accent) 75%, var(--qv-text-soft)); }
+.local-voice-voice:focus-visible { outline: 2px solid var(--qv-accent); outline-offset: 2px; }
+
+/* 选项: full-width rows with the label, an explanation and a switch, so the state is visible
+   without reading a pressed button. */
+.local-voice-action {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 4px 12px;
+  padding: 11px 13px;
+  border: 1px solid var(--qv-line);
+  border-radius: 11px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background .14s ease, border-color .14s ease;
+}
+.local-voice-action:hover:not(:disabled) { background: var(--qv-surface-hover); }
+.local-voice-action:disabled { opacity: .5; cursor: default; }
+.local-voice-action > span { font-size: 13.5px; font-weight: 550; }
+.local-voice-action > small { grid-column: 1; color: var(--qv-text-soft); font-size: 11.5px; line-height: 1.5; }
+/* The switch is drawn on the track itself with a gradient knob: a pseudo-element cannot be a
+   child of another pseudo-element, and a real knob element would be a third child of a button
+   whose two children are its label and its explanation. */
+.local-voice-action::after {
+  content: "";
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 38px;
+  height: 22px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 11px 50%, #fff 0 6.5px, transparent 7px),
+    var(--qv-surface-hover);
+  box-shadow: inset 0 0 0 1px var(--qv-line);
+  transition: background .16s ease;
+}
+.local-voice-action[aria-pressed="true"]::after {
+  background:
+    radial-gradient(circle at 27px 50%, #fff 0 6.5px, transparent 7px),
+    var(--qv-accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--qv-accent) 70%, transparent);
+}
+.local-voice-action:focus-visible { outline: 2px solid var(--qv-accent); outline-offset: 2px; }
+
+/* 运行状态: the full list, including the two numbers the header leaves out. */
+.local-voice-facts { display: flex; flex-direction: column; gap: 2px; margin: 0; font-size: 12.5px; }
+.local-voice-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 10px;
+  border-radius: 8px;
+}
+.local-voice-facts div:nth-child(odd) { background: var(--qv-surface); }
+.local-voice-facts dt { color: var(--qv-text-soft); }
+.local-voice-facts dd { margin: 0; font-variant-numeric: tabular-nums; text-align: right; }
+
+/* ------------------------------------------------------- style & clone */
+
+.local-voice-styles { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.local-voice-style {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1px;
+  padding: 6px 10px; border-radius: 9px; cursor: pointer;
+  background: var(--qv-surface); border: 1px solid transparent; color: inherit;
+  font: inherit; font-size: 12px;
+}
+.local-voice-style small { color: var(--qv-text-soft); font-size: 10px; }
+.local-voice-style[aria-pressed="true"] { border-color: var(--qv-accent); color: var(--qv-accent); }
+.local-voice-style-input, .local-voice-clone-input {
+  width: 100%; box-sizing: border-box; margin-bottom: 6px; padding: 7px 9px;
+  border-radius: 8px; background: var(--qv-surface);
+  border: 1px solid var(--qv-surface-hover); color: inherit; font: inherit; font-size: 12px;
+}
+.local-voice-clone-file {
+  width: 100%; box-sizing: border-box; margin-bottom: 6px;
+  color: var(--qv-text-soft); font-size: 11px;
+}
+
+/* ---------------------------------------------------------------- states */
+
+.local-voice-error {
+  margin: 12px 20px 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #c34b5018;
+  border: 1px solid #c34b5055;
+  color: #e88b8a;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.local-voice-error[hidden] { display: none; }
+
+.local-voice-panel[data-phase="thinking"] .local-voice-heard::after {
+  content: "…";
+  animation: local-voice-dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes local-voice-pulse { 0%, 100% { opacity: 1 } 50% { opacity: .25 } }
+@keyframes local-voice-ring {
+  0% { transform: scale(1); opacity: .8 }
+  100% { transform: scale(1.35); opacity: 0 }
+}
+@keyframes local-voice-in { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+@keyframes local-voice-fade { from { opacity: 0 } to { opacity: 1 } }
+@keyframes local-voice-slide { from { transform: translateX(18px); opacity: .4 } to { transform: none; opacity: 1 } }
+@keyframes local-voice-dots { 0% { content: "" } 25% { content: "." } 50% { content: ".." } 75% { content: "..." } }
+@keyframes local-voice-spin { to { transform: rotate(360deg) } }
+.local-voice-spin { animation: local-voice-spin 1s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .local-voice-panel *,
+  .local-voice-mic::after { animation: none !important; transition: none !important; }
+}

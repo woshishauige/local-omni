@@ -1,0 +1,60 @@
+/* Thinking tier control, docked in the conversation box next to the microphone.
+ *
+ * Deliberately small and quiet: it sits in the composer's tool row, so it must read as one
+ * more chip rather than a settings panel. Colours come from the surrounding theme with
+ * currentColor, so it stays legible in both the light and dark shells the app ships. */
+
+.qwen-thinking {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px 2px 8px;
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1.6;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.qwen-thinking-label {
+  opacity: 0.62;
+  margin-right: 2px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.qwen-thinking-option {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 1px 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: 0.66;
+  transition: background-color 120ms ease, opacity 120ms ease;
+}
+
+.qwen-thinking-option:hover {
+  opacity: 1;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.qwen-thinking-option:focus-visible {
+  outline: 2px solid color-mix(in srgb, currentColor 45%, transparent);
+  outline-offset: 1px;
+}
+
+.qwen-thinking-option.is-on {
+  opacity: 1;
+  font-weight: 600;
+  background: color-mix(in srgb, currentColor 18%, transparent);
+}
+
+/* The 9B profile offers only 关闭/开启, so the pill simply gets shorter; no special case. */
+@media (max-width: 480px) {
+  .qwen-thinking-label { display: none; }
+  .qwen-thinking-option { padding: 1px 6px; }
+}

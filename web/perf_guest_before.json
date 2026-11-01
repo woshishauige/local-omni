@@ -1,0 +1,165 @@
+{
+  "tag": "before",
+  "identity": {
+    "shareStatus": 200,
+    "shareUploads": 200,
+    "usage": 200,
+    "ownerControls": false,
+    "href": "http://127.0.0.1:8081/"
+  },
+  "view": {
+    "toolbar": true,
+    "modeButtons": [
+      "text:enabled",
+      "vision:enabled",
+      "voice:enabled",
+      "generate:enabled",
+      "video:enabled"
+    ],
+    "picker": true,
+    "pickerDisabled": false,
+    "chip": false,
+    "chipText": null,
+    "mic": true,
+    "shareLauncher": false,
+    "usageEntry": false,
+    "ctxEntry": false,
+    "panels": {
+      "image": true,
+      "video": true,
+      "voice": true,
+      "share": false,
+      "usage": false,
+      "context": false
+    },
+    "localStorageKeys": [
+      "LlamaUi.conversationTabs",
+      "qwen.local.toolPermission.added.new-chat",
+      "LlamaUi.alwaysAllowedTools",
+      "LlamaUi.userOverrides",
+      "LlamaUi.config",
+      "qwen.voice.rail",
+      "mode-watcher-theme",
+      "LlamaUi.migration-state",
+      "QwenLocal.agentDefaults.v2",
+      "mode-watcher-mode"
+    ],
+    "globals": [
+      "LocalModes",
+      "ImagePanel",
+      "VideoPanel",
+      "QwenVoice",
+      "VoicePanel"
+    ]
+  },
+  "boot": {
+    "count": 16,
+    "bytes": 49047,
+    "rows": [
+      {
+        "path": "/tools",
+        "count": 5,
+        "bytes": 14797,
+        "ms": 46,
+        "max": 14
+      },
+      {
+        "path": "/local/status",
+        "count": 4,
+        "bytes": 11228,
+        "ms": 19.699999999999996,
+        "max": 8.6
+      },
+      {
+        "path": "/local/context/config",
+        "count": 1,
+        "bytes": 381,
+        "ms": 2.5,
+        "max": 2.5
+      },
+      {
+        "path": "/local/voice/config",
+        "count": 1,
+        "bytes": 587,
+        "ms": 4.9,
+        "max": 4.9
+      },
+      {
+        "path": "/build.json",
+        "count": 1,
+        "bytes": 344,
+        "ms": 14.2,
+        "max": 14.2
+      },
+      {
+        "path": "/props?autoload=false",
+        "count": 1,
+        "bytes": 10197,
+        "ms": 4.6,
+        "max": 4.6
+      },
+      {
+        "path": "/_app/version.json",
+        "count": 1,
+        "bytes": 344,
+        "ms": 6.1,
+        "max": 6.1
+      },
+      {
+        "path": "/props?model=<long>&autoload=false",
+        "count": 1,
+        "bytes": 10197,
+        "ms": 7.5,
+        "max": 7.5
+      },
+      {
+        "path": "/v1/models",
+        "count": 1,
+        "bytes": 972,
+        "ms": 9.2,
+        "max": 9.2
+      }
+    ]
+  },
+  "idle": {
+    "count": 10,
+    "bytes": 28070,
+    "rows": [
+      {
+        "path": "/local/status",
+        "count": 10,
+        "bytes": 28070,
+        "ms": 45.39999999999999,
+        "max": 14.6
+      }
+    ],
+    "blockingMs": 0,
+    "longTasks": 0,
+    "navigated": false
+  },
+  "routes": {
+    "/local/status": "200 {\"service\":\"qwen-local-modes\",\"instance_id\":\"1e4fabb4073b452bab459663aeae9cb9\",\"mode\":\"text\",\"state\":\"ready\",\"error\":nul",
+    "/tools": "200 [{\"display_name\":\"Read file\",\"tool\":\"read_file\",\"type\":\"server\",\"permissions\":{\"write\":false},\"uses_cwd\":true,\"definitio",
+    "/local/voice/config": "200 {\"profile\":\"qwen3.5-9b-uncensored\",\"profile_label\":\"9B 无审查\",\"locked\":true,\"reason\":\"语音对话仅支持 9B 无审查（qwen3.5-9b-uncensored",
+    "/local/context/config": "200 {\"enabled\":true,\"context_size\":131072,\"trigger_ratio\":0.75,\"reserve_tokens\":4096}",
+    "/local/image/meta": "200 {\"comfy\":{\"reachable\":true,\"running\":0,\"pending\":0,\"managed\":false,\"version\":\"0.33.2\",\"device\":\"cuda:0 NVIDIA GeForce RT",
+    "/local/image/gpu": "200 {\"gpu\":{\"total_mib\":12227.0,\"used_mib\":1733.0,\"free_mib\":10212.0,\"utilization\":3.0,\"job_mib\":0.0,\"job_peak_mib\":0.0,\"pea",
+    "/local/video/progress": "200 {\"busy\":false,\"job\":null}",
+    "/local/video/comfy": "200 {\"monitor\":{\"prompt_id\":\"fbd89b5c-cde8-49b1-accc-2fc0eb5fd760\",\"node_id\":\"50\",\"project\":\"1m\",\"shot\":1,\"shots\":1,\"steps\":",
+    "/local/video/recipes": "200 {\"recipes\":[{\"key\":\"video_distill20\",\"label\":\"极致细节 · 20 步蒸馏\",\"summary\":\"20 步蒸馏：细节 861（原版 20 步只有 225），一段 7.5 秒约 870 s。\",\"",
+    "/local/video/history": "200 {\"history\":[]}",
+    "/local/video/output": "200 {\"default\":\"D:\\\\AI\\\\ComfyUI-BSAI_v010\\\\ComfyUI\\\\output\\\\video\",\"current\":\"D:\\\\AI\\\\ComfyUI-BSAI_v010\\\\ComfyUI\\\\output\\\\vi",
+    "/local/video/folders": "200 {\"path\":null,\"parent\":null,\"roots\":[{\"name\":\"C:\\\\\",\"path\":\"C:\\\\\"},{\"name\":\"D:\\\\\",\"path\":\"D:\\\\\"},{\"name\":\"E:\\\\\",\"path\":\"E",
+    "/local/usage": "200 {\"rows\":[{\"id\":\"c8f884e6dc7041afbf396818656cf731\",\"started_at\":1789734706.3912926,\"finished_at\":1789734707.8244553,\"mode",
+    "/local/routing": "200 {\"rows\":[],\"total\":0,\"page\":1,\"page_size\":50,\"summary\":{\"routes\":0,\"qwen_routes\":0,\"fallback_routes\":0,\"max_routes\":0,\"c",
+    "/local/gpu": "200 {\"vram\":{\"total_mib\":12227.0,\"used_mib\":1733.0,\"free_mib\":10212.0},\"free_mib\":10212.0,\"threshold_mib\":2048,\"text_thresho",
+    "/local/voice/voices": "200 {\"engine\":\"qwen3-tts-customvoice\",\"ready\":false,\"voices\":[{\"id\":\"uncle_fu\",\"label\":\"傅叔\",\"kind\":\"男声\"},{\"id\":\"serena\",\"lab",
+    "/local/voice/status": "200 {\"ready\":true,\"model\":\"small\",\"model_path\":\"D:\\\\AI\\\\Qwen-Local\\\\models\\\\asr\\\\small\",\"expected\":\"D:\\\\AI\\\\Qwen-Local\\\\mode",
+    "/local/image/history": "200 {\"entries\":[]}",
+    "/local/image/workflows": "200 {\"workflows\":[{\"key\":\"portrait\",\"label\":\"写实人像 · 推荐\",\"pipeline\":\"sdxl\",\"pipeline_name\":\"SDXL / Pony / Illustrious（NSFW 生态",
+    "/local/context/status?conversation_id=x": "200 {\"state\":\"idle\",\"message\":\"较长对话将自动压缩旧历史。\",\"enabled\":true,\"original_tokens\":null,\"prompt_tokens\":null,\"saved_tokens\":0,\"p",
+    "/local/share/status": "200 {\"pin_rotated_at\":1789563180.9767766,\"pin\":\"611761-992509-889670\",\"online\":false,\"sessions\":[{\"token\":\"7797edbcecd72c48\"",
+    "/local/share/uploads": "200 {\"policy\":\"guests\",\"policies\":[\"off\",\"guests\"],\"limits\":{\"session_bytes\":4294967296,\"total_bytes\":21474836480},\"usage\":{",
+    "/local/share/guest-policy": "200 {\"features\":{\"chat\":true,\"media\":true,\"switch\":true,\"storage\":true},\"labels\":{\"chat\":\"对话与语音\",\"media\":\"生图与生成视频\",\"switch\":"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "tag": "after_live",
+  "seconds": 60,
+  "cdp": {
+    "count": 31,
+    "byPath": {
+      "/local/status": 30,
+      "/sw.js": 1
+    }
+  },
+  "drain": {
+    "count": 31,
+    "bytes": 84862
+  },
+  "inPage": {
+    "count": 31,
+    "byPath": {
+      "/local/status": 30,
+      "/sw.js": 1
+    }
+  },
+  "navigations": 1,
+  "layout": {
+    "reads": 60,
+    "mutations": 840,
+    "frames": 18004
+  },
+  "cpu": {
+    "busyMs": 217,
+    "ranked": [
+      {
+        "name": "(idle) @ :0",
+        "ms": 58664
+      },
+      {
+        "name": "(program) @ :0",
+        "ms": 1528
+      },
+      {
+        "name": "requestAnimationFrame @ :0",
+        "ms": 145
+      },
+      {
+        "name": "(garbage collector) @ :0",
+        "ms": 37
+      },
+      {
+        "name": "tick @ :6",
+        "ms": 31
+      },
+      {
+        "name": "querySelector @ :0",
+        "ms": 14
+      },
+      {
+        "name": "getBoundingClientRect @ :0",
+        "ms": 7
+      },
+      {
+        "name": "tick @ :42",
+        "ms": 5
+      },
+      {
+        "name": "currentChatId @ mode-control.js?v=16:240",
+        "ms": 3
+      },
+      {
+        "name": "fetch @ :0",
+        "ms": 3
+      },
+      {
+        "name": "add @ :0",
+        "ms": 3
+      },
+      {
+        "name": "bump @ :6",
+        "ms": 2
+      },
+      {
+        "name": "setAttribute @ :0",
+        "ms": 1
+      },
+      {
+        "name": "window.fetch @ :15",
+        "ms": 1
+      },
+      {
+        "name": "active @ mode-control.js?v=16:123",
+        "ms": 1
+      },
+      {
+        "name": "qwenContextFetch @ context-control.js?v=3:228",
+        "ms": 1
+      }
+    ],
+    "injectedMs": 5,
+    "injected": [
+      {
+        "name": "currentChatId @ mode-control.js?v=16:240",
+        "ms": 3
+      },
+      {
+        "name": "active @ mode-control.js?v=16:123",
+        "ms": 1
+      },
+      {
+        "name": "qwenContextFetch @ context-control.js?v=3:228",
+        "ms": 1
+      }
+    ]
+  },
+  "counters": {
+    "tasks": 2,
+    "taskMs": 239,
+    "frames": 18046,
+    "t": 67675.09999999404,
+    "calls": 31,
+    "installCount": 1,
+    "label": "idle",
+    "errors": [],
+    "navTime": 1789736267196.5,
+    "docId": 1,
+    "href": "http://127.0.0.1:8081/",
+    "reloads": 0
+  }
+}

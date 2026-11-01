@@ -1,0 +1,540 @@
+:root.local-modes-enabled {
+  --local-toolbar-height: 60px;
+  scroll-padding-top: calc(var(--local-toolbar-height) + 12px);
+}
+
+.local-modes-enabled body {
+  padding-top: var(--local-toolbar-height);
+}
+
+.local-mode-toolbar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 30;
+  color: var(--foreground, #202322);
+  background: var(--background, #fff);
+  border-bottom: 1px solid var(--border, #e4e7e6);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.local-mode-toolbar * { box-sizing: border-box; letter-spacing: 0; }
+.local-mode-toolbar [hidden] { display: none !important; }
+
+.local-mode-row {
+  display: flex;
+  align-items: center;
+  /* 14px 而不是 20px：这一排现在有「模型下拉 + 确认按钮 + 状态行 + 五个模式 + 右角状态」，
+     20px 的间距在 1440 宽下总量超预算约 20px，flex 只能去压状态行，把它压成"已载入 9…"。 */
+  gap: 14px;
+  min-height: 59px;
+  padding: 10px 24px;
+}
+
+.local-mode-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.local-mode-brand strong { font-size: 16px; font-weight: 650; }
+.local-mode-brand span { color: var(--muted-foreground, #717973); font-size: 12px; }
+
+.local-mode-segments {
+  display: grid;
+  /* auto-flow with equal columns: the count follows however many modes the
+     toolbar builds, so adding one never pushes the group onto a second row. */
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(88px, max-content);
+  flex-shrink: 0;
+  padding: 3px;
+  gap: 3px;
+  border: 1px solid var(--border, #e4e7e6);
+  background: var(--muted, #f3f5f4);
+  border-radius: 7px;
+}
+
+.local-mode-button, .local-mode-retry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 4px;
+  color: var(--muted-foreground, #5e6760);
+  background: transparent;
+  font: inherit;
+  font-weight: 550;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.local-mode-button svg, .local-mode-retry svg, .local-mode-status-icon svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+}
+
+.local-mode-button:hover, .local-mode-retry:hover { background: var(--accent, #e8ede9); }
+.local-mode-button[aria-pressed="true"] {
+  color: var(--foreground, #202322);
+  background: var(--background, #fff);
+  box-shadow: 0 1px 3px #00000016;
+}
+.local-mode-button:focus-visible, .local-mode-retry:focus-visible { outline: 2px solid #479c76; outline-offset: 2px; }
+.local-mode-button:disabled, .local-mode-retry:disabled { cursor: default; opacity: .55; }
+
+/* Per-mode cost, as a small caption on the tab. It is the one place a mode can state what it
+ * needs — which matters for voice, whose requirement is the model rather than a setting. */
+.local-mode-size {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 1px 4px;
+  border-radius: 3px;
+  color: var(--muted-foreground, #5e6760);
+  background: #0000000d;
+}
+
+/* Voice on a model that cannot serve it. The tab keeps its place in the row — removing it
+ * would make the toolbar jump on every model switch — and states the reason instead. */
+.local-mode-button[data-unsupported="true"] {
+  opacity: .42;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.local-mode-button[data-unsupported="true"] .local-mode-size {
+  text-decoration: none;
+  color: #a4442f;
+  background: #a4442f1a;
+}
+
+.local-mode-button[data-unsupported="true"]:hover { background: transparent; }
+
+/* --- model picker ---------------------------------------------------------
+ * Sits beside the mode segments and matches their 32px height and 7px radius.
+ *
+ * These rules did not exist before: the picker rendered as a bare `<select>`, and a bare
+ * select in this app was white-on-near-white in the dark theme (measured:
+ * background rgb(255,255,255) with color oklch(0.985 0 0)), with a zero radius and no
+ * drop-down arrow — a control the owner could not read.
+ */
+.local-model-picker {
+  display: inline-flex;
+  align-items: stretch;
+  height: 32px;
+  /* 不参与压缩：压缩会让下拉把模型名吃掉（实测从「9B 无审查」变成「9B 无审」）。 */
+  flex: 0 0 auto;
+  min-width: 0;
+  padding-left: 11px;
+  gap: 8px;
+  border: 1px solid var(--border, #e4e7e6);
+  border-radius: 7px;
+  background: var(--background, #fff);
+  transition: border-color .15s ease;
+}
+.local-model-picker:hover { border-color: #479c7655; }
+/* 「确认切换」按钮：导航只换页面，载入要走这一步（所有者要求）。宽度固定：它的文字随页面变
+   （载入纯文本 / 载入识图 / 载入语音后端 / 加载 27B），按内容伸缩同样会把模式按钮推来推去。 */
+.local-model-apply {
+  align-self: center;
+  flex: 0 0 104px;
+  width: 104px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid #479c7655;
+  border-radius: 4px;
+  background: var(--accent, #e8ede9);
+  color: var(--foreground, #202322);
+  font: inherit;
+  font-size: 11.5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.local-model-apply:hover:not(:disabled) { border-color: #479c76; background: #479c7622; }
+.local-model-apply:disabled { opacity: .45; cursor: default; }
+
+/* "当前 纯文本 · 已载入 9B 无审查"：贴在模型选择器旁边，避免"以为已经换了"。 */
+.local-model-now {
+  align-self: center;
+  /* 固定宽度。这行字的长短随页面变（"已载入 9B 无审查" vs "未载入"），按内容伸缩就会把右边的
+     模式按钮整体推来推去——实测两页之间差 10px，正是所有者看到的"点识图时顶部导航有点问题"。
+     200px 刚好放得下最长的可见短句；完整句子挂在 title 上。真的挤不下时才收缩并省略。 */
+  flex: 0 1 200px;
+  width: 200px;
+  max-width: 26vw;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted-foreground, #717973);
+  font-size: 11.5px;
+}
+
+.local-model-picker:focus-within { border-color: #479c76; }
+
+.local-model-picker-label {
+  align-self: center;
+  flex: 0 0 auto;
+  color: var(--muted-foreground, #717973);
+  font-size: 11px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.local-model-select {
+  align-self: center;
+  /* 至少要放得下最长的档位名（「27B 旧版 IQ4_XS」）：否则下拉会省略成「27B 旧版…」。 */
+  min-width: 132px;
+  max-width: 230px;
+  height: 30px;
+  padding: 0 26px 0 4px;
+  border: 0;
+  border-radius: 5px;
+  color: var(--foreground, #202322);
+  background-color: transparent;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23717973' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 13px 13px;
+  font: inherit;
+  font-weight: 550;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.local-model-select:hover { background-color: var(--accent, #e8ede9); }
+.local-model-select:focus-visible { outline: 2px solid #479c76; outline-offset: 2px; }
+.local-model-select:disabled { cursor: default; opacity: .55; }
+/* The popup itself is the platform's, so it needs its own colours: without them the
+   list is white-on-white in the dark theme, exactly like the closed control was. */
+.local-model-select option { color: var(--foreground, #202322); background: var(--background, #fff); }
+.local-model-select option:disabled { color: var(--muted-foreground, #717973); }
+
+.local-model-info {
+  align-self: stretch;
+  flex: 0 0 auto;
+  width: 30px;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid var(--border, #e4e7e6);
+  border-radius: 0 6px 6px 0;
+  color: var(--muted-foreground, #717973);
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1;
+  cursor: pointer;
+}
+.local-model-info:hover { color: var(--foreground, #202322); background: var(--accent, #e8ede9); }
+.local-model-info:focus-visible { outline: 2px solid #479c76; outline-offset: -2px; }
+
+.local-model-tradeoffs {
+  position: absolute;
+  top: calc(100% - 6px);
+  left: 24px;
+  z-index: 31;
+  width: min(420px, calc(100vw - 32px));
+  /* 只讲当前这一个模型，所以高度跟着内容走；但给一个上限，简介以后写长了也不会顶出屏幕。 */
+  max-height: min(70vh, 460px);
+  overflow-y: auto;
+  padding: 14px 16px 15px;
+  border: 1px solid var(--border, #e4e7e6);
+  border-radius: 9px;
+  background: var(--background, #fff);
+  color: var(--foreground, #202322);
+  box-shadow: 0 14px 34px #0000002e;
+}
+.local-model-tradeoffs-title { margin: 0 0 10px; font-size: 13px; font-weight: 650; }
+.local-model-tradeoffs-close {
+  position: absolute; top: 9px; right: 10px;
+  padding: 2px 8px; border: 0; border-radius: 5px;
+  color: var(--muted-foreground, #717973); background: transparent;
+  font: inherit; font-size: 12px; cursor: pointer;
+}
+.local-model-tradeoffs-close:hover { color: var(--foreground, #202322); background: var(--accent, #e8ede9); }
+.local-model-tradeoff-group + .local-model-tradeoff-group { margin-top: 10px; }
+.local-model-tradeoff-group h3 { margin: 0 0 4px; font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; }
+.local-model-tradeoff-group.is-pros h3 { color: #34835e; }
+.local-model-tradeoff-group.is-cons h3 { color: #b4453f; }
+.local-model-tradeoff-group ul { margin: 0; padding-left: 17px; }
+.local-model-tradeoff-group li { margin: 2px 0; color: var(--muted-foreground, #4a524c); font-size: 12.5px; line-height: 1.5; }
+
+@media (max-width: 900px) {
+  .local-model-select { max-width: 150px; }
+  .local-model-picker-label { display: none; }
+}
+
+/* --- model comparison ------------------------------------------------------ */
+
+.local-model-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr)); gap: 14px; }
+.local-model-card {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 15px 16px;
+  border: 1px solid var(--border, #d8ded9);
+  border-radius: 14px;
+  background: var(--background, #fff);
+}
+.local-model-card[data-active="true"] { border-color: #479c76; box-shadow: 0 0 0 1px #479c76 inset; }
+.local-model-card-head { display: flex; align-items: flex-start; gap: 9px; }
+.local-model-card-title { display: flex; flex-direction: column; gap: 2px; min-width: 0; margin-right: auto; }
+.local-model-card-title strong { font-size: 15px; font-weight: 650; }
+.local-model-card-title span { color: var(--muted-foreground, #717973); font-size: 12px; }
+.local-model-badge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #479c76;
+  color: #fff;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.local-model-card-size { font-size: 12px; color: var(--muted-foreground, #717973); font-variant-numeric: tabular-nums; }
+
+.local-model-bars { display: flex; flex-direction: column; gap: 5px; }
+.local-model-bar { display: grid; grid-template-columns: 3.4em minmax(0, 1fr); align-items: center; gap: 8px; font-size: 12px; }
+.local-model-bar > span { color: var(--muted-foreground, #717973); }
+.local-model-bar-track { height: 6px; border-radius: 3px; background: var(--border, #e6eae7); overflow: hidden; }
+.local-model-bar-track > i { display: block; height: 100%; background: #479c76; border-radius: 3px; }
+
+.local-model-card .local-model-tradeoff-group h3 { font-size: 11.5px; }
+.local-model-card .local-model-tradeoff-group ul { margin: 0; padding-left: 17px; }
+.local-model-card .local-model-tradeoff-group li { font-size: 12.5px; line-height: 1.6; }
+.local-model-use {
+  margin-top: auto;
+  padding: 8px 13px;
+  border: 1px solid #479c76;
+  border-radius: 9px;
+  background: transparent;
+  color: #2f7a58;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.local-model-use:hover { background: #479c76; color: #fff; }
+.local-model-note { margin: 0; font-size: 12.5px; color: #b57b28; }
+
+/* --- global tool permission ------------------------------------------------
+ * One switch for "stop asking me about every tool call". Off is the default and reads as
+ * such; on is deliberately loud (amber, and it says so in words) because it means the
+ * model may read, write and run commands without another prompt.
+ */
+.local-mode-permission {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--border, #e4e7e6);
+  border-radius: 7px;
+  color: var(--muted-foreground, #5e6760);
+  background: var(--background, #fff);
+  font: inherit;
+  font-weight: 550;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.local-mode-permission svg { display: block; width: 15px; height: 15px; flex: 0 0 15px; }
+.local-mode-permission:hover { color: var(--foreground, #202322); background: var(--accent, #e8ede9); }
+.local-mode-permission:focus-visible { outline: 2px solid #479c76; outline-offset: 2px; }
+.local-mode-permission[data-granted="true"] {
+  border-color: #c98a2455;
+  color: #8a5a11;
+  background: #f7c65c22;
+}
+.local-mode-permission[data-granted="true"]:hover { background: #f7c65c33; }
+@media (prefers-color-scheme: dark) {
+  .local-mode-permission[data-granted="true"] { color: #f0b64b; border-color: #f0b64b55; }
+}
+
+/* The composer chip. The switch belongs to *this conversation*, so it sits in the box the
+ * question appears in — next to the microphone, in the same dock voice-input.js mounts into —
+ * rather than in the page toolbar, where it read as a page-wide setting. */
+.local-mode-permission.local-composer-chip {
+  height: 26px;
+  padding: 0 9px;
+  gap: 5px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  background: transparent;
+  border-color: transparent;
+  color: var(--muted-foreground, #717973);
+}
+.local-mode-permission.local-composer-chip svg { width: 14px; height: 14px; flex: 0 0 14px; }
+.local-mode-permission.local-composer-chip:hover { background: var(--accent, #e8ede9); }
+.local-mode-permission.local-composer-chip[data-granted="true"] {
+  border-color: #c98a2455;
+  background: #f7c65c22;
+}
+@media (prefers-color-scheme: dark) {
+  .local-mode-permission.local-composer-chip { color: #9aa0a6; }
+  .local-mode-permission.local-composer-chip:hover { background: #ffffff14; }
+}
+
+.local-permission-dialog {
+  position: absolute;
+  top: calc(100% - 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 32;
+  width: min(520px, calc(100vw - 32px));
+  padding: 16px 18px 15px;
+  border: 1px solid var(--border, #e4e7e6);
+  border-radius: 9px;
+  background: var(--background, #fff);
+  color: var(--foreground, #202322);
+  box-shadow: 0 16px 40px #00000033;
+}
+.local-permission-dialog h2 { margin: 0 0 8px; font-size: 14px; font-weight: 650; }
+.local-permission-dialog p { margin: 0 0 14px; color: var(--muted-foreground, #4a524c); font-size: 12.5px; line-height: 1.65; }
+.local-permission-actions { display: flex; gap: 8px; justify-content: flex-end; }
+.local-permission-confirm {
+  padding: 7px 15px; border: 1px solid #c98a24; border-radius: 6px;
+  color: #fff; background: #c98a24; font: inherit; font-weight: 600; cursor: pointer;
+}
+.local-permission-confirm:hover { background: #b57a1c; border-color: #b57a1c; }
+.local-permission-cancel {
+  padding: 7px 15px; border: 1px solid var(--border, #d9dedb); border-radius: 6px;
+  color: var(--foreground, #202322); background: var(--background, #fff);
+  font: inherit; cursor: pointer;
+}
+.local-permission-cancel:hover { background: var(--accent, #e8ede9); }
+.local-permission-confirm:focus-visible, .local-permission-cancel:focus-visible { outline: 2px solid #479c76; outline-offset: 2px; }
+
+.local-image-panel { width: min(920px, calc(100vw - 32px)); margin: 0 auto 10px; padding: 12px 16px 14px; border-top: 1px solid var(--border, #e4e7e6); background: var(--background, #fff); }
+.local-image-form { display: grid; gap: 9px; }
+.local-image-prompt, .local-image-negative { width: 100%; min-height: 38px; resize: vertical; border: 1px solid var(--border, #d9dedb); border-radius: 5px; padding: 8px 10px; color: var(--foreground, #202322); background: var(--background, #fff); font: inherit; }
+.local-image-negative { min-height: 32px; }
+.local-image-controls { display: grid; grid-template-columns: repeat(6, minmax(90px, 1fr)); gap: 8px; }
+.local-image-field { display: grid; gap: 3px; min-width: 0; }
+.local-image-label { color: var(--muted-foreground, #717973); font-size: 11px; }
+.local-image-input { width: 100%; height: 30px; border: 1px solid var(--border, #d9dedb); border-radius: 4px; padding: 4px 6px; background: var(--background, #fff); color: var(--foreground, #202322); font: inherit; }
+.local-image-input-group { display: flex; align-items: stretch; min-width: 0; }
+.local-image-input-group .local-image-input { min-width: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+.local-image-seed-random { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; height: 30px; padding: 0 9px; border: 1px solid #34835e; border-left: 0; border-radius: 0 4px 4px 0; color: #fff; background: #34835e; font: inherit; font-size: 12px; cursor: pointer; white-space: nowrap; }
+.local-image-seed-random:hover { background: #2c7353; border-color: #2c7353; }
+.local-image-seed-random:focus-visible { outline: 2px solid #479c76; outline-offset: 2px; }
+.local-image-references { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.local-image-file { max-width: 210px; font-size: 12px; }
+.local-image-actions { display: flex; align-items: center; gap: 8px; }
+.local-image-submit, .local-image-clear, .local-image-reset { height: 31px; padding: 0 13px; border-radius: 4px; border: 1px solid var(--border, #d9dedb); background: var(--background, #fff); color: var(--foreground, #202322); font: inherit; cursor: pointer; }
+.local-image-submit { border-color: #34835e; color: #fff; background: #34835e; }
+.local-image-submit:disabled { opacity: .55; cursor: default; }
+.local-image-status { min-height: 18px; color: var(--muted-foreground, #717973); font-size: 12px; }
+.local-image-result { display: flex; flex-wrap: wrap; gap: 10px; }
+.local-image-preview { display: block; max-width: min(320px, 100%); max-height: 360px; object-fit: contain; border: 1px solid var(--border, #d9dedb); border-radius: 5px; }
+
+.local-image-history { margin-top: 4px; border-top: 1px solid var(--border, #e4e7e6); padding-top: 8px; }
+.local-image-history-head { display: flex; align-items: center; gap: 10px; }
+.local-image-history-toggle { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; color: var(--foreground, #202322); background: transparent; font: inherit; font-weight: 600; cursor: pointer; }
+.local-image-history-toggle:focus-visible, .local-image-history-clear:focus-visible, .local-image-history-button:focus-visible { outline: 2px solid #479c76; outline-offset: 2px; }
+.local-image-history-toggle svg { display: block; width: 15px; height: 15px; flex: 0 0 15px; }
+.local-image-history-count { color: var(--muted-foreground, #717973); font-size: 11px; font-weight: 400; }
+.local-image-history-toggle[aria-expanded="false"] svg { opacity: .5; }
+.local-image-history-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.local-image-history-clear { padding: 3px 9px; border: 1px solid var(--border, #d9dedb); border-radius: 4px; color: var(--foreground, #202322); background: var(--background, #fff); font: inherit; font-size: 12px; cursor: pointer; }
+.local-image-history-clear:disabled { cursor: default; opacity: .5; }
+.local-image-history-list { display: grid; gap: 8px; margin-top: 8px; max-height: min(46vh, 430px); overflow: auto; overscroll-behavior: contain; padding-right: 2px; }
+.local-image-history-empty { margin: 8px 0 0; color: var(--muted-foreground, #717973); font-size: 12px; }
+.local-image-history-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px; border: 1px solid var(--border, #e4e7e6); border-radius: 6px; background: var(--muted, #f8faf9); cursor: pointer; }
+.local-image-history-item:hover { border-color: #b9cdc1; background: var(--accent, #eef3f0); }
+.local-image-history-item:focus-visible { outline: 2px solid #479c76; outline-offset: 1px; }
+.local-image-history-media { display: flex; flex-wrap: wrap; flex: 0 0 auto; gap: 4px; width: 108px; }
+.local-image-history-thumb { display: block; max-width: 108px; max-height: 108px; width: auto; height: auto; object-fit: contain; border: 1px solid var(--border, #d9dedb); border-radius: 4px; background: #fff; }
+.local-image-history-missing { display: flex; align-items: center; justify-content: center; width: 108px; height: 72px; border: 1px dashed var(--border, #d9dedb); border-radius: 4px; color: var(--muted-foreground, #717973); font-size: 11px; }
+.local-image-history-info { display: grid; gap: 4px; min-width: 0; flex: 1 1 auto; }
+.local-image-history-item-head { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.local-image-history-time { color: var(--muted-foreground, #717973); font-size: 11px; }
+.local-image-history-tag { padding: 1px 6px; border-radius: 999px; background: #e2efe8; color: #2f6f52; font-size: 11px; }
+.local-image-history-tag.is-error { background: #f7e4e4; color: #a63b41; }
+.local-image-history-prompt { margin: 0; color: var(--foreground, #202322); font-size: 12.5px; line-height: 1.45; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.local-image-history-negative { margin: 0; color: var(--muted-foreground, #717973); font-size: 11.5px; overflow-wrap: anywhere; }
+.local-image-history-params { display: flex; flex-wrap: wrap; gap: 5px; }
+.local-image-history-chip { padding: 1px 6px; border: 1px solid var(--border, #d9dedb); border-radius: 999px; background: var(--background, #fff); color: var(--muted-foreground, #5e6760); font-size: 11px; white-space: nowrap; }
+.local-image-history-references { display: flex; align-items: center; gap: 5px; }
+.local-image-history-reference { display: block; width: 34px; height: 34px; object-fit: cover; border: 1px solid var(--border, #d9dedb); border-radius: 4px; background: #fff; }
+.local-image-history-error { margin: 0; color: #bf4048; font-size: 11.5px; overflow-wrap: anywhere; }
+.local-image-history-item-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.local-image-history-button { display: inline-flex; align-items: center; padding: 3px 9px; border: 1px solid var(--border, #d9dedb); border-radius: 4px; color: var(--foreground, #202322); background: var(--background, #fff); font: inherit; font-size: 12px; text-decoration: none; cursor: pointer; }
+.local-image-history-button:hover { background: var(--accent, #eef3f0); }
+.local-image-history-button.is-remove { color: #a63b41; }
+
+.local-mode-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  /* 右角的状态不压缩：压它就变成「智能…」（实测），比换行更糟。空间够时本来也不占额外宽度。 */
+  flex: 0 0 auto;
+  min-width: 0;
+  margin-left: auto;
+  color: var(--muted-foreground, #717973);
+}
+.local-mode-status-text { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.local-mode-status-icon { display: block; color: #b57b28; }
+.local-mode-status-icon.is-ready { width: 7px; height: 7px; border-radius: 50%; background: #339369; }
+.local-mode-status-icon.is-ready svg { display: none; }
+.local-mode-status-icon.is-loading svg { animation: local-mode-spin 1.1s linear infinite; }
+.local-mode-toolbar[data-state="error"] .local-mode-status-icon,
+.local-mode-toolbar[data-state="offline"] .local-mode-status-icon { color: #c34b50; }
+.local-mode-mtp { padding-left: 12px; margin-left: 6px; border-left: 1px solid var(--border, #e4e7e6); white-space: nowrap; font-size: 12px; }
+.local-mode-mtp[data-enabled="true"] { color: #27875e; }
+.local-mode-retry { width: 32px; flex: 0 0 32px; padding: 0; }
+.local-mode-error { border-top: 1px solid var(--border, #e4e7e6); padding: 8px 24px; color: #bf4048; font-size: 12px; overflow-wrap: anywhere; max-height: 100px; overflow: auto; }
+
+.local-modes-enabled body > div[style="display: contents"] > .flex > aside {
+  top: calc(var(--local-toolbar-height) + 8px);
+}
+.local-modes-enabled .chat-screen {
+  min-height: calc(100dvh - var(--local-toolbar-height) - 1rem);
+}
+.local-modes-enabled[data-local-model-state="switching"] .conversation-chat-form button[type="submit"],
+.local-modes-enabled[data-local-model-state="starting"] .conversation-chat-form button[type="submit"],
+.local-modes-enabled[data-local-model-state="error"] .conversation-chat-form button[type="submit"],
+.local-modes-enabled[data-local-model-state="offline"] .conversation-chat-form button[type="submit"] {
+  opacity: .4;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .local-modes-enabled body > div[style="display: contents"] > .flex > aside { height: calc(100dvh - var(--local-toolbar-height) - 1.125rem); }
+  .local-modes-enabled .chat-screen { min-height: calc(100dvh - var(--local-toolbar-height) - 1rem - var(--chat-tabs-offset, 0px)); }
+}
+
+@media (max-width: 767px) {
+  :root.local-modes-enabled { --local-toolbar-height: 92px; }
+  .local-mode-row { flex-wrap: wrap; justify-content: space-between; gap: 9px 12px; padding: 10px 14px; min-height: 91px; }
+  .local-mode-brand strong { font-size: 15px; }
+  .local-mode-segments { grid-auto-columns: minmax(68px, max-content); }
+  .local-image-panel { width: calc(100vw - 16px); padding: 10px 8px; }
+  .local-image-controls { grid-template-columns: repeat(2, minmax(100px, 1fr)); }
+  .local-image-history-list { max-height: 52vh; }
+  .local-image-history-item { flex-wrap: wrap; }
+  .local-image-history-media { width: 84px; }
+  .local-image-history-thumb { max-width: 84px; max-height: 84px; }
+  .local-image-history-missing { width: 84px; height: 60px; }
+  .local-image-history-actions { margin-left: auto; }
+  .local-mode-button { gap: 5px; padding: 0 6px; }
+  .local-mode-status { flex: 1 1 calc(100% - 48px); justify-content: flex-start; margin-left: 0; font-size: 12px; min-height: 18px; }
+  .local-mode-status-text { flex: 1; }
+  .local-mode-mtp { margin-left: auto; }
+  .local-mode-retry { height: 24px; flex-basis: 24px; width: 24px; }
+  .local-mode-error { padding: 8px 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .local-mode-status-icon.is-loading svg { animation: none; } }
+@keyframes local-mode-spin { to { transform: rotate(360deg); } }

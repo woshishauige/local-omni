@@ -1,0 +1,10 @@
+{
+  "_comment": "Template only. Start-Qwen-Share.ps1 generates the real share.config.json with a random access_token; never commit that file.",
+  "listen_host": "0.0.0.0",
+  "listen_port": 8081,
+  "access_token": "<generated>",
+  "allowed_hosts": [
+    "*.trycloudflare.com",
+    "*.cfargotunnel.com"
+  ]
+}

@@ -1,0 +1,15 @@
+# Runtime dependencies of the gateway itself (Python 3.12).
+# Versions are the ones this project was developed and validated against.
+fastapi==0.115.14
+uvicorn==0.37.0
+starlette==0.46.2
+anyio==4.9.0
+pydantic==2.11.7
+httpx==0.28.1
+requests==2.32.4
+psutil==7.0.0
+websockets==15.0.1
+av==18.0.0
+numpy==1.26.4
+opencv-python>=4.11
+imageio-ffmpeg==0.6.0

@@ -1,0 +1,19 @@
+{
+  "unified_backend": true,
+  "default_mode": "text",
+  "gpu_layers": 64,
+  "threads": 16,
+  "threads_batch": 16,
+  "sleep_idle_seconds": 300,
+  "mtp_enabled": false,
+  "agent_enabled": true,
+  "context_compression_enabled": true,
+  "comfy_autostart": true,
+  "comfy_start_timeout": 300,
+  "comfy_clear_stale_on_switch": true,
+  "cache_ram_mib": 1024,
+  "context_checkpoints": 4,
+  "checkpoint_min_step": 8192,
+  "server_timeout_seconds": 3600,
+  "model_profile": "qwen3.8-27b"
+}

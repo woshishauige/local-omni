@@ -1,0 +1,174 @@
+.qs-panel {
+  --qs-surface: var(--background, #fff);
+  --qs-soft: var(--muted, #f5f7f6);
+  --qs-line: var(--border, #e3e9e6);
+  --qs-text: var(--foreground, #1e2b25);
+  --qs-subtle: var(--muted-foreground, #6c7771);
+  --qs-accent: #279772;
+  --qs-danger: #c85a65;
+  padding: 0; border: 1px solid var(--qs-line); border-radius: 18px;
+  background: var(--qs-surface); color: var(--qs-text); font-family: inherit;
+  font-size: 13px; line-height: 1.5; box-shadow: 0 24px 80px #0e231824;
+  color-scheme: light;
+  position: fixed; right: 16px; bottom: 16px; z-index: 40;
+  width: min(760px, calc(100vw - 32px)); max-height: calc(100dvh - var(--local-toolbar-height, 0px) - 32px);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.dark .qs-panel { color-scheme: dark; }
+.qs-panel *, .qs-root * { box-sizing: border-box; }
+.qs-panel[hidden], .qs-panel [hidden], .qs-root [hidden] { display: none !important; }
+
+.qs-entry, .qs-root { position: fixed; right: 16px; z-index: 41; }
+.qs-root { bottom: 18px; }
+.qs-entry-button {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 38px;
+  padding: 9px 13px; border: 1px solid var(--border, #e3e9e6); border-radius: 10px;
+  background: var(--background, #fff); color: var(--foreground, #1e2b25);
+  font: inherit; font-size: 13px; white-space: nowrap; cursor: pointer;
+  box-shadow: 0 8px 26px #0e23181f; transition: background .12s, border-color .12s;
+}
+.qs-entry-button:hover { background: var(--muted, #f5f7f6); border-color: var(--muted-foreground, #6c7771); }
+.qs-entry-button svg { width: 17px; height: 17px; flex: 0 0 17px; color: #279772; }
+.qs-entry-button:focus-visible { outline: 2px solid #279772; outline-offset: 2px; }
+
+.qs-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 19px 20px 15px; flex: 0 0 auto; }
+.qs-eyebrow { font-size: 10px; letter-spacing: .12em; font-weight: 650; color: var(--qs-accent); margin-bottom: 5px; }
+.qs-header h1 { font-size: 19px; line-height: 1.3; margin: 0; font-weight: 680; letter-spacing: -.02em; }
+.qs-subtitle { color: var(--qs-subtle); font-size: 11px; margin: 6px 0 0; max-width: 430px; }
+.qs-header-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+
+.qs-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border: 1px solid var(--qs-line); border-radius: 7px; min-height: 32px;
+  padding: 6px 11px; background: var(--qs-surface); color: var(--qs-text);
+  font: inherit; white-space: nowrap; cursor: pointer; transition: background .12s, border-color .12s;
+}
+.qs-button svg { height: 15px; width: 15px; flex: 0 0 15px; }
+.qs-button:hover { background: var(--qs-soft); border-color: var(--qs-subtle); }
+.qs-button:disabled { cursor: default; opacity: .45; }
+.qs-button:focus-visible, .qs-input:focus-visible { outline: 2px solid var(--qs-accent); outline-offset: 2px; }
+.qs-button-primary { background: #278b69; color: #fff; border-color: #278b69; }
+.qs-button-primary:hover { background: #217756; border-color: #217756; }
+.qs-button-small { font-size: 12px; min-height: 28px; padding: 3px 9px; }
+.qs-button-danger { color: var(--qs-danger); border-color: color-mix(in srgb, var(--qs-danger) 35%, transparent); }
+.qs-button-danger:hover { background: #c85a6514; border-color: var(--qs-danger); }
+.qs-button-danger:disabled { color: var(--qs-subtle); border-color: var(--qs-line); background: transparent; }
+
+.qs-scroll { overflow: auto; padding: 0 20px 19px; min-height: 0; overscroll-behavior: contain; }
+.qs-controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 11px; }
+.qs-reach, .qs-pin, .qs-uploads {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 7px;
+  padding: 13px 14px; border: 1px solid var(--qs-line); border-radius: 11px; background: var(--qs-soft); min-width: 0;
+}
+.qs-field-label { font-size: 11px; color: var(--qs-subtle); }
+.qs-reach-actions { margin-top: auto; }
+.qs-badge {
+  display: inline-flex; align-items: center; font-size: 12px; font-weight: 600;
+  padding: 3px 9px; border-radius: 5px; background: #87948e18; color: var(--qs-subtle);
+}
+.qs-badge[data-online="true"], .qs-badge[data-on="true"] { background: #27977217; color: #279772; }
+.qs-badge[data-online="false"], .qs-badge[data-on="false"] { background: #87948e1f; color: var(--qs-subtle); }
+.qs-uploads { grid-column: 1 / -1; }
+.qs-reach small { line-height: 1.7; }
+/* The four guest capabilities: one row each, so a switch, its meaning and its state stay
+   together — a grid of pills read as a tag cloud rather than as permissions. */
+.qs-guest-features { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.qs-guest-feature {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px;
+  align-items: center; padding: 8px 10px; border-radius: 9px;
+  border: 1px solid var(--qs-line); background: var(--qs-surface, #ffffff08);
+}
+.qs-guest-feature[data-on="false"] { opacity: .72; }
+.qs-guest-feature-label { font-size: 12.5px; font-weight: 600; }
+.qs-guest-feature-hint { grid-column: 1; font-size: 11px; line-height: 1.6; color: var(--qs-subtle); }
+.qs-guest-feature .qs-button-small { grid-column: 2; grid-row: 1 / span 2; }
+.qs-guest-feature .qs-button-small[data-on="true"] { border-color: #27977266; }
+.qs-guest-feature .qs-button-small[data-on="false"] { color: var(--qs-subtle); }
+.qs-pin-value {
+  font-size: 17px; font-weight: 650; letter-spacing: .02em;
+  font-variant-numeric: tabular-nums; overflow-wrap: anywhere;
+}
+.qs-pin-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.qs-note { margin: 0; font-size: 11px; line-height: 1.75; color: var(--qs-subtle); }
+
+.qs-rotate {
+  grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 9px;
+  align-items: end; padding: 13px 14px; border: 1px solid var(--qs-line); border-radius: 11px;
+}
+.qs-field { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.qs-input {
+  min-width: 0; width: 100%; height: 32px; border: 1px solid var(--qs-line); border-radius: 6px;
+  background: var(--qs-surface); color: var(--qs-text); font: inherit; padding: 6px 9px;
+  font-variant-numeric: tabular-nums;
+}
+.qs-input::placeholder { color: var(--qs-subtle); opacity: .8; }
+.qs-rotate-actions { display: flex; gap: 6px; }
+.qs-notice { grid-column: 1 / -1; font-size: 12px; line-height: 1.7; }
+.qs-notice[data-state="error"] { color: var(--qs-danger); }
+.qs-notice[data-state="ok"] { color: var(--qs-accent); }
+.qs-notice[data-state="pending"] { color: var(--qs-subtle); }
+
+.qs-error, .qs-success {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 12px; margin-top: 11px; border-radius: 8px; overflow-wrap: anywhere; font-size: 12px;
+}
+.qs-error { border: 1px solid #c85a6540; background: #c85a6510; color: #b6663f; }
+.qs-success { border: 1px solid #27977240; background: #27977210; color: #1f7d5e; display: block; }
+.qs-freshness { display: flex; align-items: center; min-height: 34px; font-size: 11px; color: var(--qs-subtle); padding: 7px 1px; }
+
+.qs-table-wrap { border: 1px solid var(--qs-line); border-radius: 10px; overflow: auto; background: var(--qs-surface); }
+.qs-table { width: 100%; border-collapse: collapse; text-align: left; white-space: nowrap; font-size: 12px; }
+.qs-table thead { background: var(--qs-soft); }
+.qs-table th { padding: 11px 10px; font-weight: 550; color: var(--qs-subtle); font-size: 11px; border-bottom: 1px solid var(--qs-line); }
+.qs-table td { padding: 11px 10px; border-bottom: 1px solid var(--qs-line); vertical-align: middle; }
+.qs-table tbody tr:last-child td { border-bottom: 0; }
+.qs-table tbody tr:hover { background: color-mix(in srgb, var(--qs-soft) 65%, transparent); }
+.qs-pair { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.qs-pair small { font-size: 10px; font-variant-numeric: tabular-nums; }
+.qs-source { font-variant-numeric: tabular-nums; }
+.qs-nowrap { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.qs-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.qs-tag { display: inline-flex; font-size: 10px; padding: 1px 6px; border-radius: 5px; background: #87948e18; color: var(--qs-subtle); }
+.qs-tag[data-kind="admin"] { background: #6584db1a; color: #4f6fc4; }
+.qs-tag[data-kind="current"] { background: #27977217; color: #279772; }
+.qs-row-actions { display: flex; justify-content: flex-end; }
+.qs-muted { color: var(--qs-subtle); }
+.qs-empty { min-height: 190px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 26px; text-align: center; color: var(--qs-subtle); }
+.qs-empty > svg { width: 30px; height: 30px; color: var(--qs-accent); opacity: .6; margin-bottom: 10px; }
+.qs-empty h3 { color: var(--qs-text); font-size: 14px; font-weight: 550; margin: 0 0 7px; }
+.qs-empty p { max-width: 420px; line-height: 1.8; font-size: 12px; margin: 0; }
+.qs-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 899px) {
+  .qs-panel { right: 12px; bottom: 12px; width: min(620px, calc(100vw - 24px)); }
+  .qs-entry, .qs-root { right: 12px; }
+  .qs-entry-button span { display: none; }
+  .qs-entry-button { padding: 9px 11px; }
+}
+@media (max-width: 640px) {
+  .qs-panel { left: 6px; right: 6px; bottom: calc(6px + env(safe-area-inset-bottom, 0px)); width: auto; border-radius: 12px; }
+  .qs-header { padding: 15px 14px 12px; }
+  .qs-header h1 { font-size: 17px; }
+  .qs-subtitle { display: none; }
+  .qs-scroll { padding: 0 14px 15px; }
+  .qs-controls { grid-template-columns: minmax(0, 1fr); }
+  .qs-rotate { grid-template-columns: minmax(0, 1fr); }
+  .qs-pin-value { font-size: 15px; }
+}
+
+/* The public address and the terminal "stopped" state. Both were added with the
+   integrated panel: the owner hands out a link plus a passphrase, and stopping the
+   service has to leave the panel showing what happened rather than a dead form. */
+.qs-link {
+  display: flex; flex-direction: column; gap: 6px;
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--qs-line);
+}
+.qs-link-value {
+  font-size: 12px; overflow-wrap: anywhere; padding: 5px 7px; border-radius: 5px;
+  background: #87948e14; color: var(--qs-text);
+}
+.qs-link-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.qs-stopped {
+  margin: 18px 4px; padding: 18px; border-radius: 10px; line-height: 1.9;
+  background: #87948e14; color: var(--qs-text); font-size: 13px;
+}

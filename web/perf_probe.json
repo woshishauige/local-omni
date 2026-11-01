@@ -1,0 +1,377 @@
+{
+  "boot": {
+    "ms": 4432,
+    "requests": 16,
+    "bytes": 52842,
+    "rows": [
+      {
+        "path": "/tools",
+        "count": 6,
+        "bytes": 21399,
+        "ms": 111.9,
+        "max": 38.1
+      },
+      {
+        "path": "/local/status",
+        "count": 3,
+        "bytes": 8421,
+        "ms": 17.3,
+        "max": 10.8
+      },
+      {
+        "path": "/local/context/config",
+        "count": 1,
+        "bytes": 381,
+        "ms": 1.8,
+        "max": 1.8
+      },
+      {
+        "path": "/local/voice/config",
+        "count": 1,
+        "bytes": 587,
+        "ms": 3.4,
+        "max": 3.4
+      },
+      {
+        "path": "/build.json",
+        "count": 1,
+        "bytes": 344,
+        "ms": 4.6,
+        "max": 4.6
+      },
+      {
+        "path": "/props?autoload=false",
+        "count": 1,
+        "bytes": 10197,
+        "ms": 12.1,
+        "max": 12.1
+      },
+      {
+        "path": "/_app/version.json",
+        "count": 1,
+        "bytes": 344,
+        "ms": 27.1,
+        "max": 27.1
+      },
+      {
+        "path": "/props?model=<long>&autoload=false",
+        "count": 1,
+        "bytes": 10197,
+        "ms": 26.7,
+        "max": 26.7
+      },
+      {
+        "path": "/v1/models",
+        "count": 1,
+        "bytes": 972,
+        "ms": 26.6,
+        "max": 26.6
+      }
+    ]
+  },
+  "idle": {
+    "seconds": 60,
+    "requests": 19,
+    "bytes": 61302,
+    "rows": [
+      {
+        "path": "/tools",
+        "count": 6,
+        "bytes": 21399,
+        "ms": 62.8,
+        "max": 20.4
+      },
+      {
+        "path": "/local/status",
+        "count": 6,
+        "bytes": 16881,
+        "ms": 30.799999999999997,
+        "max": 13.2
+      },
+      {
+        "path": "/local/context/config",
+        "count": 1,
+        "bytes": 381,
+        "ms": 6.3,
+        "max": 6.3
+      },
+      {
+        "path": "/local/voice/config",
+        "count": 1,
+        "bytes": 587,
+        "ms": 1.9,
+        "max": 1.9
+      },
+      {
+        "path": "/build.json",
+        "count": 1,
+        "bytes": 344,
+        "ms": 5.2,
+        "max": 5.2
+      },
+      {
+        "path": "/props?autoload=false",
+        "count": 1,
+        "bytes": 10197,
+        "ms": 9.3,
+        "max": 9.3
+      },
+      {
+        "path": "/_app/version.json",
+        "count": 1,
+        "bytes": 344,
+        "ms": 12.3,
+        "max": 12.3
+      },
+      {
+        "path": "/props?model=<long>&autoload=false",
+        "count": 1,
+        "bytes": 10197,
+        "ms": 6,
+        "max": 6
+      },
+      {
+        "path": "/v1/models",
+        "count": 1,
+        "bytes": 972,
+        "ms": 5.2,
+        "max": 5.2
+      }
+    ],
+    "longTasks": 2,
+    "blockingMs": 290,
+    "frames": -1
+  },
+  "hidden": {
+    "seconds": 30,
+    "requests": 6,
+    "bytes": 16878,
+    "rows": [
+      {
+        "path": "/local/status",
+        "count": 6,
+        "bytes": 16878,
+        "ms": 27.2,
+        "max": 10.8
+      }
+    ],
+    "longTasks": 0,
+    "blockingMs": 0,
+    "frames": -2
+  },
+  "layout": {
+    "toolbar": {
+      "w": 1570,
+      "h": 61,
+      "top": 0,
+      "left": 0
+    },
+    "dock": {
+      "w": 125,
+      "h": 26,
+      "top": 461,
+      "left": 1060
+    },
+    "mic": {
+      "w": 34,
+      "h": 26,
+      "top": 461,
+      "left": 1151
+    },
+    "chip": null,
+    "composer": {
+      "w": 768,
+      "h": 148,
+      "top": 345,
+      "left": 429
+    },
+    "bodyChildren": 8,
+    "domNodes": 1263,
+    "scriptFiles": 1,
+    "appButtons": [
+      "本对话放行",
+      "关闭",
+      "模型优缺点",
+      "纯文本快",
+      "识图投影",
+      "语音对话9B",
+      "生图Klein",
+      "视频生成H3",
+      "重试",
+      "语音对话",
+      "关闭",
+      "展开导航",
+      "新对话",
+      "搜索",
+      "设置",
+      "上下文压缩",
+      "使用日志",
+      "选择命令",
+      "选择提示词",
+      "选择引用文件",
+      "添加文件、提示词、工具或 MCP 服务器",
+      "qwen3.5 9B   uncensoredlocal",
+      "发送",
+      "设置工作目录",
+      "选择工作目录",
+      "工具权限（new-chat）：逐次询问",
+      "语音输入",
+      "取消生成",
+      "重试",
+      "知道了",
+      "生成图片",
+      "超分",
+      "降噪",
+      "开始降噪",
+      "恢复默认参数",
+      "随机",
+      "×",
+      "×",
+      "清空",
+      "生成图片",
+      "关闭全部",
+      "清空记录",
+      "关闭",
+      "视频生成",
+      "超分重建",
+      "降噪",
+      "视频拼接",
+      "1 段",
+      "2 段",
+      "3 段",
+      "4 段",
+      "随机",
+      "续接",
+      "切镜",
+      "清除",
+      "清除",
+      "恢复推荐值",
+      "768×512 · 实测基准",
+      "960×544 · 折中",
+      "1024×576 · 实测 +16% 时间",
+      "选择…",
+      "用默认",
+      "上一级",
+      "用这个文件夹",
+      "开始生成",
+      "取消",
+      "播放成片",
+      "开始放大",
+      "开始降噪",
+      "拼接片段",
+      "清空",
+      "RIFE 补帧 ×2（24→48fps）",
+      "降噪收尾（nlmeans）",
+      "费用设置",
+      "刷新",
+      "导出 CSV",
+      "返回对话",
+      "请求明细",
+      "调用分析",
+      "路由记录",
+      "今天",
+      "近 7 天",
+      "近 30 天",
+      "重置筛选",
+      "重试",
+      "上一页",
+      "下一页",
+      "柱状图",
+      "面积图",
+      "上一页",
+      "下一页",
+      "关闭上下文压缩",
+      "压缩下一轮",
+      "共享管理器",
+      "刷新",
+      "收起",
+      "一键断联",
+      "停止共享并退出",
+      "复制链接",
+      "复制链接和口令",
+      "复制口令",
+      "更换口令",
+      "随机生成",
+      "保存新口令",
+      "全部开放",
+      "全部收回",
+      "重试",
+      "一键踢出全部",
+      "清理未使用记录",
+      "设置",
+      "关闭",
+      "收起对话历史",
+      "新对话",
+      "清空全部",
+      "展开对话历史",
+      "开始录音",
+      "发送",
+      "关闭设置",
+      "傅叔男声",
+      "Serena女声",
+      "Vivian女声",
+      "Ryan男声",
+      "Aiden男声",
+      "Anna女声",
+      "Sohee女声",
+      "Eric四川话",
+      "Dylan北京话",
+      "自动发送说完停顿片刻就发出去，不用再点一次",
+      "朗读回复回答在这里读出来，不只显示文字"
+    ],
+    "localStorageKeys": [
+      "LlamaUi.conversationTabs",
+      "qwen.local.toolPermission.added.new-chat",
+      "LlamaUi.alwaysAllowedTools",
+      "LlamaUi.userOverrides",
+      "LlamaUi.config",
+      "qwen.voice.rail",
+      "mode-watcher-theme",
+      "LlamaUi.migration-state",
+      "QwenLocal.agentDefaults.v2",
+      "mode-watcher-mode"
+    ],
+    "totalResourceBytes": 10097825,
+    "visibility": "visible"
+  },
+  "concurrency": {
+    "total": 1,
+    "groups": [
+      {
+        "key": "/local/status",
+        "count": 1,
+        "overlaps": 0,
+        "samples": []
+      }
+    ]
+  },
+  "tasks": {
+    "tasks": [
+      {
+        "start": 747.4,
+        "duration": 200,
+        "name": "self"
+      },
+      {
+        "start": 583.5,
+        "duration": 163,
+        "name": "self"
+      },
+      {
+        "start": 952.2,
+        "duration": 99,
+        "name": "self"
+      },
+      {
+        "start": 1084.1,
+        "duration": 54,
+        "name": "self"
+      }
+    ],
+    "total": 4,
+    "taskMs": 516,
+    "frames": 454,
+    "longAnims": [],
+    "errors": []
+  }
+}

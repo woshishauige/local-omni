@@ -1,0 +1,2402 @@
+[
+  {
+    "id": 417782,
+    "start": 0,
+    "end": 8,
+    "source": "New chat",
+    "target": "",
+    "context": "St={},HU=dSt?.VITE_PUBLIC_APP_NAME||\"llama-ui\",Id=\"new-chat\",hSt=\"New chat\",fSt=\"Chat\",n_e={COLLAPSED_SIDEBAR:\"max-w-[calc(100vw-5rem)]\",EXP"
+  },
+  {
+    "id": 417797,
+    "start": 0,
+    "end": 4,
+    "source": "Chat",
+    "target": "",
+    "context": "ITE_PUBLIC_APP_NAME||\"llama-ui\",Id=\"new-chat\",hSt=\"New chat\",fSt=\"Chat\",n_e={COLLAPSED_SIDEBAR:\"max-w-[calc(100vw-5rem)]\",EXPANDED_SIDEB"
+  },
+  {
+    "id": 417903,
+    "start": 0,
+    "end": 7,
+    "source": "LlamaUi",
+    "target": "",
+    "context": "c(100vw-5rem)]\",EXPANDED_SIDEBAR:\"max-w-[calc(100vw-20rem)]\"},Bc=\"LlamaUi\",G4=\"LlamaCppWebui\",i_e=\"LlamacppWebui\",J6=`${Bc}.alwaysAllowedTo"
+  },
+  {
+    "id": 417916,
+    "start": 0,
+    "end": 13,
+    "source": "LlamaCppWebui",
+    "target": "",
+    "context": "]\",EXPANDED_SIDEBAR:\"max-w-[calc(100vw-20rem)]\"},Bc=\"LlamaUi\",G4=\"LlamaCppWebui\",i_e=\"LlamacppWebui\",J6=`${Bc}.alwaysAllowedTools`,ju=`${Bc}.conf"
+  },
+  {
+    "id": 417936,
+    "start": 0,
+    "end": 13,
+    "source": "LlamacppWebui",
+    "target": "",
+    "context": "\"max-w-[calc(100vw-20rem)]\"},Bc=\"LlamaUi\",G4=\"LlamaCppWebui\",i_e=\"LlamacppWebui\",J6=`${Bc}.alwaysAllowedTools`,ju=`${Bc}.config`,pSt=`${Bc}.disab"
+  },
+  {
+    "id": 417955,
+    "start": 0,
+    "end": 22,
+    "source": "{0}.alwaysAllowedTools",
+    "target": "",
+    "context": "20rem)]\"},Bc=\"LlamaUi\",G4=\"LlamaCppWebui\",i_e=\"LlamacppWebui\",J6=`${Bc}.alwaysAllowedTools`,ju=`${Bc}.config`,pSt=`${Bc}.disabledTools`,UJ=`${Bc}.disabledTo"
+  },
+  {
+    "id": 417985,
+    "start": 0,
+    "end": 10,
+    "source": "{0}.config",
+    "target": "",
+    "context": "maCppWebui\",i_e=\"LlamacppWebui\",J6=`${Bc}.alwaysAllowedTools`,ju=`${Bc}.config`,pSt=`${Bc}.disabledTools`,UJ=`${Bc}.disabledToolKeys`,a_e=`${Bc}"
+  },
+  {
+    "id": 418004,
+    "start": 0,
+    "end": 17,
+    "source": "{0}.disabledTools",
+    "target": "",
+    "context": "amacppWebui\",J6=`${Bc}.alwaysAllowedTools`,ju=`${Bc}.config`,pSt=`${Bc}.disabledTools`,UJ=`${Bc}.disabledToolKeys`,a_e=`${Bc}.disabledToolCategories`,$"
+  },
+  {
+    "id": 418029,
+    "start": 0,
+    "end": 20,
+    "source": "{0}.disabledToolKeys",
+    "target": "",
+    "context": "waysAllowedTools`,ju=`${Bc}.config`,pSt=`${Bc}.disabledTools`,UJ=`${Bc}.disabledToolKeys`,a_e=`${Bc}.disabledToolCategories`,$J=`${Bc}.favoriteModels`,cIe"
+  },
+  {
+    "id": 418058,
+    "start": 0,
+    "end": 26,
+    "source": "{0}.disabledToolCategories",
+    "target": "",
+    "context": "onfig`,pSt=`${Bc}.disabledTools`,UJ=`${Bc}.disabledToolKeys`,a_e=`${Bc}.disabledToolCategories`,$J=`${Bc}.favoriteModels`,cIe=`${Bc}.reasoningEffortDefault`,s_e"
+  },
+  {
+    "id": 418092,
+    "start": 0,
+    "end": 18,
+    "source": "{0}.favoriteModels",
+    "target": "",
+    "context": "J=`${Bc}.disabledToolKeys`,a_e=`${Bc}.disabledToolCategories`,$J=`${Bc}.favoriteModels`,cIe=`${Bc}.reasoningEffortDefault`,s_e=`${Bc}.conversationTabs`,"
+  },
+  {
+    "id": 418119,
+    "start": 0,
+    "end": 26,
+    "source": "{0}.reasoningEffortDefault",
+    "target": "",
+    "context": "a_e=`${Bc}.disabledToolCategories`,$J=`${Bc}.favoriteModels`,cIe=`${Bc}.reasoningEffortDefault`,s_e=`${Bc}.conversationTabs`,GJ=`${Bc}.userOverrides`,o_e=`${Bc}"
+  },
+  {
+    "id": 418154,
+    "start": 0,
+    "end": 20,
+    "source": "{0}.conversationTabs",
+    "target": "",
+    "context": "$J=`${Bc}.favoriteModels`,cIe=`${Bc}.reasoningEffortDefault`,s_e=`${Bc}.conversationTabs`,GJ=`${Bc}.userOverrides`,o_e=`${Bc}.dismissedRecommendedMcpServe"
+  },
+  {
+    "id": 418182,
+    "start": 0,
+    "end": 17,
+    "source": "{0}.userOverrides",
+    "target": "",
+    "context": "e=`${Bc}.reasoningEffortDefault`,s_e=`${Bc}.conversationTabs`,GJ=`${Bc}.userOverrides`,o_e=`${Bc}.dismissedRecommendedMcpServers`,gSt=`${Bc}.streamResu"
+  },
+  {
+    "id": 418208,
+    "start": 0,
+    "end": 34,
+    "source": "{0}.dismissedRecommendedMcpServers",
+    "target": "",
+    "context": "fault`,s_e=`${Bc}.conversationTabs`,GJ=`${Bc}.userOverrides`,o_e=`${Bc}.dismissedRecommendedMcpServers`,gSt=`${Bc}.streamResume.`,mSt=`${G4}.alwaysAllowedTools`,_St=`${"
+  },
+  {
+    "id": 418251,
+    "start": 0,
+    "end": 17,
+    "source": "{0}.streamResume.",
+    "target": "",
+    "context": "c}.userOverrides`,o_e=`${Bc}.dismissedRecommendedMcpServers`,gSt=`${Bc}.streamResume.`,mSt=`${G4}.alwaysAllowedTools`,_St=`${G4}.config`,vSt=`${G4}.dis"
+  },
+  {
+    "id": 418277,
+    "start": 0,
+    "end": 22,
+    "source": "{0}.alwaysAllowedTools",
+    "target": "",
+    "context": "c}.dismissedRecommendedMcpServers`,gSt=`${Bc}.streamResume.`,mSt=`${G4}.alwaysAllowedTools`,_St=`${G4}.config`,vSt=`${G4}.disabledTools`,ySt=`${G4}.favorite"
+  },
+  {
+    "id": 418308,
+    "start": 0,
+    "end": 10,
+    "source": "{0}.config",
+    "target": "",
+    "context": "rs`,gSt=`${Bc}.streamResume.`,mSt=`${G4}.alwaysAllowedTools`,_St=`${G4}.config`,vSt=`${G4}.disabledTools`,ySt=`${G4}.favoriteModels`,bSt=`${G4}."
+  },
+  {
+    "id": 418327,
+    "start": 0,
+    "end": 17,
+    "source": "{0}.disabledTools",
+    "target": "",
+    "context": "amResume.`,mSt=`${G4}.alwaysAllowedTools`,_St=`${G4}.config`,vSt=`${G4}.disabledTools`,ySt=`${G4}.favoriteModels`,bSt=`${G4}.userOverrides`,l_e=`${Bc}."
+  },
+  {
+    "id": 418353,
+    "start": 0,
+    "end": 18,
+    "source": "{0}.favoriteModels",
+    "target": "",
+    "context": "ysAllowedTools`,_St=`${G4}.config`,vSt=`${G4}.disabledTools`,ySt=`${G4}.favoriteModels`,bSt=`${G4}.userOverrides`,l_e=`${Bc}.buildVersion`,SSt={[J6]:mSt"
+  },
+  {
+    "id": 418380,
+    "start": 0,
+    "end": 17,
+    "source": "{0}.userOverrides",
+    "target": "",
+    "context": "config`,vSt=`${G4}.disabledTools`,ySt=`${G4}.favoriteModels`,bSt=`${G4}.userOverrides`,l_e=`${Bc}.buildVersion`,SSt={[J6]:mSt,[ju]:_St,[pSt]:vSt,[$J]:y"
+  },
+  {
+    "id": 418406,
+    "start": 0,
+    "end": 16,
+    "source": "{0}.buildVersion",
+    "target": "",
+    "context": "dTools`,ySt=`${G4}.favoriteModels`,bSt=`${G4}.userOverrides`,l_e=`${Bc}.buildVersion`,SSt={[J6]:mSt,[ju]:_St,[pSt]:vSt,[$J]:ySt,[GJ]:bSt},xn={conversa"
+  },
+  {
+    "id": 418807,
+    "start": 0,
+    "end": 7,
+    "source": "Default",
+    "target": "",
+    "context": "+\"\",es.LOW+\"\",es.MAX+\"\",es.MEDIUM+\"\",es.OFF+\"\";const ESt=[{label:\"Default\",value:es.DEFAULT},{label:\"Off\",value:es.OFF},{label:\"Low\",value:"
+  },
+  {
+    "id": 418842,
+    "start": 0,
+    "end": 3,
+    "source": "Off",
+    "target": "",
+    "context": "\",es.OFF+\"\";const ESt=[{label:\"Default\",value:es.DEFAULT},{label:\"Off\",value:es.OFF},{label:\"Low\",value:es.LOW},{label:\"Medium\",value:e"
+  },
+  {
+    "id": 418869,
+    "start": 0,
+    "end": 3,
+    "source": "Low",
+    "target": "",
+    "context": "el:\"Default\",value:es.DEFAULT},{label:\"Off\",value:es.OFF},{label:\"Low\",value:es.LOW},{label:\"Medium\",value:es.MEDIUM},{label:\"High\",val"
+  },
+  {
+    "id": 418896,
+    "start": 0,
+    "end": 6,
+    "source": "Medium",
+    "target": "",
+    "context": "LT},{label:\"Off\",value:es.OFF},{label:\"Low\",value:es.LOW},{label:\"Medium\",value:es.MEDIUM},{label:\"High\",value:es.HIGH},{hasInfo:!0,label:"
+  },
+  {
+    "id": 418929,
+    "start": 0,
+    "end": 4,
+    "source": "High",
+    "target": "",
+    "context": "abel:\"Low\",value:es.LOW},{label:\"Medium\",value:es.MEDIUM},{label:\"High\",value:es.HIGH},{hasInfo:!0,label:\"Max\",value:es.MAX}],uIe={[es.H"
+  },
+  {
+    "id": 418969,
+    "start": 0,
+    "end": 3,
+    "source": "Max",
+    "target": "",
+    "context": ",value:es.MEDIUM},{label:\"High\",value:es.HIGH},{hasInfo:!0,label:\"Max\",value:es.MAX}],uIe={[es.HIGH]:8192,[es.LOW]:512,[es.MAX]:-1,[es."
+  },
+  {
+    "id": 419070,
+    "start": 0,
+    "end": 61,
+    "source": "Search the web and fetch full page content as clean markdown.",
+    "target": "",
+    "context": "8192,[es.LOW]:512,[es.MAX]:-1,[es.MEDIUM]:2048},HO=[{description:\"Search the web and fetch full page content as clean markdown.\",iconUrl:\"/recommended-mcp/exa.ico\",id:\"exa\",name:\"Exa\",url:\"http"
+  },
+  {
+    "id": 419183,
+    "start": 0,
+    "end": 3,
+    "source": "Exa",
+    "target": "",
+    "context": "lean markdown.\",iconUrl:\"/recommended-mcp/exa.ico\",id:\"exa\",name:\"Exa\",url:\"https://mcp.exa.ai/mcp\"},{description:\"Search and browse AI"
+  },
+  {
+    "id": 419232,
+    "start": 0,
+    "end": 80,
+    "source": "Search and browse AI models, datasets, spaces, and docs on the Hugging Face Hub.",
+    "target": "",
+    "context": "\",id:\"exa\",name:\"Exa\",url:\"https://mcp.exa.ai/mcp\"},{description:\"Search and browse AI models, datasets, spaces, and docs on the Hugging Face Hub.\",iconUrl:\"/recommended-mcp/huggingface.ico\",id:\"huggingface\",name"
+  },
+  {
+    "id": 419380,
+    "start": 0,
+    "end": 12,
+    "source": "Hugging Face",
+    "target": "",
+    "context": "iconUrl:\"/recommended-mcp/huggingface.ico\",id:\"huggingface\",name:\"Hugging Face\",url:\"https://huggingface.co/mcp\"},{description:\"Search repositor"
+  },
+  {
+    "id": 419442,
+    "start": 0,
+    "end": 76,
+    "source": "Search repositories, issues, pull requests and interact with code on GitHub.",
+    "target": "",
+    "context": "me:\"Hugging Face\",url:\"https://huggingface.co/mcp\"},{description:\"Search repositories, issues, pull requests and interact with code on GitHub.\",iconUrlDark:\"/recommended-mcp/github-dark.png\",iconUrlLight:\"/re"
+  },
+  {
+    "id": 419634,
+    "start": 0,
+    "end": 6,
+    "source": "GitHub",
+    "target": "",
+    "context": "conUrlLight:\"/recommended-mcp/github-light.png\",id:\"github\",name:\"GitHub\",needsAuthorization:!0,url:\"https://api.githubcopilot.com/mcp\"},{"
+  },
+  {
+    "id": 419719,
+    "start": 0,
+    "end": 79,
+    "source": "Browse up-to-date documentation and code examples for libraries and frameworks.",
+    "target": "",
+    "context": "ization:!0,url:\"https://api.githubcopilot.com/mcp\"},{description:\"Browse up-to-date documentation and code examples for libraries and frameworks.\",iconUrl:\"/recommended-mcp/context7.png\",id:\"context7\",name:\"Cont"
+  },
+  {
+    "id": 420045,
+    "start": 0,
+    "end": 5,
+    "source": "Audio",
+    "target": "",
+    "context": "dIe={[ko.AUDIO]:$U,[ko.VIDEO]:_S,[ko.VISION]:PU},hIe={[ko.AUDIO]:\"Audio\",[ko.VIDEO]:\"Video\",[ko.VISION]:\"Vision\"},TSt={[ko.AUDIO]:\"audio\""
+  },
+  {
+    "id": 420064,
+    "start": 0,
+    "end": 5,
+    "source": "Video",
+    "target": "",
+    "context": "[ko.VIDEO]:_S,[ko.VISION]:PU},hIe={[ko.AUDIO]:\"Audio\",[ko.VIDEO]:\"Video\",[ko.VISION]:\"Vision\"},TSt={[ko.AUDIO]:\"audio\",[ko.VIDEO]:\"video\""
+  },
+  {
+    "id": 420084,
+    "start": 0,
+    "end": 6,
+    "source": "Vision",
+    "target": "",
+    "context": "SION]:PU},hIe={[ko.AUDIO]:\"Audio\",[ko.VIDEO]:\"Video\",[ko.VISION]:\"Vision\"},TSt={[ko.AUDIO]:\"audio\",[ko.VIDEO]:\"video\",[ko.VISION]:\"vision\""
+  },
+  {
+    "id": 420203,
+    "start": 0,
+    "end": 9,
+    "source": "Reasoning",
+    "target": "",
+    "context": "ko.VISION]:\"vision\"},CSt={[V8.REASONING]:hv},wSt={[V8.REASONING]:\"Reasoning\"},xSt={[V8.REASONING]:\"reasoning\"},ASt='<svg xmlns=\"http://www.w3"
+  },
+  {
+    "id": 421378,
+    "start": 0,
+    "end": 40,
+    "source": "Image processing requires a vision model",
+    "target": "",
+    "context": "Ie=[{action:kg.FILE_UPLOAD,class:\"images-button\",disabledTooltip:\"Image processing requires a vision model\",enabledWhen:w0.HAS_VISION_MODALITY,icon:zA.image,id:QE.IMAGES,la"
+  },
+  {
+    "id": 421489,
+    "start": 0,
+    "end": 6,
+    "source": "Images",
+    "target": "",
+    "context": "bledWhen:w0.HAS_VISION_MODALITY,icon:zA.image,id:QE.IMAGES,label:\"Images\"},{action:kg.FILE_UPLOAD,class:\"audio-button\",disabledTooltip:\"Au"
+  },
+  {
+    "id": 421559,
+    "start": 0,
+    "end": 46,
+    "source": "Audio files processing requires an audio model",
+    "target": "",
+    "context": "es\"},{action:kg.FILE_UPLOAD,class:\"audio-button\",disabledTooltip:\"Audio files processing requires an audio model\",enabledWhen:w0.HAS_AUDIO_MODALITY,icon:zA.audio,id:QE.AUDIO,labe"
+  },
+  {
+    "id": 421674,
+    "start": 0,
+    "end": 11,
+    "source": "Audio Files",
+    "target": "",
+    "context": "nabledWhen:w0.HAS_AUDIO_MODALITY,icon:zA.audio,id:QE.AUDIO,label:\"Audio Files\"},{action:kg.FILE_UPLOAD,class:\"video-button\",disabledTooltip:\"Vi"
+  },
+  {
+    "id": 421749,
+    "start": 0,
+    "end": 45,
+    "source": "Video files processing requires a video model",
+    "target": "",
+    "context": "es\"},{action:kg.FILE_UPLOAD,class:\"video-button\",disabledTooltip:\"Video files processing requires a video model\",enabledWhen:w0.HAS_VIDEO_MODALITY,icon:zA.video,id:QE.VIDEO,labe"
+  },
+  {
+    "id": 421863,
+    "start": 0,
+    "end": 11,
+    "source": "Video Files",
+    "target": "",
+    "context": "nabledWhen:w0.HAS_VIDEO_MODALITY,icon:zA.video,id:QE.VIDEO,label:\"Video Files\"},{action:kg.FILE_UPLOAD,enabledWhen:w0.ALWAYS,icon:zA.text,id:QE"
+  },
+  {
+    "id": 421953,
+    "start": 0,
+    "end": 10,
+    "source": "Text Files",
+    "target": "",
+    "context": ".FILE_UPLOAD,enabledWhen:w0.ALWAYS,icon:zA.text,id:QE.TEXT,label:\"Text Files\"},{action:kg.FILE_UPLOAD,disabledTooltip:\"PDFs will be converted "
+  },
+  {
+    "id": 422006,
+    "start": 0,
+    "end": 71,
+    "source": "PDFs will be converted to text. Image-based PDFs may not work properly.",
+    "target": "",
+    "context": ".TEXT,label:\"Text Files\"},{action:kg.FILE_UPLOAD,disabledTooltip:\"PDFs will be converted to text. Image-based PDFs may not work properly.\",enabledWhen:w0.ALWAYS,hasEnabledTooltip:!0,icon:zA.pdf,id:QE.PDF"
+  },
+  {
+    "id": 422151,
+    "start": 0,
+    "end": 9,
+    "source": "PDF Files",
+    "target": "",
+    "context": "dWhen:w0.ALWAYS,hasEnabledTooltip:!0,icon:zA.pdf,id:QE.PDF,label:\"PDF Files\"}],zL=\"Add files, prompts, tools or MCP Servers\",OSt=100,ISt=10,k"
+  },
+  {
+    "id": 422168,
+    "start": 0,
+    "end": 40,
+    "source": "Add files, prompts, tools or MCP Servers",
+    "target": "",
+    "context": "asEnabledTooltip:!0,icon:zA.pdf,id:QE.PDF,label:\"PDF Files\"}],zL=\"Add files, prompts, tools or MCP Servers\",OSt=100,ISt=10,kSt=1e3,DSt=10,MSt=64,LSt=32,PSt=64,u_e=128,d_e=8"
+  },
+  {
+    "id": 422586,
+    "start": 0,
+    "end": 12,
+    "source": "Current time",
+    "target": "",
+    "context": "SE_SCHEME:\"db://\"},GSt={[Ui.BROWSER_GET_DATETIME]:{icon:kT,label:\"Current time\",source:yn.BROWSER},[Ui.BROWSER_READ_MEDIA]:{icon:PU,label:\"Read "
+  },
+  {
+    "id": 422659,
+    "start": 0,
+    "end": 10,
+    "source": "Read media",
+    "target": "",
+    "context": " time\",source:yn.BROWSER},[Ui.BROWSER_READ_MEDIA]:{icon:PU,label:\"Read media\",source:yn.BROWSER},[Ui.BROWSER_RUN_JAVASCRIPT]:{icon:zle,label:\""
+  },
+  {
+    "id": 422735,
+    "start": 0,
+    "end": 14,
+    "source": "Run JavaScript",
+    "target": "",
+    "context": "\",source:yn.BROWSER},[Ui.BROWSER_RUN_JAVASCRIPT]:{icon:zle,label:\"Run JavaScript\",source:yn.BROWSER},[Ui.SERVER_EDIT_FILE]:{icon:ybt,label:\"Edit f"
+  },
+  {
+    "id": 422809,
+    "start": 0,
+    "end": 9,
+    "source": "Edit file",
+    "target": "",
+    "context": "Script\",source:yn.BROWSER},[Ui.SERVER_EDIT_FILE]:{icon:ybt,label:\"Edit file\",source:yn.SERVER},[Ui.SERVER_EXEC_SHELL_COMMAND]:{icon:sIe,label"
+  },
+  {
+    "id": 422886,
+    "start": 0,
+    "end": 11,
+    "source": "Run command",
+    "target": "",
+    "context": "source:yn.SERVER},[Ui.SERVER_EXEC_SHELL_COMMAND]:{icon:sIe,label:\"Run command\",source:yn.SERVER},[Ui.SERVER_FILE_GLOB_SEARCH]:{icon:Tbt,label:\""
+  },
+  {
+    "id": 422963,
+    "start": 0,
+    "end": 12,
+    "source": "Search files",
+    "target": "",
+    "context": "\",source:yn.SERVER},[Ui.SERVER_FILE_GLOB_SEARCH]:{icon:Tbt,label:\"Search files\",source:yn.SERVER},[Ui.SERVER_GET_INFO]:{icon:G0,label:\"Runtime i"
+  },
+  {
+    "id": 423032,
+    "start": 0,
+    "end": 12,
+    "source": "Runtime info",
+    "target": "",
+    "context": "rch files\",source:yn.SERVER},[Ui.SERVER_GET_INFO]:{icon:G0,label:\"Runtime info\",source:yn.SERVER},[Ui.SERVER_GREP_SEARCH]:{icon:x2t,label:\"Searc"
+  },
+  {
+    "id": 423105,
+    "start": 0,
+    "end": 15,
+    "source": "Search in files",
+    "target": "",
+    "context": " info\",source:yn.SERVER},[Ui.SERVER_GREP_SEARCH]:{icon:x2t,label:\"Search in files\",source:yn.SERVER},[Ui.SERVER_READ_FILE]:{icon:_p,label:\"Read fil"
+  },
+  {
+    "id": 423178,
+    "start": 0,
+    "end": 9,
+    "source": "Read file",
+    "target": "",
+    "context": "in files\",source:yn.SERVER},[Ui.SERVER_READ_FILE]:{icon:_p,label:\"Read file\",source:yn.SERVER},[Ui.SERVER_WRITE_FILE]:{icon:Sbt,label:\"Write "
+  },
+  {
+    "id": 423247,
+    "start": 0,
+    "end": 10,
+    "source": "Write file",
+    "target": "",
+    "context": "d file\",source:yn.SERVER},[Ui.SERVER_WRITE_FILE]:{icon:Sbt,label:\"Write file\",source:yn.SERVER}},qJ={DEFAULT_MAX_ENTRIES:100,DEFAULT_TTL_MS:30"
+  },
+  {
+    "id": 424185,
+    "start": 0,
+    "end": 105,
+    "source": "border border-border/30 focus-within:border-border  dark:border-border/20 dark:focus-within:border-border",
+    "target": "",
+    "context": ",XSt=\"chat-form-actions\",jSt={END_REASONING:\"reasoning_end\"},pIe=\"border border-border/30 focus-within:border-border  dark:border-border/20 dark:focus-within:border-border\",gIe=`\n    bg-muted/60 dark:bg-muted/75\n    ${pIe}\n    shadow-sm\n"
+  },
+  {
+    "id": 424400,
+    "start": 0,
+    "end": 119,
+    "source": "\n    bg-background\n    border border-border/30 dark:border-border/20\n    shadow-sm backdrop-blur-lg!\n    rounded-t-lg!\n",
+    "target": "",
+    "context": " ${pIe}\n    shadow-sm\n    outline-none\n    text-foreground\n`,QSt=`\n    bg-background\n    border border-border/30 dark:border-border/20\n    shadow-sm backdrop-blur-lg!\n    rounded-t-lg!\n`,ZSt=\"max-h-80\",JSt='[data-slot=\"input-area\"] textarea, [data-slo"
+  },
+  {
+    "id": 424768,
+    "start": 0,
+    "end": 13,
+    "source": "Authorization",
+    "target": "",
+    "context": "e3,g_e=60,m_e=3600,tEt=1,rEt=10,__e=\"0s\",nEt=5,gs={AUTHORIZATION:\"Authorization\",BEARER:\"Bearer \",CONTENT_TYPE:\"Content-Type\",PARTIAL_REDACT:new "
+  },
+  {
+    "id": 424791,
+    "start": 0,
+    "end": 7,
+    "source": "Bearer ",
+    "target": "",
+    "context": "1,rEt=10,__e=\"0s\",nEt=5,gs={AUTHORIZATION:\"Authorization\",BEARER:\"Bearer \",CONTENT_TYPE:\"Content-Type\",PARTIAL_REDACT:new Map([[\"mcp-sessio"
+  },
+  {
+    "id": 424814,
+    "start": 0,
+    "end": 12,
+    "source": "Content-Type",
+    "target": "",
+    "context": ",gs={AUTHORIZATION:\"Authorization\",BEARER:\"Bearer \",CONTENT_TYPE:\"Content-Type\",PARTIAL_REDACT:new Map([[\"mcp-session-id\",nEt]]),REDACTED:new Se"
+  },
+  {
+    "id": 425037,
+    "start": 0,
+    "end": 17,
+    "source": "X-Conversation-Id",
+    "target": "",
+    "context": "et-cookie\",\"x-auth-token\",\"x-api-key\"]),X_CONVERSATION_ID_HEADER:\"X-Conversation-Id\",X_RESP_TYPE_HEADER:\"x-resp-type\",X_TOOL_CWD_HEADER:\"x-tool-cwd\"}"
+  },
+  {
+    "id": 427456,
+    "start": 0,
+    "end": 13,
+    "source": "Access denied",
+    "target": "",
+    "context": "\"diagram-source\",yIe=\"toggle-source-btn\",Dg={HTTP:{ACCESS_DENIED:\"Access denied\",GENERIC:\"Request failed\",INTERNAL_ERROR:\"Server error - check se"
+  },
+  {
+    "id": 427480,
+    "start": 0,
+    "end": 14,
+    "source": "Request failed",
+    "target": "",
+    "context": "ggle-source-btn\",Dg={HTTP:{ACCESS_DENIED:\"Access denied\",GENERIC:\"Request failed\",INTERNAL_ERROR:\"Server error - check server logs\",TEMPORARILY_UN"
+  },
+  {
+    "id": 427512,
+    "start": 0,
+    "end": 32,
+    "source": "Server error - check server logs",
+    "target": "",
+    "context": "S_DENIED:\"Access denied\",GENERIC:\"Request failed\",INTERNAL_ERROR:\"Server error - check server logs\",TEMPORARILY_UNAVAILABLE:\"Server temporarily unavailable\"},NETWOR"
+  },
+  {
+    "id": 427571,
+    "start": 0,
+    "end": 30,
+    "source": "Server temporarily unavailable",
+    "target": "",
+    "context": "ERROR:\"Server error - check server logs\",TEMPORARILY_UNAVAILABLE:\"Server temporarily unavailable\"},NETWORK:{GENERIC:\"Failed to connect to server\",NXDOMAIN:\"Server"
+  },
+  {
+    "id": 427622,
+    "start": 0,
+    "end": 27,
+    "source": "Failed to connect to server",
+    "target": "",
+    "context": "Y_UNAVAILABLE:\"Server temporarily unavailable\"},NETWORK:{GENERIC:\"Failed to connect to server\",NXDOMAIN:\"Server not found - check server address\",REFUSED:\"Conn"
+  },
+  {
+    "id": 427661,
+    "start": 0,
+    "end": 39,
+    "source": "Server not found - check server address",
+    "target": "",
+    "context": "ilable\"},NETWORK:{GENERIC:\"Failed to connect to server\",NXDOMAIN:\"Server not found - check server address\",REFUSED:\"Connection refused - server may be offline\",TIMEOUT:\"Re"
+  },
+  {
+    "id": 427711,
+    "start": 0,
+    "end": 42,
+    "source": "Connection refused - server may be offline",
+    "target": "",
+    "context": "rver\",NXDOMAIN:\"Server not found - check server address\",REFUSED:\"Connection refused - server may be offline\",TIMEOUT:\"Request timed out\",UNREACHABLE:\"Server is not running o"
+  },
+  {
+    "id": 427764,
+    "start": 0,
+    "end": 17,
+    "source": "Request timed out",
+    "target": "",
+    "context": "ss\",REFUSED:\"Connection refused - server may be offline\",TIMEOUT:\"Request timed out\",UNREACHABLE:\"Server is not running or unreachable\"}},OEt={401:Dg"
+  },
+  {
+    "id": 427796,
+    "start": 0,
+    "end": 36,
+    "source": "Server is not running or unreachable",
+    "target": "",
+    "context": "- server may be offline\",TIMEOUT:\"Request timed out\",UNREACHABLE:\"Server is not running or unreachable\"}},OEt={401:Dg.HTTP.ACCESS_DENIED,403:Dg.HTTP.ACCESS_DENIED,500:D"
+  },
+  {
+    "id": 428482,
+    "start": 0,
+    "end": 18,
+    "source": "LlamaUI-MCP-Server",
+    "target": "",
+    "context": "nTimeoutMs:1e4,protocolVersion:MEt,requestTimeoutSeconds:300},HL=\"LlamaUI-MCP-Server\",qA={ATTEMPT_TIMEOUT_MS:15e3,BACKOFF_MULTIPLIER:2,INITIAL_DELAY:1"
+  },
+  {
+    "id": 428738,
+    "start": 0,
+    "end": 3,
+    "source": "SSE",
+    "target": "",
+    "context": "se\",ENDPOINT_QUERY:\"/sse?\",ENDPOINT_SLASH:\"/sse/\"},PEt={[Ec.SSE]:\"SSE\",[Ec.STREAMABLE_HTTP]:\"HTTP\",[Ec.WEBSOCKET]:\"WebSocket\"},FEt={[Ec"
+  },
+  {
+    "id": 428765,
+    "start": 0,
+    "end": 4,
+    "source": "HTTP",
+    "target": "",
+    "context": "ENDPOINT_SLASH:\"/sse/\"},PEt={[Ec.SSE]:\"SSE\",[Ec.STREAMABLE_HTTP]:\"HTTP\",[Ec.WEBSOCKET]:\"WebSocket\"},FEt={[Ec.SSE]:S2t,[Ec.STREAMABLE_HTT"
+  },
+  {
+    "id": 428787,
+    "start": 0,
+    "end": 9,
+    "source": "WebSocket",
+    "target": "",
+    "context": "},PEt={[Ec.SSE]:\"SSE\",[Ec.STREAMABLE_HTTP]:\"HTTP\",[Ec.WEBSOCKET]:\"WebSocket\"},FEt={[Ec.SSE]:S2t,[Ec.STREAMABLE_HTTP]:JOe,[Ec.WEBSOCKET]:rSt},"
+  },
+  {
+    "id": 429224,
+    "start": 0,
+    "end": 12,
+    "source": "unknown type",
+    "target": "",
+    "context": "\"res\",WEt=\"img\",KEt=\"mp3\",CIe=\"resource.txt\",_h=\"/\",XEt=`\n\n`,E_e=\"unknown type\",T_e=\"Binary content\",jEt={[Yi.GIF]:\"gif\",[Yi.JPEG]:\"jpg\",[Yi.JPG"
+  },
+  {
+    "id": 429243,
+    "start": 0,
+    "end": 14,
+    "source": "Binary content",
+    "target": "",
+    "context": "=\"mp3\",CIe=\"resource.txt\",_h=\"/\",XEt=`\n\n`,E_e=\"unknown type\",T_e=\"Binary content\",jEt={[Yi.GIF]:\"gif\",[Yi.JPEG]:\"jpg\",[Yi.JPG]:\"jpg\",[Yi.PNG]:\"png"
+  },
+  {
+    "id": 429495,
+    "start": 0,
+    "end": 238,
+    "source": "inline-flex w-fit shrink-0 items-center gap-1 whitespace-nowrap rounded-md border border-border/50 bg-foreground/5 px-1.5 py-0.5 text-xs font-mono text-foreground hover:bg-foreground/10 dark:bg-foreground/10 dark:text-secondary-foreground",
+    "target": "",
+    "context": "wav\",[Vi.X_PN_WAV]:\"wav\",[Vi.X_WAV]:\"wav\",[Vi.X_WAVE]:\"wav\"},Zle=\"inline-flex w-fit shrink-0 items-center gap-1 whitespace-nowrap rounded-md border border-border/50 bg-foreground/5 px-1.5 py-0.5 text-xs font-mono text-foreground hover:bg-foreground/10 dark:bg-foreground/10 dark:text-secondary-foreground\",Jle=\"h-3 w-3 shrink-0\",Vu={BADGE:\"data-mention-badge\",NAME:\"data"
+  },
+  {
+    "id": 430620,
+    "start": 0,
+    "end": 25,
+    "source": "Set working directory to ",
+    "target": "",
+    "context": "ON_ALPHANUMERIC_REGEX:/[^a-z0-9]/gi,NONALNUM_REPLACEMENT:\"_\"},VJ=\"Set working directory to \",wIe=\"Working directory cleared\",tTt=\"/\",hh=\"~\",xIe=\"~/\",xx=`${Xu"
+  },
+  {
+    "id": 430652,
+    "start": 0,
+    "end": 25,
+    "source": "Working directory cleared",
+    "target": "",
+    "context": "/gi,NONALNUM_REPLACEMENT:\"_\"},VJ=\"Set working directory to \",wIe=\"Working directory cleared\",tTt=\"/\",hh=\"~\",xIe=\"~/\",xx=`${Xu.FILE}//`,rTt=/^\\[file:\\/\\/([\\s\\"
+  },
+  {
+    "id": 430885,
+    "start": 0,
+    "end": 4,
+    "source": "GGUF",
+    "target": "",
+    "context": ",CUSTOM_QUANTIZATION_PREFIX_RE:/^UD$/i,IGNORED_SEGMENTS:new Set([\"GGUF\",\"GGML\"]),NOT_FOUND:-1,ORG_SEPARATOR:\"/\",PARAMS_RE:/^[Ee]?\\d+(\\.\\"
+  },
+  {
+    "id": 430892,
+    "start": 0,
+    "end": 4,
+    "source": "GGML",
+    "target": "",
+    "context": "_QUANTIZATION_PREFIX_RE:/^UD$/i,IGNORED_SEGMENTS:new Set([\"GGUF\",\"GGML\"]),NOT_FOUND:-1,ORG_SEPARATOR:\"/\",PARAMS_RE:/^[Ee]?\\d+(\\.\\d+)?[Bb"
+  },
+  {
+    "id": 431162,
+    "start": 0,
+    "end": 17,
+    "source": "Loading projector",
+    "target": "",
+    "context": "TOR:\"-\",WEIGHT_EXTENSION_RE:/\\.(gguf|ggml)$/i},nTt={mmproj_model:\"Loading projector\",spec_model:\"Loading draft\",text_model:\"Loading weights\"},C_e=.1,"
+  },
+  {
+    "id": 431193,
+    "start": 0,
+    "end": 13,
+    "source": "Loading draft",
+    "target": "",
+    "context": "(gguf|ggml)$/i},nTt={mmproj_model:\"Loading projector\",spec_model:\"Loading draft\",text_model:\"Loading weights\"},C_e=.1,w_e=1e6,MT={DISPLAY_MODE_ST"
+  },
+  {
+    "id": 431220,
+    "start": 0,
+    "end": 15,
+    "source": "Loading weights",
+    "target": "",
+    "context": "_model:\"Loading projector\",spec_model:\"Loading draft\",text_model:\"Loading weights\"},C_e=.1,w_e=1e6,MT={DISPLAY_MODE_STANDALONE:\"(display-mode: stan"
+  },
+  {
+    "id": 432171,
+    "start": 0,
+    "end": 11,
+    "source": "(no output)",
+    "target": "",
+    "context": "\"#/\"},AIe=Ui.BROWSER_RUN_JAVASCRIPT,RIe=1e4,NIe=3e4,R_e=8192,iTt=\"(no output)\",aTt=\"[output truncated]\",mr={AGENTIC_MAX_TURNS:\"agenticMaxTurns\""
+  },
+  {
+    "id": 432189,
+    "start": 0,
+    "end": 18,
+    "source": "[output truncated]",
+    "target": "",
+    "context": "ER_RUN_JAVASCRIPT,RIe=1e4,NIe=3e4,R_e=8192,iTt=\"(no output)\",aTt=\"[output truncated]\",mr={AGENTIC_MAX_TURNS:\"agenticMaxTurns\",ALWAYS_SHOW_SIDEBAR_ON_D"
+  },
+  {
+    "id": 434627,
+    "start": 0,
+    "end": 228,
+    "source": "Based on the following interaction, generate a short, concise title (maximum 6-8 words) that captures the main topic. Return ONLY the title text, nothing else. Do not use quotes.\n\nUser: {{USER}}\n\nAssistant: {{ASSISTANT}}\n\nTitle:",
+    "target": "",
+    "context": "c_probability\",XTC_THRESHOLD:\"xtc_threshold\"},jy={DEFAULT_PROMPT:`Based on the following interaction, generate a short, concise title (maximum 6-8 words) that captures the main topic. Return ONLY the title text, nothing else. Do not use quotes.\n\nUser: {{USER}}\n\nAssistant: {{ASSISTANT}}\n\nTitle:`,FALLBACK:\"New Chat\",MIN_LENGTH:3,PREFIX_PATTERN:/^(Title:|Subjec"
+  },
+  {
+    "id": 434867,
+    "start": 0,
+    "end": 8,
+    "source": "New Chat",
+    "target": "",
+    "context": "tes.\n\nUser: {{USER}}\n\nAssistant: {{ASSISTANT}}\n\nTitle:`,FALLBACK:\"New Chat\",MIN_LENGTH:3,PREFIX_PATTERN:/^(Title:|Subject:|Topic:)\\s*/i,QUOT"
+  },
+  {
+    "id": 434970,
+    "start": 0,
+    "end": 21,
+    "source": "Set working directory",
+    "target": "",
+    "context": ":/^(Title:|Subject:|Topic:)\\s*/i,QUOTE_PATTERN:/^[\"]|[\"]$/g},OIe=\"Set working directory\",Nu={DRIVE_PREFIX_REGEX:/^[A-Za-z]:/,DRIVE_ROOT_REGEX:/^[A-Za-z]:"
+  },
+  {
+    "id": 435393,
+    "start": 0,
+    "end": 7,
+    "source": "Agentic",
+    "target": "",
+    "context": "_DEPTH:10,MAX_SEARCH_DEPTH:32},Ed={AGENTIC:{slug:\"agentic\",title:\"Agentic\"},DEVELOPER:{slug:\"developer\",title:\"Developer\"},DISPLAY:{slug:\"d"
+  },
+  {
+    "id": 435438,
+    "start": 0,
+    "end": 9,
+    "source": "Developer",
+    "target": "",
+    "context": "lug:\"agentic\",title:\"Agentic\"},DEVELOPER:{slug:\"developer\",title:\"Developer\"},DISPLAY:{slug:\"display\",title:\"Display\"},GENERAL:{slug:\"general"
+  },
+  {
+    "id": 435481,
+    "start": 0,
+    "end": 7,
+    "source": "Display",
+    "target": "",
+    "context": "lug:\"developer\",title:\"Developer\"},DISPLAY:{slug:\"display\",title:\"Display\"},GENERAL:{slug:\"general\",title:\"General\"},IMPORT_EXPORT:{slug:\"i"
+  },
+  {
+    "id": 435522,
+    "start": 0,
+    "end": 7,
+    "source": "General",
+    "target": "",
+    "context": "Y:{slug:\"display\",title:\"Display\"},GENERAL:{slug:\"general\",title:\"General\"},IMPORT_EXPORT:{slug:\"import-export\",title:\"Import/Export\"},SAMP"
+  },
+  {
+    "id": 435694,
+    "start": 0,
+    "end": 5,
+    "source": "Tools",
+    "target": "",
+    "context": "nalties\",title:\"Sampling & Penalties\"},TOOLS:{slug:\"tools\",title:\"Tools\"}},yg={AGENTIC:Ed.AGENTIC.slug,DEVELOPER:Ed.DEVELOPER.slug,DISPLA"
+  },
+  {
+    "id": 436179,
+    "start": 0,
+    "end": 119,
+    "source": "Choose the color theme for the interface. You can choose between System (follows your device settings), Light, or Dark.",
+    "target": "",
+    "context": "OLS.title},ece=[{icon:U2t,settings:[{defaultValue:vf.SYSTEM,help:\"Choose the color theme for the interface. You can choose between System (follows your device settings), Light, or Dark.\",key:mr.THEME,label:\"Theme\",options:[{icon:Q1e,label:\"System\",val"
+  },
+  {
+    "id": 436320,
+    "start": 0,
+    "end": 5,
+    "source": "Theme",
+    "target": "",
+    "context": "llows your device settings), Light, or Dark.\",key:mr.THEME,label:\"Theme\",options:[{icon:Q1e,label:\"System\",value:vf.SYSTEM},{icon:H2t,lab"
+  },
+  {
+    "id": 436353,
+    "start": 0,
+    "end": 6,
+    "source": "System",
+    "target": "",
+    "context": "t, or Dark.\",key:mr.THEME,label:\"Theme\",options:[{icon:Q1e,label:\"System\",value:vf.SYSTEM},{icon:H2t,label:\"Light\",value:vf.LIGHT},{icon:a"
+  },
+  {
+    "id": 436395,
+    "start": 0,
+    "end": 5,
+    "source": "Light",
+    "target": "",
+    "context": "tions:[{icon:Q1e,label:\"System\",value:vf.SYSTEM},{icon:H2t,label:\"Light\",value:vf.LIGHT},{icon:a2t,label:\"Dark\",value:vf.DARK}],type:vn.S"
+  },
+  {
+    "id": 436435,
+    "start": 0,
+    "end": 4,
+    "source": "Dark",
+    "target": "",
+    "context": ".SYSTEM},{icon:H2t,label:\"Light\",value:vf.LIGHT},{icon:a2t,label:\"Dark\",value:vf.DARK}],type:vn.SELECT},{defaultValue:\"\",help:`Set the A"
+  },
+  {
+    "id": 436496,
+    "start": 0,
+    "end": 33,
+    "source": "Set the API Key if you are using ",
+    "target": "",
+    "context": "bel:\"Dark\",value:vf.DARK}],type:vn.SELECT},{defaultValue:\"\",help:`Set the API Key if you are using <code> ${F_.API_KEY} </code> option for the server.`,isPrivate:!0,key:mr.API_KEY,label:\"API Key\",type:vn.INPUT},{defa"
+  },
+  {
+    "id": 436496,
+    "start": 51,
+    "end": 74,
+    "source": " option for the server.",
+    "target": "",
+    "context": "bel:\"Dark\",value:vf.DARK}],type:vn.SELECT},{defaultValue:\"\",help:`Set the API Key if you are using <code> ${F_.API_KEY} </code> option for the server.`,isPrivate:!0,key:mr.API_KEY,label:\"API Key\",type:vn.INPUT},{defa"
+  },
+  {
+    "id": 436617,
+    "start": 0,
+    "end": 7,
+    "source": "API Key",
+    "target": "",
+    "context": "/code> option for the server.`,isPrivate:!0,key:mr.API_KEY,label:\"API Key\",type:vn.INPUT},{defaultValue:\"\",help:\"The starting message that "
+  },
+  {
+    "id": 436664,
+    "start": 0,
+    "end": 58,
+    "source": "The starting message that defines how model should behave.",
+    "target": "",
+    "context": ":mr.API_KEY,label:\"API Key\",type:vn.INPUT},{defaultValue:\"\",help:\"The starting message that defines how model should behave.\",key:mr.SYSTEM_MESSAGE,label:\"System Message\",type:vn.TEXTAREA},{"
+  },
+  {
+    "id": 436753,
+    "start": 0,
+    "end": 14,
+    "source": "System Message",
+    "target": "",
+    "context": "at defines how model should behave.\",key:mr.SYSTEM_MESSAGE,label:\"System Message\",type:vn.TEXTAREA},{defaultValue:!0,help:\"Display the system mess"
+  },
+  {
+    "id": 436810,
+    "start": 0,
+    "end": 59,
+    "source": "Display the system message at the top of each conversation.",
+    "target": "",
+    "context": "E,label:\"System Message\",type:vn.TEXTAREA},{defaultValue:!0,help:\"Display the system message at the top of each conversation.\",key:mr.SHOW_SYSTEM_MESSAGE,label:\"Show system message\",standalon"
+  },
+  {
+    "id": 436905,
+    "start": 0,
+    "end": 19,
+    "source": "Show system message",
+    "target": "",
+    "context": " the top of each conversation.\",key:mr.SHOW_SYSTEM_MESSAGE,label:\"Show system message\",standaloneField:!1,type:vn.CHECKBOX},{defaultValue:2500,help:\"On"
+  },
+  {
+    "id": 436988,
+    "start": 0,
+    "end": 148,
+    "source": "On pasting long text, it will be converted to a file. You can control the file length by setting the value of this parameter. Value 0 means disable.",
+    "target": "",
+    "context": "ge\",standaloneField:!1,type:vn.CHECKBOX},{defaultValue:2500,help:\"On pasting long text, it will be converted to a file. You can control the file length by setting the value of this parameter. Value 0 means disable.\",key:mr.PASTE_LONG_TEXT_TO_FILE_LEN,label:\"Paste long text to fil"
+  },
+  {
+    "id": 437180,
+    "start": 0,
+    "end": 30,
+    "source": "Paste long text to file length",
+    "target": "",
+    "context": "Value 0 means disable.\",key:mr.PASTE_LONG_TEXT_TO_FILE_LEN,label:\"Paste long text to file length\",type:vn.INPUT},{defaultValue:!0,help:\"Use Enter to send messages"
+  },
+  {
+    "id": 437250,
+    "start": 0,
+    "end": 96,
+    "source": "Use Enter to send messages and Shift + Enter for new lines. When disabled, use Ctrl/Cmd + Enter.",
+    "target": "",
+    "context": "e long text to file length\",type:vn.INPUT},{defaultValue:!0,help:\"Use Enter to send messages and Shift + Enter for new lines. When disabled, use Ctrl/Cmd + Enter.\",key:mr.SEND_ON_ENTER,label:\"Send message on Enter\",type:vn.CHECK"
+  },
+  {
+    "id": 437376,
+    "start": 0,
+    "end": 21,
+    "source": "Send message on Enter",
+    "target": "",
+    "context": "When disabled, use Ctrl/Cmd + Enter.\",key:mr.SEND_ON_ENTER,label:\"Send message on Enter\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Automatically show micr"
+  },
+  {
+    "id": 437440,
+    "start": 0,
+    "end": 122,
+    "source": "Automatically show microphone button instead of send button when textarea is empty for models with audio modality support.",
+    "target": "",
+    "context": ":\"Send message on Enter\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Automatically show microphone button instead of send button when textarea is empty for models with audio modality support.\",key:mr.AUTO_MIC_ON_EMPTY,label:\"Show microphone on empty input\","
+  },
+  {
+    "id": 437596,
+    "start": 0,
+    "end": 30,
+    "source": "Show microphone on empty input",
+    "target": "",
+    "context": "els with audio modality support.\",key:mr.AUTO_MIC_ON_EMPTY,label:\"Show microphone on empty input\",type:vn.CHECKBOX},{defaultValue:!1,help:'Enable \"Continue\" butto"
+  },
+  {
+    "id": 437669,
+    "start": 0,
+    "end": 76,
+    "source": "Enable \"Continue\" button for assistant messages, including reasoning models.",
+    "target": "",
+    "context": "crophone on empty input\",type:vn.CHECKBOX},{defaultValue:!1,help:'Enable \"Continue\" button for assistant messages, including reasoning models.',isExperimental:!0,key:mr.ENABLE_CONTINUE_GENERATION,label:'Enabl"
+  },
+  {
+    "id": 437873,
+    "start": 0,
+    "end": 179,
+    "source": "Choose how conversation titles are generated. The first non-empty line uses a fast deterministic rule; the LLM option uses a model-generated title from the first message exchange.",
+    "target": "",
+    "context": "nable \"Continue\" button',type:vn.CHECKBOX},{defaultValue:!0,help:\"Choose how conversation titles are generated. The first non-empty line uses a fast deterministic rule; the LLM option uses a model-generated title from the first message exchange.\",key:mr.TITLE_GENERATION_USE_FIRST_LINE,label:\"Conversation title"
+  },
+  {
+    "id": 438100,
+    "start": 0,
+    "end": 18,
+    "source": "Conversation title",
+    "target": "",
+    "context": " message exchange.\",key:mr.TITLE_GENERATION_USE_FIRST_LINE,label:\"Conversation title\",radioOptions:[{key:mr.TITLE_GENERATION_USE_FIRST_LINE,label:\"Use"
+  },
+  {
+    "id": 438181,
+    "start": 0,
+    "end": 51,
+    "source": "Use first non-empty line for the conversation title",
+    "target": "",
+    "context": "tle\",radioOptions:[{key:mr.TITLE_GENERATION_USE_FIRST_LINE,label:\"Use first non-empty line for the conversation title\",value:\"firstLine\"},{isExperimental:!0,key:mr.TITLE_GENERATION_US"
+  },
+  {
+    "id": 438311,
+    "start": 0,
+    "end": 23,
+    "source": "Generate title with LLM",
+    "target": "",
+    "context": "tLine\"},{isExperimental:!0,key:mr.TITLE_GENERATION_USE_LLM,label:\"Generate title with LLM\",value:\"llm\"}],type:vn.RADIO},{defaultValue:jy.DEFAULT_PROMPT,dep"
+  },
+  {
+    "id": 438441,
+    "start": 0,
+    "end": 129,
+    "source": "Optional template for the title generation prompt. Use {{USER}} for the user message and {{ASSISTANT}} for the assistant message.",
+    "target": "",
+    "context": "lue:jy.DEFAULT_PROMPT,dependsOn:mr.TITLE_GENERATION_USE_LLM,help:\"Optional template for the title generation prompt. Use {{USER}} for the user message and {{ASSISTANT}} for the assistant message.\",key:mr.TITLE_GENERATION_PROMPT,label:\"LLM title generation promp"
+  },
+  {
+    "id": 438610,
+    "start": 0,
+    "end": 27,
+    "source": "LLM title generation prompt",
+    "target": "",
+    "context": "for the assistant message.\",key:mr.TITLE_GENERATION_PROMPT,label:\"LLM title generation prompt\",type:vn.TEXTAREA},{defaultValue:!1,help:\"Counterpart of the conv"
+  },
+  {
+    "id": 438680,
+    "start": 0,
+    "end": 92,
+    "source": "Counterpart of the conversation title radio; stored and synced without a dedicated UI field.",
+    "target": "",
+    "context": "title generation prompt\",type:vn.TEXTAREA},{defaultValue:!1,help:\"Counterpart of the conversation title radio; stored and synced without a dedicated UI field.\",key:mr.TITLE_GENERATION_USE_LLM,label:\"Generate title with LLM\","
+  },
+  {
+    "id": 438813,
+    "start": 0,
+    "end": 23,
+    "source": "Generate title with LLM",
+    "target": "",
+    "context": "out a dedicated UI field.\",key:mr.TITLE_GENERATION_USE_LLM,label:\"Generate title with LLM\",standaloneField:!1,type:vn.CHECKBOX},{defaultValue:!1,help:\"When"
+  },
+  {
+    "id": 438898,
+    "start": 0,
+    "end": 158,
+    "source": "When copying a message with text attachments, combine them into a single plain text string instead of a special format that can be pasted back as attachments.",
+    "target": "",
+    "context": " LLM\",standaloneField:!1,type:vn.CHECKBOX},{defaultValue:!1,help:\"When copying a message with text attachments, combine them into a single plain text string instead of a special format that can be pasted back as attachments.\",key:mr.COPY_TEXT_ATTACHMENTS_AS_PLAIN_TEXT,label:\"Copy text atta"
+  },
+  {
+    "id": 439108,
+    "start": 0,
+    "end": 35,
+    "source": "Copy text attachments as plain text",
+    "target": "",
+    "context": "s attachments.\",key:mr.COPY_TEXT_ATTACHMENTS_AS_PLAIN_TEXT,label:\"Copy text attachments as plain text\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Parse PDF as image inst"
+  },
+  {
+    "id": 439186,
+    "start": 0,
+    "end": 102,
+    "source": "Parse PDF as image instead of text. Automatically falls back to text processing for non-vision models.",
+    "target": "",
+    "context": "tachments as plain text\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Parse PDF as image instead of text. Automatically falls back to text processing for non-vision models.\",key:mr.PDF_AS_IMAGE,label:\"Parse PDF as image\",type:vn.CHECKBOX}"
+  },
+  {
+    "id": 439317,
+    "start": 0,
+    "end": 18,
+    "source": "Parse PDF as image",
+    "target": "",
+    "context": "ext processing for non-vision models.\",key:mr.PDF_AS_IMAGE,label:\"Parse PDF as image\",type:vn.CHECKBOX},{defaultValue:0,help:\"Images larger than this "
+  },
+  {
+    "id": 439377,
+    "start": 0,
+    "end": 86,
+    "source": "Images larger than this will be resized before sending to server. Set to 0 to disable.",
+    "target": "",
+    "context": "abel:\"Parse PDF as image\",type:vn.CHECKBOX},{defaultValue:0,help:\"Images larger than this will be resized before sending to server. Set to 0 to disable.\",key:mr.MAX_IMAGE_RESOLUTION,label:\"Maximum image resolution (meg"
+  },
+  {
+    "id": 439500,
+    "start": 0,
+    "end": 37,
+    "source": "Maximum image resolution (megapixels)",
+    "target": "",
+    "context": " server. Set to 0 to disable.\",key:mr.MAX_IMAGE_RESOLUTION,label:\"Maximum image resolution (megapixels)\",type:vn.INPUT}],slug:yg.GENERAL,title:Ey.GENERAL},{icon:Q1e,sett"
+  },
+  {
+    "id": 439632,
+    "start": 0,
+    "end": 98,
+    "source": "Display generation statistics (tokens/second, token count, duration) below each assistant message.",
+    "target": "",
+    "context": "ERAL,title:Ey.GENERAL},{icon:Q1e,settings:[{defaultValue:!0,help:\"Display generation statistics (tokens/second, token count, duration) below each assistant message.\",key:mr.SHOW_MESSAGE_STATS,label:\"Show message generation statist"
+  },
+  {
+    "id": 439765,
+    "start": 0,
+    "end": 34,
+    "source": "Show message generation statistics",
+    "target": "",
+    "context": ") below each assistant message.\",key:mr.SHOW_MESSAGE_STATS,label:\"Show message generation statistics\",type:vn.CHECKBOX},{defaultValue:!1,dependsOn:mr.SHOW_MESSAGE_STA"
+  },
+  {
+    "id": 439874,
+    "start": 0,
+    "end": 149,
+    "source": "Display per-turn statistics (tokens, duration) under each turn in agentic responses. Shown only when \"Show message generation statistics\" is enabled.",
+    "target": "",
+    "context": ".CHECKBOX},{defaultValue:!1,dependsOn:mr.SHOW_MESSAGE_STATS,help:'Display per-turn statistics (tokens, duration) under each turn in agentic responses. Shown only when \"Show message generation statistics\" is enabled.',key:mr.SHOW_AGENTIC_TURN_STATS,label:\"Show statistics for indivi"
+  },
+  {
+    "id": 440063,
+    "start": 0,
+    "end": 44,
+    "source": "Show statistics for individual agentic turns",
+    "target": "",
+    "context": "on statistics\" is enabled.',key:mr.SHOW_AGENTIC_TURN_STATS,label:\"Show statistics for individual agentic turns\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Expand thought process "
+  },
+  {
+    "id": 440150,
+    "start": 0,
+    "end": 59,
+    "source": "Expand thought process by default when generating messages.",
+    "target": "",
+    "context": "ndividual agentic turns\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Expand thought process by default when generating messages.\",key:mr.SHOW_THOUGHT_IN_PROGRESS,label:\"Show thought in progress\""
+  },
+  {
+    "id": 440250,
+    "start": 0,
+    "end": 24,
+    "source": "Show thought in progress",
+    "target": "",
+    "context": "when generating messages.\",key:mr.SHOW_THOUGHT_IN_PROGRESS,label:\"Show thought in progress\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Automatically expand to"
+  },
+  {
+    "id": 440317,
+    "start": 0,
+    "end": 95,
+    "source": "Automatically expand tool call details while executing and keep them expanded after completion.",
+    "target": "",
+    "context": "how thought in progress\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Automatically expand tool call details while executing and keep them expanded after completion.\",key:mr.ALWAYS_SHOW_TOOL_CALL_CONTENT,label:\"Always show tool cal"
+  },
+  {
+    "id": 440458,
+    "start": 0,
+    "end": 29,
+    "source": "Always show tool call content",
+    "target": "",
+    "context": "ed after completion.\",key:mr.ALWAYS_SHOW_TOOL_CALL_CONTENT,label:\"Always show tool call content\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Render user messages us"
+  },
+  {
+    "id": 440530,
+    "start": 0,
+    "end": 143,
+    "source": "Render user messages using markdown formatting in the chat. Turn this off to keep a message exactly as typed; @-mention badges show either way.",
+    "target": "",
+    "context": " show tool call content\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Render user messages using markdown formatting in the chat. Turn this off to keep a message exactly as typed; @-mention badges show either way.\",key:mr.RENDER_USER_CONTENT_AS_MARKDOWN,label:\"Render user conten"
+  },
+  {
+    "id": 440721,
+    "start": 0,
+    "end": 31,
+    "source": "Render user content as Markdown",
+    "target": "",
+    "context": "s show either way.\",key:mr.RENDER_USER_CONTENT_AS_MARKDOWN,label:\"Render user content as Markdown\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Render the reasoning/th"
+  },
+  {
+    "id": 440795,
+    "start": 0,
+    "end": 88,
+    "source": "Render the reasoning/thinking block content as formatted Markdown instead of plain text.",
+    "target": "",
+    "context": "ser content as Markdown\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Render the reasoning/thinking block content as formatted Markdown instead of plain text.\",key:mr.RENDER_THINKING_AS_MARKDOWN,label:\"Render thinking as Mar"
+  },
+  {
+    "id": 440927,
+    "start": 0,
+    "end": 27,
+    "source": "Render thinking as Markdown",
+    "target": "",
+    "context": "instead of plain text.\",key:mr.RENDER_THINKING_AS_MARKDOWN,label:\"Render thinking as Markdown\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Always display code blo"
+  },
+  {
+    "id": 440997,
+    "start": 0,
+    "end": 86,
+    "source": "Always display code blocks at their full natural height, overriding any height limits.",
+    "target": "",
+    "context": "er thinking as Markdown\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Always display code blocks at their full natural height, overriding any height limits.\",key:mr.FULL_HEIGHT_CODE_BLOCKS,label:\"Use full height code block"
+  },
+  {
+    "id": 441123,
+    "start": 0,
+    "end": 27,
+    "source": "Use full height code blocks",
+    "target": "",
+    "context": "rriding any height limits.\",key:mr.FULL_HEIGHT_CODE_BLOCKS,label:\"Use full height code blocks\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Disable automatic scrol"
+  },
+  {
+    "id": 441193,
+    "start": 0,
+    "end": 100,
+    "source": "Disable automatic scrolling while messages stream so you can control the viewport position manually.",
+    "target": "",
+    "context": "full height code blocks\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Disable automatic scrolling while messages stream so you can control the viewport position manually.\",key:mr.DISABLE_AUTO_SCROLL,label:\"Disable automatic scroll\",type"
+  },
+  {
+    "id": 441329,
+    "start": 0,
+    "end": 24,
+    "source": "Disable automatic scroll",
+    "target": "",
+    "context": "he viewport position manually.\",key:mr.DISABLE_AUTO_SCROLL,label:\"Disable automatic scroll\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Always keep the sidebar"
+  },
+  {
+    "id": 441396,
+    "start": 0,
+    "end": 69,
+    "source": "Always keep the sidebar visible on desktop instead of auto-hiding it.",
+    "target": "",
+    "context": "isable automatic scroll\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Always keep the sidebar visible on desktop instead of auto-hiding it.\",key:mr.ALWAYS_SHOW_SIDEBAR_ON_DESKTOP,label:\"Always show sidebar"
+  },
+  {
+    "id": 441512,
+    "start": 0,
+    "end": 30,
+    "source": "Always show sidebar on desktop",
+    "target": "",
+    "context": " of auto-hiding it.\",key:mr.ALWAYS_SHOW_SIDEBAR_ON_DESKTOP,label:\"Always show sidebar on desktop\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Show open chats as brow"
+  },
+  {
+    "id": 441585,
+    "start": 0,
+    "end": 129,
+    "source": "Show open chats as browser-style tabs above the conversation, one per open chat. When disabled, only one chat is shown at a time.",
+    "target": "",
+    "context": "show sidebar on desktop\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Show open chats as browser-style tabs above the conversation, one per open chat. When disabled, only one chat is shown at a time.\",key:mr.CONVERSATION_TABS,label:\"Conversation tabs\",type:vn.CHECK"
+  },
+  {
+    "id": 441748,
+    "start": 0,
+    "end": 17,
+    "source": "Conversation tabs",
+    "target": "",
+    "context": "nly one chat is shown at a time.\",key:mr.CONVERSATION_TABS,label:\"Conversation tabs\",type:vn.CHECKBOX},{defaultValue:!1,help:'Display full raw model "
+  },
+  {
+    "id": 441808,
+    "start": 0,
+    "end": 113,
+    "source": "Display full raw model identifiers (e.g. \"ggml-org/GLM-4.7-Flash-GGUF:Q8_0\") instead of parsed names with badges.",
+    "target": "",
+    "context": "abel:\"Conversation tabs\",type:vn.CHECKBOX},{defaultValue:!1,help:'Display full raw model identifiers (e.g. \"ggml-org/GLM-4.7-Flash-GGUF:Q8_0\") instead of parsed names with badges.',key:mr.SHOW_RAW_MODEL_NAMES,label:\"Show raw model names\",type:vn"
+  },
+  {
+    "id": 441958,
+    "start": 0,
+    "end": 20,
+    "source": "Show raw model names",
+    "target": "",
+    "context": " of parsed names with badges.',key:mr.SHOW_RAW_MODEL_NAMES,label:\"Show raw model names\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Display quantization ba"
+  },
+  {
+    "id": 442021,
+    "start": 0,
+    "end": 93,
+    "source": "Display quantization badges (e.g. Q8_0, Q4_K_M) next to model names throughout the interface.",
+    "target": "",
+    "context": "l:\"Show raw model names\",type:vn.CHECKBOX},{defaultValue:!0,help:\"Display quantization badges (e.g. Q8_0, Q4_K_M) next to model names throughout the interface.\",key:mr.SHOW_MODEL_QUANTIZATION,label:\"Show model quantization in"
+  },
+  {
+    "id": 442154,
+    "start": 0,
+    "end": 35,
+    "source": "Show model quantization information",
+    "target": "",
+    "context": " throughout the interface.\",key:mr.SHOW_MODEL_QUANTIZATION,label:\"Show model quantization information\",type:vn.CHECKBOX},{defaultValue:!0,help:'Display model tags (e.g"
+  },
+  {
+    "id": 442232,
+    "start": 0,
+    "end": 93,
+    "source": "Display model tags (e.g. \"vision\", \"reasoning\") next to model names throughout the interface.",
+    "target": "",
+    "context": "uantization information\",type:vn.CHECKBOX},{defaultValue:!0,help:'Display model tags (e.g. \"vision\", \"reasoning\") next to model names throughout the interface.',key:mr.SHOW_MODEL_TAGS,label:\"Show model tags\",type:vn.CHECKBOX}"
+  },
+  {
+    "id": 442357,
+    "start": 0,
+    "end": 15,
+    "source": "Show model tags",
+    "target": "",
+    "context": "el names throughout the interface.',key:mr.SHOW_MODEL_TAGS,label:\"Show model tags\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Display the organizatio"
+  },
+  {
+    "id": 442415,
+    "start": 0,
+    "end": 67,
+    "source": "Display the organization name in the model selector trigger button.",
+    "target": "",
+    "context": ",label:\"Show model tags\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Display the organization name in the model selector trigger button.\",key:mr.SHOW_MODEL_ORG_NAME_IN_TRIGGER,label:\"Show organization n"
+  },
+  {
+    "id": 442529,
+    "start": 0,
+    "end": 48,
+    "source": "Show organization name in model selector trigger",
+    "target": "",
+    "context": "tor trigger button.\",key:mr.SHOW_MODEL_ORG_NAME_IN_TRIGGER,label:\"Show organization name in model selector trigger\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Display the current bui"
+  },
+  {
+    "id": 442620,
+    "start": 0,
+    "end": 78,
+    "source": "Display the current build version in the bottom-right corner of the interface.",
+    "target": "",
+    "context": " model selector trigger\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Display the current build version in the bottom-right corner of the interface.\",key:mr.SHOW_BUILD_VERSION,label:\"Show build version information\""
+  },
+  {
+    "id": 442733,
+    "start": 0,
+    "end": 30,
+    "source": "Show build version information",
+    "target": "",
+    "context": "-right corner of the interface.\",key:mr.SHOW_BUILD_VERSION,label:\"Show build version information\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Display the full file s"
+  },
+  {
+    "id": 442806,
+    "start": 0,
+    "end": 114,
+    "source": "Display the full file system path inside file and folder @-mention badges instead of just the file or folder name.",
+    "target": "",
+    "context": "ild version information\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Display the full file system path inside file and folder @-mention badges instead of just the file or folder name.\",key:mr.SHOW_FULL_PATH_IN_MENTIONS,label:\"Show full path in menti"
+  },
+  {
+    "id": 442963,
+    "start": 0,
+    "end": 26,
+    "source": "Show full path in mentions",
+    "target": "",
+    "context": "he file or folder name.\",key:mr.SHOW_FULL_PATH_IN_MENTIONS,label:\"Show full path in mentions\",type:vn.CHECKBOX}],slug:yg.DISPLAY,title:Ey.DISPLAY},{icon:Wle,s"
+  },
+  {
+    "id": 443089,
+    "start": 0,
+    "end": 94,
+    "source": "Configure MCP servers as a JSON list. Use the form in the MCP Client settings section to edit.",
+    "target": "",
+    "context": "AY,title:Ey.DISPLAY},{icon:Wle,settings:[{defaultValue:\"[]\",help:\"Configure MCP servers as a JSON list. Use the form in the MCP Client settings section to edit.\",key:mr.MCP_SERVERS,label:\"MCP servers\",standaloneField:!1,type:v"
+  },
+  {
+    "id": 443211,
+    "start": 0,
+    "end": 11,
+    "source": "MCP servers",
+    "target": "",
+    "context": "e MCP Client settings section to edit.\",key:mr.MCP_SERVERS,label:\"MCP servers\",standaloneField:!1,type:vn.INPUT}],slug:yg.TOOLS,title:Ey.TOOLS}"
+  },
+  {
+    "id": 443332,
+    "start": 0,
+    "end": 82,
+    "source": "Maximum number of tool execution cycles before stopping (prevents infinite loops).",
+    "target": "",
+    "context": ".TOOLS,title:Ey.TOOLS},{icon:Qbt,settings:[{defaultValue:10,help:\"Maximum number of tool execution cycles before stopping (prevents infinite loops).\",isPositiveInteger:!0,key:mr.AGENTIC_MAX_TURNS,label:\"Agentic tur"
+  },
+  {
+    "id": 443469,
+    "start": 0,
+    "end": 13,
+    "source": "Agentic turns",
+    "target": "",
+    "context": "ite loops).\",isPositiveInteger:!0,key:mr.AGENTIC_MAX_TURNS,label:\"Agentic turns\",type:vn.INPUT},{defaultValue:Go.requestTimeoutSeconds,help:\"Time"
+  },
+  {
+    "id": 443544,
+    "start": 0,
+    "end": 38,
+    "source": "Timeout for individual MCP tool calls.",
+    "target": "",
+    "context": "urns\",type:vn.INPUT},{defaultValue:Go.requestTimeoutSeconds,help:\"Timeout for individual MCP tool calls.\",isPositiveInteger:!0,key:mr.MCP_REQUEST_TIMEOUT_SECONDS,label:\"M"
+  },
+  {
+    "id": 443647,
+    "start": 0,
+    "end": 29,
+    "source": "MCP request timeout (seconds)",
+    "target": "",
+    "context": ".\",isPositiveInteger:!0,key:mr.MCP_REQUEST_TIMEOUT_SECONDS,label:\"MCP request timeout (seconds)\",type:vn.INPUT},{defaultValue:kD.DEFAULT_SEARCH_DEPTH,help:\"How m"
+  },
+  {
+    "id": 443737,
+    "start": 0,
+    "end": 163,
+    "source": "How many directory levels below the working directory the @-mention file search descends. Larger values surface deeply nested files but take longer on large trees.",
+    "target": "",
+    "context": "onds)\",type:vn.INPUT},{defaultValue:kD.DEFAULT_SEARCH_DEPTH,help:\"How many directory levels below the working directory the @-mention file search descends. Larger values surface deeply nested files but take longer on large trees.\",isPositiveInteger:!0,key:mr.MENTION_SEARCH_MAX_DEPTH,label:\"Ment"
+  },
+  {
+    "id": 443962,
+    "start": 0,
+    "end": 20,
+    "source": "Mention search depth",
+    "target": "",
+    "context": "ees.\",isPositiveInteger:!0,key:mr.MENTION_SEARCH_MAX_DEPTH,label:\"Mention search depth\",max:kD.MAX_SEARCH_DEPTH,min:1,placeholder:`${kD.DEFAULT_SEARCH_D"
+  },
+  {
+    "id": 444220,
+    "start": 0,
+    "end": 153,
+    "source": "Controls the randomness of the generated text by affecting the probability distribution of the output tokens. Higher = more random, lower = more focused.",
+    "target": "",
+    "context": ":Ey.IMPORT_EXPORT},{icon:Mbt,settings:[{defaultValue:void 0,help:\"Controls the randomness of the generated text by affecting the probability distribution of the output tokens. Higher = more random, lower = more focused.\",key:mr.TEMPERATURE,label:\"Temperature\",sync:{paramType:uo.NUMBER"
+  },
+  {
+    "id": 444401,
+    "start": 0,
+    "end": 11,
+    "source": "Temperature",
+    "target": "",
+    "context": "r = more random, lower = more focused.\",key:mr.TEMPERATURE,label:\"Temperature\",sync:{paramType:uo.NUMBER,serverKey:mr.TEMPERATURE},type:vn.INPU"
+  },
+  {
+    "id": 444508,
+    "start": 0,
+    "end": 137,
+    "source": "Addon for the temperature sampler. The added value to the range of dynamic temperature, which adjusts probabilities by entropy of tokens.",
+    "target": "",
+    "context": "rverKey:mr.TEMPERATURE},type:vn.INPUT},{defaultValue:void 0,help:\"Addon for the temperature sampler. The added value to the range of dynamic temperature, which adjusts probabilities by entropy of tokens.\",key:mr.DYNATEMP_RANGE,label:\"Dynamic temperature range\",sync:{pa"
+  },
+  {
+    "id": 444676,
+    "start": 0,
+    "end": 25,
+    "source": "Dynamic temperature range",
+    "target": "",
+    "context": "probabilities by entropy of tokens.\",key:mr.DYNATEMP_RANGE,label:\"Dynamic temperature range\",sync:{paramType:uo.NUMBER,serverKey:mr.DYNATEMP_RANGE},type:vn.I"
+  },
+  {
+    "id": 444800,
+    "start": 0,
+    "end": 112,
+    "source": "Addon for the temperature sampler. Smoothes out the probability redistribution based on the most probable token.",
+    "target": "",
+    "context": "rKey:mr.DYNATEMP_RANGE},type:vn.INPUT},{defaultValue:void 0,help:\"Addon for the temperature sampler. Smoothes out the probability redistribution based on the most probable token.\",key:mr.DYNATEMP_EXPONENT,label:\"Dynamic temperature exponent\",sy"
+  },
+  {
+    "id": 444946,
+    "start": 0,
+    "end": 28,
+    "source": "Dynamic temperature exponent",
+    "target": "",
+    "context": "ased on the most probable token.\",key:mr.DYNATEMP_EXPONENT,label:\"Dynamic temperature exponent\",sync:{paramType:uo.NUMBER,serverKey:mr.DYNATEMP_EXPONENT},type:v"
+  },
+  {
+    "id": 445076,
+    "start": 0,
+    "end": 24,
+    "source": "Keeps only k top tokens.",
+    "target": "",
+    "context": "y:mr.DYNATEMP_EXPONENT},type:vn.INPUT},{defaultValue:void 0,help:\"Keeps only k top tokens.\",key:mr.TOP_K,label:\"Top K\",sync:{paramType:uo.NUMBER,serverKey:m"
+  },
+  {
+    "id": 445122,
+    "start": 0,
+    "end": 5,
+    "source": "Top K",
+    "target": "",
+    "context": "tValue:void 0,help:\"Keeps only k top tokens.\",key:mr.TOP_K,label:\"Top K\",sync:{paramType:uo.NUMBER,serverKey:mr.TOP_K},type:vn.INPUT},{de"
+  },
+  {
+    "id": 445217,
+    "start": 0,
+    "end": 80,
+    "source": "Limits tokens to those that together have a cumulative probability of at least p",
+    "target": "",
+    "context": "BER,serverKey:mr.TOP_K},type:vn.INPUT},{defaultValue:void 0,help:\"Limits tokens to those that together have a cumulative probability of at least p\",key:mr.TOP_P,label:\"Top P\",sync:{paramType:uo.NUMBER,serverKey:m"
+  },
+  {
+    "id": 445319,
+    "start": 0,
+    "end": 5,
+    "source": "Top P",
+    "target": "",
+    "context": " have a cumulative probability of at least p\",key:mr.TOP_P,label:\"Top P\",sync:{paramType:uo.NUMBER,serverKey:mr.TOP_P},type:vn.INPUT},{de"
+  },
+  {
+    "id": 445414,
+    "start": 0,
+    "end": 130,
+    "source": "Limits tokens based on the minimum probability for a token to be considered, relative to the probability of the most likely token.",
+    "target": "",
+    "context": "BER,serverKey:mr.TOP_P},type:vn.INPUT},{defaultValue:void 0,help:\"Limits tokens based on the minimum probability for a token to be considered, relative to the probability of the most likely token.\",key:mr.MIN_P,label:\"Min P\",sync:{paramType:uo.NUMBER,serverKey:m"
+  },
+  {
+    "id": 445566,
+    "start": 0,
+    "end": 5,
+    "source": "Min P",
+    "target": "",
+    "context": "to the probability of the most likely token.\",key:mr.MIN_P,label:\"Min P\",sync:{paramType:uo.NUMBER,serverKey:mr.MIN_P},type:vn.INPUT},{de"
+  },
+  {
+    "id": 445661,
+    "start": 0,
+    "end": 109,
+    "source": "XTC sampler cuts out top tokens; this parameter controls the chance of cutting tokens at all. 0 disables XTC.",
+    "target": "",
+    "context": "BER,serverKey:mr.MIN_P},type:vn.INPUT},{defaultValue:void 0,help:\"XTC sampler cuts out top tokens; this parameter controls the chance of cutting tokens at all. 0 disables XTC.\",key:mr.XTC_PROBABILITY,label:\"XTC probability\",sync:{paramType:u"
+  },
+  {
+    "id": 445802,
+    "start": 0,
+    "end": 15,
+    "source": "XTC probability",
+    "target": "",
+    "context": "ing tokens at all. 0 disables XTC.\",key:mr.XTC_PROBABILITY,label:\"XTC probability\",sync:{paramType:uo.NUMBER,serverKey:mr.XTC_PROBABILITY},type:vn."
+  },
+  {
+    "id": 445917,
+    "start": 0,
+    "end": 114,
+    "source": "XTC sampler cuts out top tokens; this parameter controls the token probability that is required to cut that token.",
+    "target": "",
+    "context": "Key:mr.XTC_PROBABILITY},type:vn.INPUT},{defaultValue:void 0,help:\"XTC sampler cuts out top tokens; this parameter controls the token probability that is required to cut that token.\",key:mr.XTC_THRESHOLD,label:\"XTC threshold\",sync:{paramType:uo.NU"
+  },
+  {
+    "id": 446061,
+    "start": 0,
+    "end": 13,
+    "source": "XTC threshold",
+    "target": "",
+    "context": " that is required to cut that token.\",key:mr.XTC_THRESHOLD,label:\"XTC threshold\",sync:{paramType:uo.NUMBER,serverKey:mr.XTC_THRESHOLD},type:vn.IN"
+  },
+  {
+    "id": 446172,
+    "start": 0,
+    "end": 84,
+    "source": "Sorts and limits tokens based on the difference between log-probability and entropy.",
+    "target": "",
+    "context": "erKey:mr.XTC_THRESHOLD},type:vn.INPUT},{defaultValue:void 0,help:\"Sorts and limits tokens based on the difference between log-probability and entropy.\",key:mr.TYP_P,label:\"Typical P\",sync:{paramType:uo.NUMBER,serverK"
+  },
+  {
+    "id": 446278,
+    "start": 0,
+    "end": 9,
+    "source": "Typical P",
+    "target": "",
+    "context": "ference between log-probability and entropy.\",key:mr.TYP_P,label:\"Typical P\",sync:{paramType:uo.NUMBER,serverKey:mr.TYP_P},type:vn.INPUT},{de"
+  },
+  {
+    "id": 446377,
+    "start": 0,
+    "end": 71,
+    "source": "The maximum number of token per output. Use -1 for infinite (no limit).",
+    "target": "",
+    "context": "BER,serverKey:mr.TYP_P},type:vn.INPUT},{defaultValue:void 0,help:\"The maximum number of token per output. Use -1 for infinite (no limit).\",key:mr.MAX_TOKENS,label:\"Max tokens\",sync:{paramType:uo.NUMBER,s"
+  },
+  {
+    "id": 446475,
+    "start": 0,
+    "end": 10,
+    "source": "Max tokens",
+    "target": "",
+    "context": "output. Use -1 for infinite (no limit).\",key:mr.MAX_TOKENS,label:\"Max tokens\",sync:{paramType:uo.NUMBER,serverKey:mr.MAX_TOKENS},type:vn.INPUT"
+  },
+  {
+    "id": 446576,
+    "start": 0,
+    "end": 149,
+    "source": "The order at which samplers are applied, in simplified way. Default is \"top_k;typ_p;top_p;min_p;temperature\": top_k->typ_p->top_p->min_p->temperature",
+    "target": "",
+    "context": "ER,serverKey:mr.MAX_TOKENS},type:vn.INPUT},{defaultValue:\"\",help:'The order at which samplers are applied, in simplified way. Default is \"top_k;typ_p;top_p;min_p;temperature\": top_k->typ_p->top_p->min_p->temperature',key:mr.SAMPLERS,label:\"Samplers\",sync:{paramType:uo.STRING,serve"
+  },
+  {
+    "id": 446750,
+    "start": 0,
+    "end": 8,
+    "source": "Samplers",
+    "target": "",
+    "context": ": top_k->typ_p->top_p->min_p->temperature',key:mr.SAMPLERS,label:\"Samplers\",sync:{paramType:uo.STRING,serverKey:mr.SAMPLERS},type:vn.INPUT},"
+  },
+  {
+    "id": 446847,
+    "start": 0,
+    "end": 115,
+    "source": "Enable backend-based samplers. When enabled, supported samplers run on the accelerator backend for faster sampling.",
+    "target": "",
+    "context": "RING,serverKey:mr.SAMPLERS},type:vn.INPUT},{defaultValue:!1,help:\"Enable backend-based samplers. When enabled, supported samplers run on the accelerator backend for faster sampling.\",key:mr.BACKEND_SAMPLING,label:\"Backend sampling\",type:vn.CHECKBO"
+  },
+  {
+    "id": 446995,
+    "start": 0,
+    "end": 16,
+    "source": "Backend sampling",
+    "target": "",
+    "context": "ator backend for faster sampling.\",key:mr.BACKEND_SAMPLING,label:\"Backend sampling\",type:vn.CHECKBOX},{defaultValue:void 0,help:\"Last n tokens to co"
+  },
+  {
+    "id": 447058,
+    "start": 0,
+    "end": 51,
+    "source": "Last n tokens to consider for penalizing repetition",
+    "target": "",
+    "context": "l:\"Backend sampling\",type:vn.CHECKBOX},{defaultValue:void 0,help:\"Last n tokens to consider for penalizing repetition\",key:mr.REPEAT_LAST_N,label:\"Repeat last N\",sync:{paramType:uo.NU"
+  },
+  {
+    "id": 447139,
+    "start": 0,
+    "end": 13,
+    "source": "Repeat last N",
+    "target": "",
+    "context": "o consider for penalizing repetition\",key:mr.REPEAT_LAST_N,label:\"Repeat last N\",sync:{paramType:uo.NUMBER,serverKey:mr.REPEAT_LAST_N},type:vn.IN"
+  },
+  {
+    "id": 447250,
+    "start": 0,
+    "end": 64,
+    "source": "Controls the repetition of token sequences in the generated text",
+    "target": "",
+    "context": "erKey:mr.REPEAT_LAST_N},type:vn.INPUT},{defaultValue:void 0,help:\"Controls the repetition of token sequences in the generated text\",key:mr.REPEAT_PENALTY,label:\"Repeat penalty\",sync:{paramType:uo."
+  },
+  {
+    "id": 447345,
+    "start": 0,
+    "end": 14,
+    "source": "Repeat penalty",
+    "target": "",
+    "context": "ken sequences in the generated text\",key:mr.REPEAT_PENALTY,label:\"Repeat penalty\",sync:{paramType:uo.NUMBER,serverKey:mr.REPEAT_PENALTY},type:vn.I"
+  },
+  {
+    "id": 447458,
+    "start": 0,
+    "end": 64,
+    "source": "Limits tokens based on whether they appear in the output or not.",
+    "target": "",
+    "context": "rKey:mr.REPEAT_PENALTY},type:vn.INPUT},{defaultValue:void 0,help:\"Limits tokens based on whether they appear in the output or not.\",key:mr.PRESENCE_PENALTY,label:\"Presence penalty\",sync:{paramType"
+  },
+  {
+    "id": 447555,
+    "start": 0,
+    "end": 16,
+    "source": "Presence penalty",
+    "target": "",
+    "context": "they appear in the output or not.\",key:mr.PRESENCE_PENALTY,label:\"Presence penalty\",sync:{paramType:uo.NUMBER,serverKey:mr.PRESENCE_PENALTY},type:vn"
+  },
+  {
+    "id": 447672,
+    "start": 0,
+    "end": 59,
+    "source": "Limits tokens based on how often they appear in the output.",
+    "target": "",
+    "context": "ey:mr.PRESENCE_PENALTY},type:vn.INPUT},{defaultValue:void 0,help:\"Limits tokens based on how often they appear in the output.\",key:mr.FREQUENCY_PENALTY,label:\"Frequency penalty\",sync:{paramTy"
+  },
+  {
+    "id": 447765,
+    "start": 0,
+    "end": 17,
+    "source": "Frequency penalty",
+    "target": "",
+    "context": "often they appear in the output.\",key:mr.FREQUENCY_PENALTY,label:\"Frequency penalty\",sync:{paramType:uo.NUMBER,serverKey:mr.FREQUENCY_PENALTY},type:v"
+  },
+  {
+    "id": 447884,
+    "start": 0,
+    "end": 125,
+    "source": "DRY sampling reduces repetition in generated text even across long contexts. This parameter sets the DRY sampling multiplier.",
+    "target": "",
+    "context": "y:mr.FREQUENCY_PENALTY},type:vn.INPUT},{defaultValue:void 0,help:\"DRY sampling reduces repetition in generated text even across long contexts. This parameter sets the DRY sampling multiplier.\",key:mr.DRY_MULTIPLIER,label:\"DRY multiplier\",sync:{paramType:uo."
+  },
+  {
+    "id": 448040,
+    "start": 0,
+    "end": 14,
+    "source": "DRY multiplier",
+    "target": "",
+    "context": "r sets the DRY sampling multiplier.\",key:mr.DRY_MULTIPLIER,label:\"DRY multiplier\",sync:{paramType:uo.NUMBER,serverKey:mr.DRY_MULTIPLIER},type:vn.I"
+  },
+  {
+    "id": 448153,
+    "start": 0,
+    "end": 125,
+    "source": "DRY sampling reduces repetition in generated text even across long contexts. This parameter sets the DRY sampling base value.",
+    "target": "",
+    "context": "rKey:mr.DRY_MULTIPLIER},type:vn.INPUT},{defaultValue:void 0,help:\"DRY sampling reduces repetition in generated text even across long contexts. This parameter sets the DRY sampling base value.\",key:mr.DRY_BASE,label:\"DRY base\",sync:{paramType:uo.NUMBER,serve"
+  },
+  {
+    "id": 448303,
+    "start": 0,
+    "end": 8,
+    "source": "DRY base",
+    "target": "",
+    "context": "rameter sets the DRY sampling base value.\",key:mr.DRY_BASE,label:\"DRY base\",sync:{paramType:uo.NUMBER,serverKey:mr.DRY_BASE},type:vn.INPUT},"
+  },
+  {
+    "id": 448404,
+    "start": 0,
+    "end": 133,
+    "source": "DRY sampling reduces repetition in generated text even across long contexts. This parameter sets the allowed length for DRY sampling.",
+    "target": "",
+    "context": ",serverKey:mr.DRY_BASE},type:vn.INPUT},{defaultValue:void 0,help:\"DRY sampling reduces repetition in generated text even across long contexts. This parameter sets the allowed length for DRY sampling.\",key:mr.DRY_ALLOWED_LENGTH,label:\"DRY allowed length\",sync:{param"
+  },
+  {
+    "id": 448572,
+    "start": 0,
+    "end": 18,
+    "source": "DRY allowed length",
+    "target": "",
+    "context": "llowed length for DRY sampling.\",key:mr.DRY_ALLOWED_LENGTH,label:\"DRY allowed length\",sync:{paramType:uo.NUMBER,serverKey:mr.DRY_ALLOWED_LENGTH},type:"
+  },
+  {
+    "id": 448693,
+    "start": 0,
+    "end": 131,
+    "source": "DRY sampling reduces repetition in generated text even across long contexts. This parameter sets DRY penalty for the last n tokens.",
+    "target": "",
+    "context": ":mr.DRY_ALLOWED_LENGTH},type:vn.INPUT},{defaultValue:void 0,help:\"DRY sampling reduces repetition in generated text even across long contexts. This parameter sets DRY penalty for the last n tokens.\",key:mr.DRY_PENALTY_LAST_N,label:\"DRY penalty last N\",sync:{param"
+  },
+  {
+    "id": 448859,
+    "start": 0,
+    "end": 18,
+    "source": "DRY penalty last N",
+    "target": "",
+    "context": " penalty for the last n tokens.\",key:mr.DRY_PENALTY_LAST_N,label:\"DRY penalty last N\",sync:{paramType:uo.NUMBER,serverKey:mr.DRY_PENALTY_LAST_N},type:"
+  },
+  {
+    "id": 449053,
+    "start": 0,
+    "end": 172,
+    "source": "After each response, re-submit the conversation to pre-fill the server KV cache. Makes the next turn faster since the prompt is already encoded while you read the response.",
+    "target": "",
+    "context": "Ey.SAMPLING_PENALTIES},{icon:jOe,settings:[{defaultValue:!1,help:\"After each response, re-submit the conversation to pre-fill the server KV cache. Makes the next turn faster since the prompt is already encoded while you read the response.\",key:mr.PRE_ENCODE_CONVERSATION,label:\"Pre-fill KV cache after re"
+  },
+  {
+    "id": 449265,
+    "start": 0,
+    "end": 32,
+    "source": "Pre-fill KV cache after response",
+    "target": "",
+    "context": "ile you read the response.\",key:mr.PRE_ENCODE_CONVERSATION,label:\"Pre-fill KV cache after response\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Send reasoning_format=n"
+  },
+  {
+    "id": 449340,
+    "start": 0,
+    "end": 121,
+    "source": "Send reasoning_format=none so the server returns thinking tokens inline instead of extracting them into a separate field.",
+    "target": "",
+    "context": "KV cache after response\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Send reasoning_format=none so the server returns thinking tokens inline instead of extracting them into a separate field.\",key:mr.DISABLE_REASONING_PARSING,label:\"Disable reasoning conten"
+  },
+  {
+    "id": 449503,
+    "start": 0,
+    "end": 33,
+    "source": "Disable reasoning content parsing",
+    "target": "",
+    "context": "m into a separate field.\",key:mr.DISABLE_REASONING_PARSING,label:\"Disable reasoning content parsing\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Strip thinking from pre"
+  },
+  {
+    "id": 449579,
+    "start": 0,
+    "end": 174,
+    "source": "Strip thinking from previous messages before sending. When off, thinking is sent back via the reasoning_content field so the model sees its own chain-of-thought across turns.",
+    "target": "",
+    "context": "asoning content parsing\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Strip thinking from previous messages before sending. When off, thinking is sent back via the reasoning_content field so the model sees its own chain-of-thought across turns.\",key:mr.EXCLUDE_REASONING_FROM_CONTEXT,label:\"Exclude reasoning f"
+  },
+  {
+    "id": 449800,
+    "start": 0,
+    "end": 30,
+    "source": "Exclude reasoning from context",
+    "target": "",
+    "context": "ought across turns.\",key:mr.EXCLUDE_REASONING_FROM_CONTEXT,label:\"Exclude reasoning from context\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Show toggle button to d"
+  },
+  {
+    "id": 449873,
+    "start": 0,
+    "end": 90,
+    "source": "Show toggle button to display messages as plain text instead of Markdown-formatted content",
+    "target": "",
+    "context": " reasoning from context\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Show toggle button to display messages as plain text instead of Markdown-formatted content\",key:mr.SHOW_RAW_OUTPUT_SWITCH,label:\"Enable raw output toggle\",t"
+  },
+  {
+    "id": 450002,
+    "start": 0,
+    "end": 24,
+    "source": "Enable raw output toggle",
+    "target": "",
+    "context": " Markdown-formatted content\",key:mr.SHOW_RAW_OUTPUT_SWITCH,label:\"Enable raw output toggle\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Expose a run_javascript"
+  },
+  {
+    "id": 450069,
+    "start": 0,
+    "end": 175,
+    "source": "Expose a run_javascript tool to the model. Code runs in a Web Worker inside a sandboxed iframe with an opaque origin, isolated from the WebUI and its API, with a hard timeout.",
+    "target": "",
+    "context": "nable raw output toggle\",type:vn.CHECKBOX},{defaultValue:!1,help:\"Expose a run_javascript tool to the model. Code runs in a Web Worker inside a sandboxed iframe with an opaque origin, isolated from the WebUI and its API, with a hard timeout.\",key:mr.JS_SANDBOX_ENABLED,label:\"JavaScript sandbox tool\",type:v"
+  },
+  {
+    "id": 450279,
+    "start": 0,
+    "end": 23,
+    "source": "JavaScript sandbox tool",
+    "target": "",
+    "context": "d its API, with a hard timeout.\",key:mr.JS_SANDBOX_ENABLED,label:\"JavaScript sandbox tool\",type:vn.CHECKBOX},{defaultValue:!1,dependsOn:mr.JS_SANDBOX_ENABL"
+  },
+  {
+    "id": 450377,
+    "start": 0,
+    "end": 152,
+    "source": "Pre-load nerdamer in the sandbox for symbolic computation: simplify, diff, integrate, solve, and more. Requires \"JavaScript sandbox tool\" to be enabled.",
+    "target": "",
+    "context": ".CHECKBOX},{defaultValue:!1,dependsOn:mr.JS_SANDBOX_ENABLED,help:'Pre-load nerdamer in the sandbox for symbolic computation: simplify, diff, integrate, solve, and more. Requires \"JavaScript sandbox tool\" to be enabled.',key:mr.SYMBOLIC_MATH_ENABLED,label:\"Symbolic math (nerdamer)\",ty"
+  },
+  {
+    "id": 450567,
+    "start": 0,
+    "end": 24,
+    "source": "Symbolic math (nerdamer)",
+    "target": "",
+    "context": "sandbox tool\" to be enabled.',key:mr.SYMBOLIC_MATH_ENABLED,label:\"Symbolic math (nerdamer)\",type:vn.CHECKBOX},{defaultValue:\"\",help:\"Custom JSON parameters "
+  },
+  {
+    "id": 450634,
+    "start": 0,
+    "end": 69,
+    "source": "Custom JSON parameters to send to the API. Must be valid JSON format.",
+    "target": "",
+    "context": "ymbolic math (nerdamer)\",type:vn.CHECKBOX},{defaultValue:\"\",help:\"Custom JSON parameters to send to the API. Must be valid JSON format.\",key:mr.CUSTOM_JSON,label:\"Custom JSON\",type:vn.TEXTAREA},{defaul"
+  },
+  {
+    "id": 450731,
+    "start": 0,
+    "end": 11,
+    "source": "Custom JSON",
+    "target": "",
+    "context": "to the API. Must be valid JSON format.\",key:mr.CUSTOM_JSON,label:\"Custom JSON\",type:vn.TEXTAREA},{defaultValue:\"\",help:\"CSS injected into the p"
+  },
+  {
+    "id": 450785,
+    "start": 0,
+    "end": 111,
+    "source": "CSS injected into the page at runtime. Set it here, or ship it server side via the --ui-config customCss field.",
+    "target": "",
+    "context": "JSON,label:\"Custom JSON\",type:vn.TEXTAREA},{defaultValue:\"\",help:\"CSS injected into the page at runtime. Set it here, or ship it server side via the --ui-config customCss field.\",key:mr.CUSTOM_CSS,label:\"Custom CSS\",type:vn.TEXTAREA}],slug:yg."
+  },
+  {
+    "id": 450923,
+    "start": 0,
+    "end": 10,
+    "source": "Custom CSS",
+    "target": "",
+    "context": "de via the --ui-config customCss field.\",key:mr.CUSTOM_CSS,label:\"Custom CSS\",type:vn.TEXTAREA}],slug:yg.DEVELOPER,title:Ey.DEVELOPER}];functi"
+  },
+  {
+    "id": 454695,
+    "start": 0,
+    "end": 14,
+    "source": "System message",
+    "target": "",
+    "context": "t=/^<ul>([\\s\\S]*)<\\/ul>$/i,bTt=/<li>([\\s\\S]*?)<\\/li>/gi,STt=8,DD=\"System message\",Lc={ACTIVE:\"data-active\",ACTIVE_TAB:\"data-active-tab\",CONVERSATI"
+  },
+  {
+    "id": 454985,
+    "start": 0,
+    "end": 7,
+    "source": "Browser",
+    "target": "",
+    "context": "-index\",THUMBNAIL_INDEX:\"data-thumbnail-index\"},_H={[yn.BROWSER]:\"Browser\",[yn.CUSTOM]:\"JSON Schema\",[yn.SERVER]:\"Server\"},QR={[yn.BROWSER]"
+  },
+  {
+    "id": 455007,
+    "start": 0,
+    "end": 11,
+    "source": "JSON Schema",
+    "target": "",
+    "context": "X:\"data-thumbnail-index\"},_H={[yn.BROWSER]:\"Browser\",[yn.CUSTOM]:\"JSON Schema\",[yn.SERVER]:\"Server\"},QR={[yn.BROWSER]:\"Browser Tools\",[yn.CUSTO"
+  },
+  {
+    "id": 455033,
+    "start": 0,
+    "end": 6,
+    "source": "Server",
+    "target": "",
+    "context": "_H={[yn.BROWSER]:\"Browser\",[yn.CUSTOM]:\"JSON Schema\",[yn.SERVER]:\"Server\"},QR={[yn.BROWSER]:\"Browser Tools\",[yn.CUSTOM]:\"Custom Tools\",[yn"
+  },
+  {
+    "id": 455060,
+    "start": 0,
+    "end": 13,
+    "source": "Browser Tools",
+    "target": "",
+    "context": "[yn.CUSTOM]:\"JSON Schema\",[yn.SERVER]:\"Server\"},QR={[yn.BROWSER]:\"Browser Tools\",[yn.CUSTOM]:\"Custom Tools\",[yn.SERVER]:\"Server Tools\"},DIe=500,Y"
+  },
+  {
+    "id": 455088,
+    "start": 0,
+    "end": 12,
+    "source": "Custom Tools",
+    "target": "",
+    "context": "n.SERVER]:\"Server\"},QR={[yn.BROWSER]:\"Browser Tools\",[yn.CUSTOM]:\"Custom Tools\",[yn.SERVER]:\"Server Tools\"},DIe=500,YL={TOKENS_PER_SECOND:\"t/s\"}"
+  },
+  {
+    "id": 455115,
+    "start": 0,
+    "end": 12,
+    "source": "Server Tools",
+    "target": "",
+    "context": ".BROWSER]:\"Browser Tools\",[yn.CUSTOM]:\"Custom Tools\",[yn.SERVER]:\"Server Tools\"},DIe=500,YL={TOKENS_PER_SECOND:\"t/s\"},MIe=768,tR=BL,N_e=150,vH=5"
+  },
+  {
+    "id": 455272,
+    "start": 0,
+    "end": 8,
+    "source": "New chat",
+    "target": "",
+    "context": "yH=[{action:Bb.NEW_CHAT,icon:zU,keys:[\"shift\",\"cmd\",\"o\"],tooltip:\"New chat\"},{icon:$L,keys:[\"cmd\",\"k\"],tooltip:\"Search\"},{action:Bb.SETTINGS"
+  },
+  {
+    "id": 455318,
+    "start": 0,
+    "end": 6,
+    "source": "Search",
+    "target": "",
+    "context": "\"cmd\",\"o\"],tooltip:\"New chat\"},{icon:$L,keys:[\"cmd\",\"k\"],tooltip:\"Search\"},{action:Bb.SETTINGS,icon:aIe,tooltip:\"Settings\"}],bH=\"://\",WL=/"
+  },
+  {
+    "id": 455365,
+    "start": 0,
+    "end": 8,
+    "source": "Settings",
+    "target": "",
+    "context": "cmd\",\"k\"],tooltip:\"Search\"},{action:Bb.SETTINGS,icon:aIe,tooltip:\"Settings\"}],bH=\"://\",WL=/\\{([+#./;?&]?)([^}]+)\\}/g,el={COMMA:\",\",FORM_CONT"
+  },
+  {
+    "id": 457502,
+    "start": 0,
+    "end": 6,
+    "source": "File: ",
+    "target": "",
+    "context": "t),Rx=/\\/+$/,ATt=[Xu.HTTP,Xu.HTTPS],RTt=Ui.BROWSER_READ_MEDIA,WJ=\"File: \",tce=\"Size: \",KJ=\"MIME: \",NTt=new RegExp(`^${tce}\\\\s*(\\\\d+)\\\\s*by"
+  },
+  {
+    "id": 457515,
+    "start": 0,
+    "end": 6,
+    "source": "Size: ",
+    "target": "",
+    "context": "ATt=[Xu.HTTP,Xu.HTTPS],RTt=Ui.BROWSER_READ_MEDIA,WJ=\"File: \",tce=\"Size: \",KJ=\"MIME: \",NTt=new RegExp(`^${tce}\\\\s*(\\\\d+)\\\\s*bytes`),XJ={gif"
+  },
+  {
+    "id": 457527,
+    "start": 0,
+    "end": 6,
+    "source": "MIME: ",
+    "target": "",
+    "context": ",Xu.HTTPS],RTt=Ui.BROWSER_READ_MEDIA,WJ=\"File: \",tce=\"Size: \",KJ=\"MIME: \",NTt=new RegExp(`^${tce}\\\\s*(\\\\d+)\\\\s*bytes`),XJ={gif:Yi.GIF,jpeg"
+  },
+  {
+    "id": 457551,
+    "start": 0,
+    "end": 20,
+    "source": "^{0}\\s*(\\d+)\\s*bytes",
+    "target": "",
+    "context": "R_READ_MEDIA,WJ=\"File: \",tce=\"Size: \",KJ=\"MIME: \",NTt=new RegExp(`^${tce}\\\\s*(\\\\d+)\\\\s*bytes`),XJ={gif:Yi.GIF,jpeg:Yi.JPEG,jpg:Yi.JPEG,png:Yi.PNG},jJ={mp3:Vi."
+  },
+  {
+    "id": 457711,
+    "start": 0,
+    "end": 12,
+    "source": "images ({0})",
+    "target": "",
+    "context": "3_MPEG,wav:Vi.WAV};function OTt(t,e){const r=[];return t&&r.push(`images (${Object.keys(XJ).join(\", \")})`),e&&r.push(`audio (${Object.keys(jJ).join(\", \")})`),{function:{d"
+  },
+  {
+    "id": 457763,
+    "start": 0,
+    "end": 11,
+    "source": "audio ({0})",
+    "target": "",
+    "context": "rn t&&r.push(`images (${Object.keys(XJ).join(\", \")})`),e&&r.push(`audio (${Object.keys(jJ).join(\", \")})`),{function:{description:`Read a media file and attach it to the "
+  },
+  {
+    "id": 457827,
+    "start": 0,
+    "end": 98,
+    "source": "Read a media file and attach it to the conversation so it can be perceived directly. Supports {0}.",
+    "target": "",
+    "context": "(`audio (${Object.keys(jJ).join(\", \")})`),{function:{description:`Read a media file and attach it to the conversation so it can be perceived directly. Supports ${r.join(\" and \")}.`,name:RTt,parameters:{properties:{path:{description:\"Path to the "
+  },
+  {
+    "id": 457994,
+    "start": 0,
+    "end": 22,
+    "source": "Path to the media file",
+    "target": "",
+    "context": "n(\" and \")}.`,name:RTt,parameters:{properties:{path:{description:\"Path to the media file\",type:Zg.STRING}},required:[\"path\"],type:Zg.OBJECT}},type:n1.FUNC"
+  },
+  {
+    "id": 458167,
+    "start": 0,
+    "end": 88,
+    "source": "Returns the current local date and time in ISO 8601 format, with the IANA time zone name",
+    "target": "",
+    "context": "BROWSER_GET_DATETIME;function kTt(){return{function:{description:\"Returns the current local date and time in ISO 8601 format, with the IANA time zone name\",name:ITt,parameters:{properties:{},required:[],type:Zg.OBJECT}},"
+  },
+  {
+    "id": 458388,
+    "start": 0,
+    "end": 7,
+    "source": "Windows",
+    "target": "",
+    "context": "ype:n1.FUNCTION}}const DTt=Ui.SERVER_GET_INFO,MTt=[[/Windows NT/,\"Windows\"],[/Android/,\"Android\"],[/iPhone|iPad|iPod/,\"iOS\"],[/CrOS/,\"Chrom"
+  },
+  {
+    "id": 458410,
+    "start": 0,
+    "end": 7,
+    "source": "Android",
+    "target": "",
+    "context": " DTt=Ui.SERVER_GET_INFO,MTt=[[/Windows NT/,\"Windows\"],[/Android/,\"Android\"],[/iPhone|iPad|iPod/,\"iOS\"],[/CrOS/,\"ChromeOS\"],[/Mac OS X/,\"mac"
+  },
+  {
+    "id": 458456,
+    "start": 0,
+    "end": 8,
+    "source": "ChromeOS",
+    "target": "",
+    "context": "ndows\"],[/Android/,\"Android\"],[/iPhone|iPad|iPod/,\"iOS\"],[/CrOS/,\"ChromeOS\"],[/Mac OS X/,\"macOS\"],[/Linux/,\"Linux\"]],LTt=\"unknown\",PTt=`This"
+  },
+  {
+    "id": 458498,
+    "start": 0,
+    "end": 5,
+    "source": "Linux",
+    "target": "",
+    "context": "d|iPod/,\"iOS\"],[/CrOS/,\"ChromeOS\"],[/Mac OS X/,\"macOS\"],[/Linux/,\"Linux\"]],LTt=\"unknown\",PTt=`This environment is browser-only, it cannot"
+  },
+  {
+    "id": 458526,
+    "start": 0,
+    "end": 187,
+    "source": "This environment is browser-only, it cannot read or modify local files, and it cannot run shell commands. To get local file access, tell user to launch llama-server with the {0} argument.",
+    "target": "",
+    "context": "meOS\"],[/Mac OS X/,\"macOS\"],[/Linux/,\"Linux\"]],LTt=\"unknown\",PTt=`This environment is browser-only, it cannot read or modify local files, and it cannot run shell commands. To get local file access, tell user to launch llama-server with the ${F_.AGENT} argument.`;function FTt(){return{function:{description:\"Get runtime info (O"
+  },
+  {
+    "id": 458768,
+    "start": 0,
+    "end": 87,
+    "source": "Get runtime info (OS name), may call when user asks about local files or shell commands",
+    "target": "",
+    "context": "F_.AGENT} argument.`;function FTt(){return{function:{description:\"Get runtime info (OS name), may call when user asks about local files or shell commands\",name:DTt,parameters:{properties:{},required:[],type:Zg.OBJECT}},"
+  },
+  {
+    "id": 460564,
+    "start": 0,
+    "end": 57,
+    "source": "Failed to parse config from localStorage, using defaults:",
+    "target": "",
+    "context": "g:n,isFirstVisit:r,userOverrides:i}}catch(e){return console.warn(\"Failed to parse config from localStorage, using defaults:\",e),{config:{},isFirstVisit:!1,userOverrides:[]}}}static migrateL"
+  },
+  {
+    "id": 460926,
+    "start": 0,
+    "end": 38,
+    "source": "Failed to save config to localStorage:",
+    "target": "",
+    "context": "ocalStorage.setItem(GJ,JSON.stringify(r))}catch(n){console.error(\"Failed to save config to localStorage:\",n)}}}const KO={IOS_PHONE:/iPhone|iPod/,MACINTOSH:/Macintosh/,SAF"
+  },
+  {
+    "id": 461329,
+    "start": 0,
+    "end": 16,
+    "source": "max-width: {0}px",
+    "target": "",
+    "context": "urn E(this.#t)}set systemTheme(e){j(this.#t,e,!0)}mobile=new XNe(`max-width: ${MIe-1}px`);get isMobile(){return this.mobile.current}constructor(){const e"
+  },
+  {
+    "id": 463567,
+    "start": 0,
+    "end": 33,
+    "source": "Error fetching server properties:",
+    "target": "",
+    "context": "tring(n),this.status=n instanceof jL?n.status:null,console.error(\"Error fetching server properties:\",n),this.status===503&&this.scheduleRetry()}finally{e||(this.load"
+  },
+  {
+    "id": 463921,
+    "start": 0,
+    "end": 26,
+    "source": "Server running in {0} mode",
+    "target": "",
+    "context": "UTER?Ky.ROUTER:Ky.MODEL;this.role!==r&&(this.role=r,console.info(`Server running in ${r===Ky.ROUTER?\"ROUTER\":\"MODEL\"} mode`))}scheduleRetry(){this.retryTimer||(this.retryTimer=setTimeout(("
+  },
+  {
+    "id": 463956,
+    "start": 0,
+    "end": 6,
+    "source": "ROUTER",
+    "target": "",
+    "context": "=r&&(this.role=r,console.info(`Server running in ${r===Ky.ROUTER?\"ROUTER\":\"MODEL\"} mode`))}scheduleRetry(){this.retryTimer||(this.retryTim"
+  },
+  {
+    "id": 463965,
+    "start": 0,
+    "end": 5,
+    "source": "MODEL",
+    "target": "",
+    "context": ".role=r,console.info(`Server running in ${r===Ky.ROUTER?\"ROUTER\":\"MODEL\"} mode`))}scheduleRetry(){this.retryTimer||(this.retryTimer=setTi"
+  },
+  {
+    "id": 465512,
+    "start": 0,
+    "end": 4,
+    "source": "Date",
+    "target": "",
+    "context": "??this.#e,r=new WeakMap,n=i=>{if(i===null||i?.constructor.name===\"Date\"||typeof i!=\"object\")return i;let a=r.get(i);return a||(a=new Pro"
+  },
+  {
+    "id": 465945,
+    "start": 0,
+    "end": 51,
+    "source": "Error when parsing \"{0}\" from persisted store \"{1}\"",
+    "target": "",
+    "context": "};#o(e){try{return this.#r.deserialize(e)}catch(r){console.error(`Error when parsing \"${e}\" from persisted store \"${this.#t}\"`,r);return}}#l(e){try{e!=null&&this.#n?.setItem(this.#t,this.#r.s"
+  },
+  {
+    "id": 466107,
+    "start": 0,
+    "end": 58,
+    "source": "Error when writing value from persisted store \"{0}\" to {1}",
+    "target": "",
+    "context": "#n?.setItem(this.#t,this.#r.serialize(e))}catch(r){console.error(`Error when writing value from persisted store \"${this.#t}\" to ${this.#n}`,r)}}}function I_e(t){return t.filter(e=>e.length>0)}const qIe={g"
+  },
+  {
+    "id": 467364,
+    "start": 0,
+    "end": 48,
+    "source": "expected an argument of type string, but got {0}",
+    "target": "",
+    "context": "gExp(t,\"g\");return n=>{if(typeof n!=\"string\")throw new TypeError(`expected an argument of type string, but got ${typeof n}`);return n.match(r)?n.replace(r,e):n}}const tCt=eCt(/[A-Z]/,t=>`-"
+  },
+  {
+    "id": 467588,
+    "start": 0,
+    "end": 48,
+    "source": "expected an argument of type object, but got {0}",
+    "target": "",
+    "context": "{if(!t||typeof t!=\"object\"||Array.isArray(t))throw new TypeError(`expected an argument of type object, but got ${typeof t}`);return Object.keys(t).map(e=>`${tCt(e)}: ${t[e]};`).join(`\n`)}f"
+  },
+  {
+    "id": 473015,
+    "start": 0,
+    "end": 10,
+    "source": " nonce={0}",
+    "target": "",
+    "context": "a,l=>{e.themeColors&&l(s)})}var o=ae(a,2);J_(o,()=>`<script${r()?` nonce=${r()}`:\"\"}>(`+_Ct.toString()+\")(\"+JSON.stringify(e.initConfig)+\");<\\/sc"
+  },
+  {
+    "id": 474868,
+    "start": 0,
+    "end": 26,
+    "source": "Cleared all user overrides",
+    "target": "",
+    "context": "rides(){this.userOverrides.clear(),this.saveConfig(),console.log(\"Cleared all user overrides\")}exportSettings(e=!1){const r=e?{...this.config}:Object.fromEntr"
+  },
+  {
+    "id": 476154,
+    "start": 0,
+    "end": 37,
+    "source": "Invalid settings data: missing config",
+    "target": "",
+    "context": "serOverrides)}importSettings(e){if(!e||!e.config)throw new Error(\"Invalid settings data: missing config\");this.config={...yu,...e.config},this.userOverrides=new Set(e.us"
+  },
+  {
+    "id": 476331,
+    "start": 0,
+    "end": 30,
+    "source": "Settings imported successfully",
+    "target": "",
+    "context": "des??[]),this.saveConfig(),bg(this.config[mr.THEME]),console.log(\"Settings imported successfully\")}initialize(){try{this.loadConfig(),this.migrateLegacyTheme(),bg"
+  },
+  {
+    "id": 476497,
+    "start": 0,
+    "end": 36,
+    "source": "Failed to initialize settings store:",
+    "target": "",
+    "context": "s.config[mr.THEME]),this.isInitialized=!0}catch(e){console.error(\"Failed to initialize settings store:\",e)}}resetAll(){this.resetConfig(),this.resetTheme()}resetConfig("
+  },
+  {
+    "id": 477484,
+    "start": 0,
+    "end": 26,
+    "source": "User overrides after sync:",
+    "target": "",
+    "context": "s.config,i,a),i===mr.THEME&&bg(a))}this.saveConfig(),console.log(\"User overrides after sync:\",Array.from(this.userOverrides))}updateConfig(e,r){if(this.config"
+  },
+  {
+    "id": 479175,
+    "start": 0,
+    "end": 8,
+    "source": "ApiError",
+    "target": "",
+    "context": "lass jL extends Error{status;constructor(e,r){super(e),this.name=\"ApiError\",this.status=r}}async function u2(t,e={}){const{authOnly:r=!1,hea"
+  },
+  {
+    "id": 479718,
+    "start": 0,
+    "end": 4,
+    "source": "POST",
+    "target": "",
+    "context": "unction P_e(t,e,r={}){return u2(t,{body:JSON.stringify(e),method:\"POST\",...r})}async function wCt(t){try{const r=await t.json();if(r?.er"
+  },
+  {
+    "id": 480067,
+    "start": 0,
+    "end": 9,
+    "source": "TypeError",
+    "target": "",
+    "context": "tion xCt(t){let e;if(t instanceof Error){if(e=t.message,t.name===\"TypeError\"&&e.includes(\"fetch\"))return Dg.NETWORK.UNREACHABLE}else e=String"
+  },
+  {
+    "id": 480165,
+    "start": 0,
+    "end": 12,
+    "source": "ECONNREFUSED",
+    "target": "",
+    "context": "return Dg.NETWORK.UNREACHABLE}else e=String(t);return e.includes(\"ECONNREFUSED\")?Dg.NETWORK.REFUSED:e.includes(\"ENOTFOUND\")?Dg.NETWORK.NXDOMAIN:"
+  },
+  {
+    "id": 480211,
+    "start": 0,
+    "end": 9,
+    "source": "ENOTFOUND",
+    "target": "",
+    "context": ";return e.includes(\"ECONNREFUSED\")?Dg.NETWORK.REFUSED:e.includes(\"ENOTFOUND\")?Dg.NETWORK.NXDOMAIN:e.includes(\"ETIMEDOUT\")?Dg.NETWORK.TIMEOUT:"
+  },
+  {
+    "id": 480255,
+    "start": 0,
+    "end": 9,
+    "source": "ETIMEDOUT",
+    "target": "",
+    "context": "K.REFUSED:e.includes(\"ENOTFOUND\")?Dg.NETWORK.NXDOMAIN:e.includes(\"ETIMEDOUT\")?Dg.NETWORK.TIMEOUT:`${Dg.NETWORK.GENERIC} (${e})`}function ACt("
+  },
+  {
+    "id": 480501,
+    "start": 0,
+    "end": 9,
+    "source": "{0}/props",
+    "target": "",
+    "context": "SON};e&&(r[gs.AUTHORIZATION]=`${gs.BEARER}${e}`);const n=await t(`${jo}/props`,{headers:r});if(!n.ok){if(n.status===401||n.status===403)throw A"
+  },
+  {
+    "id": 480586,
+    "start": 0,
+    "end": 13,
+    "source": "Access denied",
+    "target": "",
+    "context": "rs:r});if(!n.ok){if(n.status===401||n.status===403)throw ACt(401,\"Access denied\");console.warn(`Server responded with status ${n.status} during A"
+  },
+  {
+    "id": 480616,
+    "start": 0,
+    "end": 58,
+    "source": "Server responded with status {0} during API key validation",
+    "target": "",
+    "context": "=401||n.status===403)throw ACt(401,\"Access denied\");console.warn(`Server responded with status ${n.status} during API key validation`);return}}catch(r){if(r&&typeof r==\"object\"&&\"status\"in r)throw r"
+  },
+  {
+    "id": 480763,
+    "start": 0,
+    "end": 48,
+    "source": "Cannot connect to server for API key validation:",
+    "target": "",
+    "context": "h(r){if(r&&typeof r==\"object\"&&\"status\"in r)throw r;console.warn(\"Cannot connect to server for API key validation:\",r)}}function ice(t){return!!(t.attachment?.type===ai.MCP_PROMPT|"
+  },
+  {
+    "id": 481401,
+    "start": 0,
+    "end": 14,
+    "source": "attachment-{0}",
+    "target": "",
+    "context": "ries()){const s=ree(a);n.push({attachment:a,attachmentIndex:i,id:`attachment-${i}`,isImage:s,name:a.name,preview:s&&\"base64Url\"in a?a.base64Url:voi"
+  },
+  {
+    "id": 483716,
+    "start": 0,
+    "end": 16,
+    "source": "map is read-only",
+    "target": "",
+    "context": "tanceof Map?We.clear=We.delete=We.set=function(){throw new Error(\"map is read-only\")}:We instanceof Set&&(We.add=We.clear=We.delete=function(){throw"
+  },
+  {
+    "id": 483810,
+    "start": 0,
+    "end": 16,
+    "source": "set is read-only",
+    "target": "",
+    "context": "nceof Set&&(We.add=We.clear=We.delete=function(){throw new Error(\"set is read-only\")}),Object.freeze(We),Object.getOwnPropertyNames(We).forEach(Ne=>"
+  },
+  {
+    "id": 486089,
+    "start": 0,
+    "end": 12,
+    "source": "language:{0}",
+    "target": "",
+    "context": "oseNode()}__addSublanguage(Ne,Et){const Qe=Ne.root;Et&&(Qe.scope=`language:${Et}`),this.add(Qe)}toHTML(){return new o(this,this.options).value()}f"
+  },
+  {
+    "id": 490032,
+    "start": 0,
+    "end": 40,
+    "source": "begin & end are not supported with match",
+    "target": "",
+    "context": "ction fe(We,Ne){if(We.match){if(We.begin||We.end)throw new Error(\"begin & end are not supported with match\");We.begin=We.match,delete We.match}}function ve(We,Ne){We.releva"
+  },
+  {
+    "id": 490244,
+    "start": 0,
+    "end": 38,
+    "source": "beforeMatch cannot be used with starts",
+    "target": "",
+    "context": "(We,Ne)=>{if(!We.beforeMatch)return;if(We.starts)throw new Error(\"beforeMatch cannot be used with starts\");const Et=Object.assign({},We);Object.keys(We).forEach(Qe=>{dele"
+  },
+  {
+    "id": 491134,
+    "start": 0,
+    "end": 9,
+    "source": "WARN: {0}",
+    "target": "",
+    "context": "nst Me={},et=We=>{console.error(We)},ft=(We,...Ne)=>{console.log(`WARN: ${We}`,...Ne)},Ue=(We,Ne)=>{Me[`${We}/${Ne}`]||(console.log(`Deprecated"
+  },
+  {
+    "id": 491201,
+    "start": 0,
+    "end": 25,
+    "source": "Deprecated as of {0}. {1}",
+    "target": "",
+    "context": "ARN: ${We}`,...Ne)},Ue=(We,Ne)=>{Me[`${We}/${Ne}`]||(console.log(`Deprecated as of ${We}. ${Ne}`),Me[`${We}/${Ne}`]=!0)},He=new Error;function tt(We,Ne,{key:Et})"
+  },
+  {
+    "id": 491553,
+    "start": 0,
+    "end": 66,
+    "source": "skip, excludeBegin, returnBegin not compatible with beginScope: {}",
+    "target": "",
+    "context": "(We.begin)){if(We.skip||We.excludeBegin||We.returnBegin)throw et(\"skip, excludeBegin, returnBegin not compatible with beginScope: {}\"),He;if(typeof We.beginScope!=\"object\"||We.beginScope===null)thro"
+  },
+  {
+    "id": 491691,
+    "start": 0,
+    "end": 25,
+    "source": "beginScope must be object",
+    "target": "",
+    "context": "if(typeof We.beginScope!=\"object\"||We.beginScope===null)throw et(\"beginScope must be object\"),He;tt(We,We.begin,{key:\"beginScope\"}),We.begin=T(We.begin,{join"
+  },
+  {
+    "id": 491885,
+    "start": 0,
+    "end": 60,
+    "source": "skip, excludeEnd, returnEnd not compatible with endScope: {}",
+    "target": "",
+    "context": "sArray(We.end)){if(We.skip||We.excludeEnd||We.returnEnd)throw et(\"skip, excludeEnd, returnEnd not compatible with endScope: {}\"),He;if(typeof We.endScope!=\"object\"||We.endScope===null)throw et"
+  },
+  {
+    "id": 492013,
+    "start": 0,
+    "end": 23,
+    "source": "endScope must be object",
+    "target": "",
+    "context": ",He;if(typeof We.endScope!=\"object\"||We.endScope===null)throw et(\"endScope must be object\"),He;tt(We,We.end,{key:\"endScope\"}),We.end=T(We.end,{joinWith:\"\"}"
+  },
+  {
+    "id": 495236,
+    "start": 0,
+    "end": 89,
+    "source": "ERR: contains `self` is not supported at the top-level of a language.  See documentation.",
+    "target": "",
+    "context": "ns=[]),We.contains&&We.contains.includes(\"self\"))throw new Error(\"ERR: contains `self` is not supported at the top-level of a language.  See documentation.\");return We.classNameAliases=n(We.classNameAliases||{}),tr(We)}fu"
+  },
+  {
+    "id": 495785,
+    "start": 0,
+    "end": 18,
+    "source": "HTMLInjectionError",
+    "target": "",
+    "context": "1\";class ze extends Error{constructor(Ne,Et){super(Ne),this.name=\"HTMLInjectionError\",this.html=Et}}const ht=r,nt=n,Xe=Symbol(\"nomatch\"),je=7,_t=funct"
+  },
+  {
+    "id": 495955,
+    "start": 0,
+    "end": 83,
+    "source": "Could not find the language '{}', did you forget to load/include a language module?",
+    "target": "",
+    "context": "ect.create(null),Et=Object.create(null),Qe=[];let ar=!0;const tr=\"Could not find the language '{}', did you forget to load/include a language module?\",Tt={disableAutodetect:!0,name:\"Plain text\",contains:[]};let Ft={"
+  },
+  {
+    "id": 496071,
+    "start": 0,
+    "end": 10,
+    "source": "Plain text",
+    "target": "",
+    "context": "o load/include a language module?\",Tt={disableAutodetect:!0,name:\"Plain text\",contains:[]};let Ft={ignoreUnescapedHTML:!1,throwUnescapedHTML:!"
+  },
+  {
+    "id": 496264,
+    "start": 0,
+    "end": 8,
+    "source": "pre code",
+    "target": "",
+    "context": "Re:/\\blang(?:uage)?-([\\w-]+)\\b/i,classPrefix:\"hljs-\",cssSelector:\"pre code\",languages:null,__emitter:d};function Rt(Jt){return Ft.noHighligh"
+  },
+  {
+    "id": 496543,
+    "start": 0,
+    "end": 49,
+    "source": "Falling back to no-highlight mode for this block.",
+    "target": "",
+    "context": "sr){const Yt=un(sr[1]);return Yt||(ft(tr.replace(\"{}\",sr[1])),ft(\"Falling back to no-highlight mode for this block.\",Jt)),Yt?sr[1]:\"no-highlight\"}return Rr.split(/\\s+/).find(Yt=>Rt("
+  },
+  {
+    "id": 496787,
+    "start": 0,
+    "end": 51,
+    "source": "highlight(lang, code, ...args) has been deprecated.",
+    "target": "",
+    "context": "object\"?(Yt=Jt,sr=Rr.ignoreIllegals,Ht=Rr.language):(Ue(\"10.7.0\",\"highlight(lang, code, ...args) has been deprecated.\"),Ue(\"10.7.0\",`Please use highlight(code, options) instead.\nhttps"
+  },
+  {
+    "id": 496854,
+    "start": 0,
+    "end": 100,
+    "source": "Please use highlight(code, options) instead.\nhttps://github.com/highlightjs/highlight.js/issues/2277",
+    "target": "",
+    "context": "ighlight(lang, code, ...args) has been deprecated.\"),Ue(\"10.7.0\",`Please use highlight(code, options) instead.\nhttps://github.com/highlightjs/highlight.js/issues/2277`),Ht=Jt,Yt=Rr),sr===void 0&&(sr=!0);const ur={code:Yt,language:Ht"
+  }
+]

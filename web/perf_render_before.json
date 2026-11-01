@@ -1,0 +1,129 @@
+{
+  "tag": "before",
+  "seconds": 25,
+  "hidden": false,
+  "clock": {
+    "span": null,
+    "seconds": 25,
+    "scale": 1
+  },
+  "ranked": [
+    {
+      "name": "(idle) @ :0",
+      "hits": 36028,
+      "ms": 24811
+    },
+    {
+      "name": "(program) @ :0",
+      "hits": 908,
+      "ms": 625
+    },
+    {
+      "name": "requestAnimationFrame @ :0",
+      "hits": 64,
+      "ms": 44
+    },
+    {
+      "name": "(garbage collector) @ :0",
+      "hits": 45,
+      "ms": 31
+    },
+    {
+      "name": "tick @ :42",
+      "hits": 15,
+      "ms": 10
+    },
+    {
+      "name": "querySelector @ :0",
+      "hits": 6,
+      "ms": 4
+    },
+    {
+      "name": "getBoundingClientRect @ :0",
+      "hits": 4,
+      "ms": 3
+    },
+    {
+      "name": "qwenContextFetch @ context-control.js?v=3:228",
+      "hits": 2,
+      "ms": 1
+    },
+    {
+      "name": "fetch @ :0",
+      "hits": 2,
+      "ms": 1
+    },
+    {
+      "name": "pollStatus @ mode-control.js?v=16:1103",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "URL @ :0",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "set title @ :0",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "querySelectorAll @ :0",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "get @ :80",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "timeout @ :0",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "add @ :0",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "set hidden @ :0",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "currentChatId @ mode-control.js?v=16:205",
+      "hits": 1,
+      "ms": 1
+    }
+  ],
+  "ourCode": [
+    {
+      "name": "qwenContextFetch @ context-control.js?v=3:228",
+      "hits": 2,
+      "ms": 1
+    },
+    {
+      "name": "pollStatus @ mode-control.js?v=16:1103",
+      "hits": 1,
+      "ms": 1
+    },
+    {
+      "name": "currentChatId @ mode-control.js?v=16:205",
+      "hits": 1,
+      "ms": 1
+    }
+  ],
+  "layout": {
+    "reads": 39,
+    "byName": {
+      "Element.getBoundingClientRect": 26,
+      "Element.scrollHeight": 13
+    },
+    "mutations": 364,
+    "chipConnected": true,
+    "micDocked": true
+  }
+}

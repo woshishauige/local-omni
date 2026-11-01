@@ -1,0 +1,209 @@
+{
+  "tag": "after",
+  "identity": {
+    "shareStatus": 200,
+    "shareUploads": 200,
+    "usage": 200,
+    "ownerControls": false,
+    "href": "http://127.0.0.1:8081/"
+  },
+  "view": {
+    "toolbar": true,
+    "modeButtons": [
+      "text:enabled",
+      "vision:enabled",
+      "voice:enabled",
+      "generate:enabled",
+      "video:enabled"
+    ],
+    "picker": true,
+    "pickerDisabled": false,
+    "chip": false,
+    "chipText": null,
+    "mic": true,
+    "shareLauncher": false,
+    "usageEntry": false,
+    "ctxEntry": false,
+    "panels": {
+      "image": true,
+      "video": true,
+      "voice": true,
+      "share": false,
+      "usage": false,
+      "context": false
+    },
+    "localStorageKeys": [
+      "LlamaUi.conversationTabs",
+      "qwen.local.toolPermission.added.new-chat",
+      "LlamaUi.alwaysAllowedTools",
+      "LlamaUi.userOverrides",
+      "LlamaUi.config",
+      "qwen.voice.rail",
+      "mode-watcher-theme",
+      "LlamaUi.migration-state",
+      "QwenLocal.agentDefaults.v2",
+      "mode-watcher-mode"
+    ],
+    "globals": [
+      "LocalModes",
+      "ImagePanel",
+      "VideoPanel",
+      "QwenVoice",
+      "VoicePanel"
+    ]
+  },
+  "boot": {
+    "count": 16,
+    "bytes": 49053,
+    "rows": [
+      {
+        "path": "/tools",
+        "count": 5,
+        "bytes": 14797,
+        "ms": 58.1,
+        "max": 19.5
+      },
+      {
+        "path": "/local/status",
+        "count": 4,
+        "bytes": 11232,
+        "ms": 15.4,
+        "max": 6.2
+      },
+      {
+        "path": "/local/context/config",
+        "count": 1,
+        "bytes": 381,
+        "ms": 1.8,
+        "max": 1.8
+      },
+      {
+        "path": "/local/voice/config",
+        "count": 1,
+        "bytes": 587,
+        "ms": 3.9,
+        "max": 3.9
+      },
+      {
+        "path": "/build.json",
+        "count": 1,
+        "bytes": 344,
+        "ms": 5.3,
+        "max": 5.3
+      },
+      {
+        "path": "/props?autoload=false",
+        "count": 1,
+        "bytes": 10198,
+        "ms": 5.5,
+        "max": 5.5
+      },
+      {
+        "path": "/_app/version.json",
+        "count": 1,
+        "bytes": 344,
+        "ms": 8.2,
+        "max": 8.2
+      },
+      {
+        "path": "/props?model=<long>&autoload=false",
+        "count": 1,
+        "bytes": 10198,
+        "ms": 10.5,
+        "max": 10.5
+      },
+      {
+        "path": "/v1/models",
+        "count": 1,
+        "bytes": 972,
+        "ms": 11.3,
+        "max": 11.3
+      }
+    ]
+  },
+  "idle": {
+    "count": 3,
+    "bytes": 3783,
+    "rows": [
+      {
+        "path": "/local/status",
+        "count": 1,
+        "bytes": 2815,
+        "ms": 28.3,
+        "max": 28.3
+      },
+      {
+        "path": "/local/context/config",
+        "count": 1,
+        "bytes": 381,
+        "ms": 26.6,
+        "max": 26.6
+      },
+      {
+        "path": "/local/voice/config",
+        "count": 1,
+        "bytes": 587,
+        "ms": 12.9,
+        "max": 12.9
+      }
+    ],
+    "cdp": {
+      "count": 41,
+      "byPath": {
+        "/local/status": 16,
+        "/": 1,
+        "/agent-defaults.js?v=2": 1,
+        "/_app/immutable/bundle.zh-CN.js": 1,
+        "/_app/immutable/assets/bundle.3BIcW1B_.css": 1,
+        "/local/mode-control.css?v=9": 1,
+        "/local/mode-control.js?v=16": 1,
+        "/local/image-panel.css?v=14": 1,
+        "/local/image-panel.js?v=15": 1,
+        "/local/video-panel.css?v=14": 1,
+        "/local/video-panel.js?v=19": 1,
+        "/local/usage-log.css?v=2": 1,
+        "/local/usage-log.js?v=2": 1,
+        "/local/context-control.css?v=2": 1,
+        "/local/context-control.js?v=3": 1,
+        "/local/share-manager.css?v=2": 1,
+        "/local/voice-input.css?v=6": 1,
+        "/local/voice-input.js?v=6": 1,
+        "/local/share-manager.js?v=3": 1,
+        "/local/voice-panel.css?v=9": 1,
+        "/local/voice-panel.js?v=21": 1,
+        "/manifest.webmanifest": 2,
+        "/local/context/config": 1,
+        "/local/voice/config": 1,
+        "/favicon.svg": 1
+      }
+    },
+    "blockingMs": -264,
+    "longTasks": -2,
+    "navigated": true
+  },
+  "routes": {
+    "/local/status": "200 {\"service\":\"qwen-local-modes\",\"instance_id\":\"1e4fabb4073b452bab459663aeae9cb9\",\"mode\":\"vision\",\"state\":\"ready\",\"error\":n",
+    "/tools": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/voice/config": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/context/config": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/image/meta": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/image/gpu": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/video/progress": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/video/comfy": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/video/recipes": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/video/history": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/video/output": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/video/folders": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/usage": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/routing": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/gpu": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/voice/voices": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/voice/status": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/image/history": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/image/workflows": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/context/status?conversation_id=x": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/share/status": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/share/uploads": "THREW RangeError: Maximum call stack size exceeded",
+    "/local/share/guest-policy": "THREW RangeError: Maximum call stack size exceeded"
+  }
+}

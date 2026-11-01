@@ -1,0 +1,146 @@
+{
+  "tag": "hidden_after_live",
+  "seconds": 40,
+  "cdp": {
+    "count": 56,
+    "byPath": {
+      "/local/status": 18,
+      "/": 1,
+      "/agent-defaults.js?v=2": 1,
+      "/_app/immutable/bundle.zh-CN.js": 1,
+      "/_app/immutable/assets/bundle.3BIcW1B_.css": 1,
+      "/local/mode-control.css?v=9": 1,
+      "/local/mode-control.js?v=16": 1,
+      "/local/image-panel.css?v=14": 1,
+      "/local/image-panel.js?v=15": 1,
+      "/local/video-panel.css?v=14": 1,
+      "/local/video-panel.js?v=19": 1,
+      "/local/usage-log.css?v=2": 1,
+      "/local/usage-log.js?v=2": 1,
+      "/local/context-control.css?v=2": 1,
+      "/local/context-control.js?v=3": 1,
+      "/local/share-manager.css?v=2": 1,
+      "/local/voice-input.css?v=6": 1,
+      "/local/voice-input.js?v=6": 1,
+      "/local/share-manager.js?v=3": 1,
+      "/local/voice-panel.css?v=9": 1,
+      "/local/voice-panel.js?v=21": 1,
+      "/manifest.webmanifest": 2,
+      "/local/context/config": 1,
+      "/local/voice/config": 1,
+      "/favicon.svg": 2,
+      "/tools": 4,
+      "/build.json": 1,
+      "/props": 1,
+      "/props?autoload=false": 1,
+      "/_app/version.json": 1,
+      "/favicon-dark.svg": 1,
+      "/props?model=qwen3.5-9b-uncensored-local&autoload=false": 1,
+      "/v1/models": 1,
+      "/favicon-dark.ico": 1
+    }
+  },
+  "drain": {
+    "count": 27,
+    "bytes": 76179
+  },
+  "inPage": {
+    "count": -2
+  },
+  "navigations": 2,
+  "layout": {
+    "reads": -2,
+    "mutations": -25,
+    "frames": -459
+  },
+  "cpu": {
+    "busyMs": 69,
+    "ranked": [
+      {
+        "name": "(idle) @ :0",
+        "ms": 31196
+      },
+      {
+        "name": "(program) @ :0",
+        "ms": 148
+      },
+      {
+        "name": "(garbage collector) @ :0",
+        "ms": 53
+      },
+      {
+        "name": "(anonymous) @ bundle.zh-CN.js:0",
+        "ms": 15
+      },
+      {
+        "name": "getBoundingClientRect @ :0",
+        "ms": 13
+      },
+      {
+        "name": "g0r @ bundle.zh-CN.js:590",
+        "ms": 8
+      },
+      {
+        "name": "Nx @ bundle.zh-CN.js:43",
+        "ms": 6
+      },
+      {
+        "name": "srt @ bundle.zh-CN.js:1705",
+        "ms": 3
+      },
+      {
+        "name": "Blob @ :0",
+        "ms": 3
+      },
+      {
+        "name": "render @ mode-control.js?v=16:976",
+        "ms": 3
+      },
+      {
+        "name": "querySelector @ :0",
+        "ms": 3
+      },
+      {
+        "name": "(anonymous) @ bundle.zh-CN.js:125",
+        "ms": 3
+      },
+      {
+        "name": "(anonymous) @ bundle.zh-CN.js:671",
+        "ms": 3
+      },
+      {
+        "name": "mAr @ bundle.zh-CN.js:970",
+        "ms": 3
+      },
+      {
+        "name": "uje @ bundle.zh-CN.js:1606",
+        "ms": 3
+      },
+      {
+        "name": "Dd @ bundle.zh-CN.js:242",
+        "ms": 3
+      }
+    ],
+    "injectedMs": 3,
+    "injected": [
+      {
+        "name": "render @ mode-control.js?v=16:976",
+        "ms": 3
+      }
+    ]
+  },
+  "counters": {
+    "tasks": 1,
+    "taskMs": 72,
+    "frames": 1,
+    "t": 31673.100000023842,
+    "calls": 0,
+    "installCount": 1,
+    "label": "idle",
+    "errors": [],
+    "navTime": 1789736479313.9,
+    "docId": 1,
+    "href": "http://127.0.0.1:8081/",
+    "reloads": 0
+  }
+}

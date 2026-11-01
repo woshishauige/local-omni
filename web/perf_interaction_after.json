@@ -1,0 +1,71 @@
+{
+  "tag": "after",
+  "settle": 2500,
+  "steps": [
+    {
+      "mode": "image",
+      "error": "no button for image"
+    },
+    {
+      "index": 1,
+      "mode": "video",
+      "clickedAt": 7224.8,
+      "disabled": false,
+      "label": "视频生成H3",
+      "requests": 10,
+      "bytes": 50094,
+      "paths": [
+        "2x /local/video/progress",
+        "2x /local/video/comfy",
+        "1x /local/video/recipes",
+        "1x /local/video/output",
+        "1x /local/video/history",
+        "1x /local/image/progress",
+        "1x /local/image/gpu",
+        "1x /local/status"
+      ],
+      "longTasks": 1,
+      "blockingMs": 191,
+      "mutations": 113,
+      "mutationBatches": 0,
+      "panelState": {
+        "image": {
+          "active": false,
+          "box": {
+            "w": 0,
+            "h": 0
+          }
+        },
+        "video": {
+          "active": true,
+          "box": {
+            "w": 1570,
+            "h": 797
+          }
+        },
+        "voice": {
+          "active": false,
+          "box": {
+            "w": 0,
+            "h": 0
+          }
+        },
+        "chatHidden": "none",
+        "pressed": "text=false vision=false voice=false generate=false video=true"
+      }
+    },
+    {
+      "mode": "image",
+      "error": "no button for image"
+    }
+  ],
+  "mountLatency": [
+    {
+      "mode": "video",
+      "requests": 10,
+      "bytes": 50094,
+      "longTasks": 1,
+      "blockingMs": 191
+    }
+  ]
+}

@@ -1,0 +1,444 @@
+{
+  "tag": "before",
+  "idleSeconds": 60,
+  "hiddenSeconds": 30,
+  "phases": {
+    "boot": {
+      "ms": 4408,
+      "count": 15,
+      "bytes": 46240,
+      "rows": [
+        {
+          "path": "/tools",
+          "count": 5,
+          "bytes": 14797,
+          "ms": 128.10000000000002,
+          "max": 40.3
+        },
+        {
+          "path": "/local/status",
+          "count": 3,
+          "bytes": 8421,
+          "ms": 22.5,
+          "max": 14.7
+        },
+        {
+          "path": "/local/context/config",
+          "count": 1,
+          "bytes": 381,
+          "ms": 5.8,
+          "max": 5.8
+        },
+        {
+          "path": "/local/voice/config",
+          "count": 1,
+          "bytes": 587,
+          "ms": 3.6,
+          "max": 3.6
+        },
+        {
+          "path": "/build.json",
+          "count": 1,
+          "bytes": 344,
+          "ms": 5,
+          "max": 5
+        },
+        {
+          "path": "/props?autoload=false",
+          "count": 1,
+          "bytes": 10197,
+          "ms": 13.3,
+          "max": 13.3
+        },
+        {
+          "path": "/_app/version.json",
+          "count": 1,
+          "bytes": 344,
+          "ms": 28.7,
+          "max": 28.7
+        },
+        {
+          "path": "/props?model=<long>&autoload=false",
+          "count": 1,
+          "bytes": 10197,
+          "ms": 23,
+          "max": 23
+        },
+        {
+          "path": "/v1/models",
+          "count": 1,
+          "bytes": 972,
+          "ms": 22.8,
+          "max": 22.8
+        }
+      ],
+      "counters": {
+        "tasks": 2,
+        "taskMs": 237,
+        "frames": 1158,
+        "t": 4409.0999999940395,
+        "calls": 12,
+        "installCount": 1,
+        "label": "boot",
+        "errors": [],
+        "navTime": 1789736146774.4,
+        "docId": 1,
+        "href": "http://127.0.0.1:8081/",
+        "reloads": 0
+      }
+    },
+    "idleVisible": {
+      "count": 31,
+      "bytes": 84862,
+      "rows": [
+        {
+          "path": "/local/status",
+          "count": 30,
+          "bytes": 84210,
+          "ms": 99.99999999999999,
+          "max": 10.1
+        },
+        {
+          "path": "/sw.js",
+          "count": 1,
+          "bytes": 652,
+          "ms": 3.1,
+          "max": 3.1
+        }
+      ],
+      "before": {
+        "tasks": 2,
+        "taskMs": 237,
+        "frames": 3,
+        "t": 4425.800000011921,
+        "calls": 0,
+        "installCount": 2,
+        "label": "idle-visible",
+        "errors": [],
+        "navTime": 1789736146774.4,
+        "docId": 2,
+        "href": "http://127.0.0.1:8081/",
+        "reloads": 0
+      },
+      "after": {
+        "tasks": 2,
+        "taskMs": 237,
+        "frames": 18002,
+        "t": 64429.70000001788,
+        "calls": 31,
+        "installCount": 2,
+        "label": "idle-visible",
+        "errors": [],
+        "navTime": 1789736146774.4,
+        "docId": 2,
+        "href": "http://127.0.0.1:8081/",
+        "reloads": 0
+      },
+      "cdp": {
+        "count": 31,
+        "byPath": [
+          [
+            "/local/status",
+            30
+          ],
+          [
+            "/sw.js",
+            1
+          ]
+        ]
+      },
+      "blockingMs": 0,
+      "longTasks": 0,
+      "frames": 17999,
+      "pageClock": 60003.9,
+      "navigated": false,
+      "reloads": 0,
+      "invalid": null
+    },
+    "idleHidden": {
+      "count": 6,
+      "bytes": 16842,
+      "rows": [
+        {
+          "path": "/local/status",
+          "count": 6,
+          "bytes": 16842,
+          "ms": 25.1,
+          "max": 6.2
+        }
+      ],
+      "before": {
+        "tasks": 2,
+        "taskMs": 237,
+        "frames": 1,
+        "t": 64434.40000000596,
+        "calls": 0,
+        "installCount": 3,
+        "label": "idle-hidden",
+        "errors": [],
+        "navTime": 1789736146774.4,
+        "docId": 3,
+        "href": "http://127.0.0.1:8081/",
+        "reloads": 0
+      },
+      "after": {
+        "tasks": 2,
+        "taskMs": 237,
+        "frames": 9010,
+        "t": 94464.30000001192,
+        "calls": 6,
+        "installCount": 3,
+        "label": "idle-hidden",
+        "errors": [],
+        "navTime": 1789736146774.4,
+        "docId": 3,
+        "href": "http://127.0.0.1:8081/",
+        "reloads": 0
+      },
+      "cdp": {
+        "count": 6,
+        "byPath": [
+          [
+            "/local/status",
+            6
+          ]
+        ]
+      },
+      "blockingMs": 0,
+      "longTasks": 0,
+      "frames": 9009,
+      "pageClock": 30029.9,
+      "navigated": false,
+      "reloads": 0,
+      "invalid": null
+    }
+  },
+  "arm": {
+    "installed": true,
+    "reused": false,
+    "label": "analysis"
+  },
+  "layout": {
+    "toolbar": {
+      "w": 1570,
+      "h": 61,
+      "top": 0,
+      "left": 0
+    },
+    "dock": {
+      "w": 125,
+      "h": 26,
+      "top": 461,
+      "left": 1060
+    },
+    "mic": {
+      "w": 34,
+      "h": 26,
+      "top": 461,
+      "left": 1151
+    },
+    "chip": null,
+    "composer": {
+      "w": 768,
+      "h": 148,
+      "top": 345,
+      "left": 429
+    },
+    "domNodes": 1263,
+    "appButtons": [
+      "本对话放行",
+      "关闭",
+      "模型优缺点",
+      "纯文本快",
+      "识图投影",
+      "语音对话9B",
+      "生图Klein",
+      "视频生成H3",
+      "重试",
+      "语音对话",
+      "关闭",
+      "展开导航",
+      "新对话",
+      "搜索",
+      "设置",
+      "上下文压缩",
+      "使用日志",
+      "选择命令",
+      "选择提示词",
+      "选择引用文件",
+      "添加文件、提示词、工具或 MCP 服务器",
+      "qwen3.5 9B   uncensoredlocal",
+      "发送",
+      "设置工作目录",
+      "选择工作目录",
+      "工具权限（new-chat）：逐次询问",
+      "语音输入",
+      "取消生成",
+      "重试",
+      "知道了",
+      "生成图片",
+      "超分",
+      "降噪",
+      "开始降噪",
+      "恢复默认参数",
+      "随机",
+      "×",
+      "×",
+      "清空",
+      "生成图片",
+      "关闭全部",
+      "清空记录",
+      "关闭",
+      "视频生成",
+      "超分重建",
+      "降噪",
+      "视频拼接",
+      "1 段",
+      "2 段",
+      "3 段",
+      "4 段",
+      "随机",
+      "续接",
+      "切镜",
+      "清除",
+      "清除",
+      "恢复推荐值",
+      "768×512 · 实测基准",
+      "960×544 · 折中",
+      "1024×576 · 实测 +16% 时间",
+      "选择…",
+      "用默认",
+      "上一级",
+      "用这个文件夹",
+      "开始生成",
+      "取消",
+      "播放成片",
+      "开始放大",
+      "开始降噪",
+      "拼接片段",
+      "清空",
+      "RIFE 补帧 ×2（24→48fps）",
+      "降噪收尾（nlmeans）",
+      "费用设置",
+      "刷新",
+      "导出 CSV",
+      "返回对话",
+      "请求明细",
+      "调用分析",
+      "路由记录",
+      "今天",
+      "近 7 天",
+      "近 30 天",
+      "重置筛选",
+      "重试",
+      "上一页",
+      "下一页",
+      "柱状图",
+      "面积图",
+      "上一页",
+      "下一页",
+      "关闭上下文压缩",
+      "压缩下一轮",
+      "共享管理器",
+      "刷新",
+      "收起",
+      "一键断联",
+      "停止共享并退出",
+      "复制链接",
+      "复制链接和口令",
+      "复制口令",
+      "更换口令",
+      "随机生成",
+      "保存新口令",
+      "全部开放",
+      "全部收回",
+      "重试",
+      "一键踢出全部",
+      "清理未使用记录",
+      "设置",
+      "关闭",
+      "收起对话历史",
+      "新对话",
+      "清空全部",
+      "展开对话历史",
+      "开始录音",
+      "发送",
+      "关闭设置",
+      "傅叔男声",
+      "Serena女声",
+      "Vivian女声",
+      "Ryan男声",
+      "Aiden男声",
+      "Anna女声",
+      "Sohee女声",
+      "Eric四川话",
+      "Dylan北京话",
+      "自动发送说完停顿片刻就发出去，不用再点一次",
+      "朗读回复回答在这里读出来，不只显示文字"
+    ],
+    "localStorageKeys": [
+      "LlamaUi.conversationTabs",
+      "qwen.local.toolPermission.added.new-chat",
+      "LlamaUi.alwaysAllowedTools",
+      "LlamaUi.userOverrides",
+      "LlamaUi.config",
+      "qwen.voice.rail",
+      "mode-watcher-theme",
+      "LlamaUi.migration-state",
+      "QwenLocal.agentDefaults.v2",
+      "mode-watcher-mode"
+    ],
+    "visibility": "visible",
+    "appFetchCalls": 12
+  },
+  "concurrency": {
+    "total": 0,
+    "groups": []
+  },
+  "tasks": {
+    "tasks": [
+      {
+        "start": 199.5,
+        "duration": 185,
+        "container": "self"
+      },
+      {
+        "start": 412,
+        "duration": 52,
+        "container": "self"
+      }
+    ],
+    "total": 2,
+    "taskMs": 237,
+    "frames": 1,
+    "longAnims": [],
+    "errors": [],
+    "documentLoad": 100
+  },
+  "cdpPhases": [
+    {
+      "name": "idle-visible",
+      "count": 31,
+      "byPath": [
+        [
+          "/local/status",
+          30
+        ],
+        [
+          "/sw.js",
+          1
+        ]
+      ]
+    },
+    {
+      "name": "idle-hidden",
+      "count": 7,
+      "byPath": [
+        [
+          "/local/status",
+          7
+        ]
+      ]
+    }
+  ]
+}

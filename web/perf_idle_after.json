@@ -1,0 +1,130 @@
+{
+  "tag": "after",
+  "seconds": 60,
+  "cdp": {
+    "count": 31,
+    "byPath": {
+      "/local/status": 30,
+      "/sw.js": 1
+    }
+  },
+  "drain": {
+    "count": 31,
+    "bytes": 84862
+  },
+  "inPage": {
+    "count": 31,
+    "byPath": {
+      "/local/status": 30,
+      "/sw.js": 1
+    }
+  },
+  "navigations": 1,
+  "layout": {
+    "reads": 60,
+    "mutations": 840,
+    "frames": 18003
+  },
+  "cpu": {
+    "busyMs": 229,
+    "ranked": [
+      {
+        "name": "(idle) @ :0",
+        "ms": 58454
+      },
+      {
+        "name": "(program) @ :0",
+        "ms": 1715
+      },
+      {
+        "name": "requestAnimationFrame @ :0",
+        "ms": 150
+      },
+      {
+        "name": "(garbage collector) @ :0",
+        "ms": 43
+      },
+      {
+        "name": "tick @ :6",
+        "ms": 32
+      },
+      {
+        "name": "querySelector @ :0",
+        "ms": 12
+      },
+      {
+        "name": "tick @ :42",
+        "ms": 8
+      },
+      {
+        "name": "getBoundingClientRect @ :0",
+        "ms": 6
+      },
+      {
+        "name": "fetch @ :0",
+        "ms": 5
+      },
+      {
+        "name": "currentChatId @ mode-control.js?v=17:240",
+        "ms": 3
+      },
+      {
+        "name": "bump @ :6",
+        "ms": 3
+      },
+      {
+        "name": "dockPass @ voice-input.js?v=7:342",
+        "ms": 2
+      },
+      {
+        "name": "dockMic @ voice-input.js?v=7:271",
+        "ms": 2
+      },
+      {
+        "name": "add @ :0",
+        "ms": 2
+      },
+      {
+        "name": "render @ mode-control.js?v=17:976",
+        "ms": 2
+      },
+      {
+        "name": "call @ :57",
+        "ms": 2
+      }
+    ],
+    "injectedMs": 9,
+    "injected": [
+      {
+        "name": "currentChatId @ mode-control.js?v=17:240",
+        "ms": 3
+      },
+      {
+        "name": "dockPass @ voice-input.js?v=7:342",
+        "ms": 2
+      },
+      {
+        "name": "dockMic @ voice-input.js?v=7:271",
+        "ms": 2
+      },
+      {
+        "name": "render @ mode-control.js?v=17:976",
+        "ms": 2
+      }
+    ]
+  },
+  "counters": {
+    "tasks": 2,
+    "taskMs": 234,
+    "frames": 18043,
+    "t": 67047.79999998212,
+    "calls": 31,
+    "installCount": 1,
+    "label": "idle",
+    "errors": [],
+    "navTime": 1789736248543.1,
+    "docId": 1,
+    "href": "http://127.0.0.1:8081/",
+    "reloads": 0
+  }
+}

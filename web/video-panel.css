@@ -1,0 +1,382 @@
+/* Video view for the local Qwen gateway.
+   Peers the generate panel's layout language; every class is qv- prefixed so the
+   two panels can never style each other by accident. */
+
+/* The chat screen gives way to this view the same way it does for generate, so
+   the toolbar above stays visible and clickable — without this the panel's fixed
+   overlay would cover the mode buttons and the view could not be left. */
+.local-modes-enabled.local-video-mode .chat-screen,
+.local-modes-enabled.local-video-mode .chat-screen-form-wrapper,
+.local-modes-enabled.local-video-mode .conversation-chat-form {
+  display: none !important;
+}
+
+.qv-root {
+  --qv-bg: #14161a;
+  --qv-card: #1b1e24;
+  --qv-line: #2a2f38;
+  --qv-text: #e8eaee;
+  --qv-dim: #9aa2b1;
+  --qv-accent: #6ea8fe;
+  --qv-danger: #f2777a;
+  position: fixed;
+  /* Starts below the mode toolbar rather than under it, matching the generate
+     view's inset so the top navigation is always reachable. */
+  inset: var(--local-toolbar-height, 60px) 0 0;
+  z-index: 40;
+  overflow-y: auto;
+  padding: 24px clamp(16px, 4vw, 48px) 64px;
+  background: var(--qv-bg);
+  color: var(--qv-text);
+  font: 14px/1.55 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+.qv-root[hidden] { display: none; }
+
+.qv-header { margin: 0 0 16px; }
+.qv-title { margin: 0; font-size: 20px; font-weight: 650; }
+.qv-subtitle { margin: 4px 0 12px; color: var(--qv-dim); font-size: 13px; }
+
+.qv-submodes { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid var(--qv-line); border-radius: 10px; background: var(--qv-card); }
+.qv-submode {
+  padding: 7px 18px; border: 0; border-radius: 7px; background: transparent;
+  color: var(--qv-dim); font: inherit; font-weight: 600; cursor: pointer;
+}
+.qv-submode[aria-pressed="true"] { background: var(--qv-accent); color: #0d1117; }
+.qv-submode:hover:not([aria-pressed="true"]) { color: var(--qv-text); }
+
+.qv-body {
+  display: grid;
+  /* 监控（左）· 设置（中）· 成片与历史（右）。宽度是**定值**而不是分数：分数轨道会随内容
+     重新分配，于是右栏里一句话变长，左栏的进度卡片就跟着挪位置。所有者要求"框架大小位置
+     锁死"，所以三栏在宽屏下都是固定宽度。 */
+  grid-template-columns: 340px minmax(0, 1fr) 400px;
+  gap: 18px;
+  max-width: 1600px;
+  margin: 0 auto;
+  align-items: start;
+}
+@media (max-width: 1180px) { .qv-body { grid-template-columns: 300px minmax(0, 1fr); } }
+@media (max-width: 900px) { .qv-body { grid-template-columns: 1fr; } }
+.qv-column { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+/* The progress rail behaves like the 成片 column beside it: it sits in the page and scrolls with
+   everything else, and its height is whatever its content needs.
+   Two earlier attempts are worth remembering, because both were rejected by the owner:
+   ① the card sized itself while telemetry arrived *and* the column was sticky, so the component
+      grew under the cursor ("进度这一个组件仍然会自变换");
+   ② pinning it to the viewport height with an inner scroll area stopped it growing, but then the
+      wheel over the rail scrolled the rail instead of the page, and an idle rail was a tall empty
+      box ("要和成片那里一样，不能随滚轮移动并且大小包住内容即可").
+   What is locked now is what actually must not move: the three column widths, and the width and
+   left edge of the rail. Nothing inside the card scrolls, so the wheel always scrolls the page. */
+.qv-column-monitor {
+  align-self: start;
+  min-width: 0;
+}
+.qv-column-monitor > .qv-card { overflow: visible; }
+/* Everything below the card's head, kept as one element so the structure still reads as
+   "head + live part" — it is not a scroll region any more. */
+.qv-column-monitor > .qv-card > .qv-monitor-body {
+  margin-top: 2px;
+  overflow: visible;
+}
+/* Single column: nothing special is needed any more — the rail was only ever pinned and
+   height-capped on wide screens. The rules above already make it plain page content. */
+/* Short windows: trim the blocks that can give up height without losing data. */
+@media (max-height: 900px) {
+  .qv-preview-image { max-height: 88px; }
+}
+.qv-pane { display: flex; flex-direction: column; gap: 16px; }
+.qv-pane[hidden] { display: none; }
+
+.qv-card { padding: 16px 18px; border: 1px solid var(--qv-line); border-radius: 12px; background: var(--qv-card); }
+.qv-card-title { margin: 0 0 12px; font-size: 14px; font-weight: 650; }
+
+.qv-recipes { display: flex; flex-wrap: wrap; gap: 8px; }
+.qv-recipe {
+  padding: 9px 14px; border: 1px solid var(--qv-line); border-radius: 9px;
+  background: #20242b; color: var(--qv-text); font: inherit; cursor: pointer; text-align: left;
+}
+.qv-recipe[aria-pressed="true"] { border-color: var(--qv-accent); box-shadow: inset 0 0 0 1px var(--qv-accent); }
+.qv-recipe:hover { border-color: var(--qv-accent); }
+.qv-note { margin: 12px 0 0; color: var(--qv-dim); font-size: 12.5px; }
+
+/* Motion guard: one switch under the recipe buttons. */
+.qv-toggle { display: flex; align-items: center; gap: 8px; margin-top: 12px; cursor: pointer; }
+.qv-toggle[data-off="true"] { cursor: default; color: var(--qv-dim); }
+.qv-toggle-input { width: 16px; height: 16px; accent-color: var(--qv-accent); }
+.qv-toggle-label { font-weight: 600; }
+.qv-toggle + .qv-note { margin-top: 6px; }
+
+/* Shot plan: one block per shot, so the count control and the prompts it reveals
+   read as a single unit. */
+.qv-shot-count { display: flex; gap: 8px; flex-wrap: wrap; }
+.qv-shots { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+.qv-shot { padding: 12px; border: 1px solid var(--qv-line); border-radius: 10px; background: #171a20; }
+.qv-shot-label { display: block; margin-bottom: 6px; font-weight: 650; }
+.qv-shot-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.qv-shot-head .qv-shot-label { margin: 0; }
+.qv-shot-cost { color: var(--qv-dim); font-size: 12px; }
+.qv-shot-params { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 8px; }
+.qv-shot-param { display: grid; gap: 3px; }
+/* Stitching: four numbered slots, one per row. Two per row squeezed both the picker and the
+   file name (the name got 28px and rendered as "未…"), and the action row fell into the grid
+   next to slot 4 — everything that is not a slot now spans the full width. */
+.qv-stitch { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 10px; }
+.qv-stitch > .qv-label,
+.qv-stitch > .qv-actions,
+.qv-stitch > .qv-toggle,
+.qv-stitch > .qv-note { grid-column: 1 / -1; }
+.qv-stitch-slot {
+  display: flex; align-items: center; gap: 10px; min-width: 0; padding: 6px 10px;
+  border: 1px dashed var(--qv-line); border-radius: 10px;
+}
+.qv-stitch-slot .qv-file { flex: 0 1 210px; min-width: 0; margin: 0; padding: 6px; }
+.qv-stitch-index {
+  flex: 0 0 auto; width: 20px; height: 20px; border-radius: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #232833; color: var(--qv-text); font-size: 12px; font-weight: 650;
+}
+.qv-stitch .qv-file-name { flex: 1 1 auto; min-width: 0; margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qv-shot-param-input {
+  width: 100%; padding: 7px 9px; border: 1px solid var(--qv-line); border-radius: 8px;
+  background: #12151a; color: var(--qv-text); font: inherit;
+}
+.qv-shot-param-input:focus { outline: 1px solid var(--qv-accent); border-color: var(--qv-accent); }
+/* Seed and its reroll button read as one field. */
+.qv-seed-row { display: flex; gap: 6px; }
+/* Per-shot join style: two small buttons, the pressed one is the shot's answer. */
+.qv-shot-continuity { display: flex; gap: 6px; }
+.qv-shot-continuity .qv-link-button[aria-pressed="true"] {
+  background: var(--qv-accent); color: #0d1117; border-color: var(--qv-accent);
+}
+.qv-seed-random {
+  flex: 0 0 auto; padding: 7px 12px; border: 1px solid var(--qv-line); border-radius: 8px;
+  background: #232830; color: var(--qv-text); font: inherit; cursor: pointer;
+}
+.qv-seed-random:hover { border-color: var(--qv-accent); color: var(--qv-accent); }
+.qv-shot-prompt { margin-bottom: 8px; }
+.qv-shot-refs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.qv-shot-refs .qv-label { margin: 0; }
+.qv-shot-refs .qv-file { flex: 1 1 220px; }
+
+.qv-param-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.qv-params { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.qv-param { display: grid; gap: 4px; }
+.qv-link-button { padding: 0; border: 0; background: transparent; color: var(--qv-accent); font: inherit; font-size: 12.5px; cursor: pointer; align-self: center; flex: 0 0 auto; white-space: nowrap; }
+.qv-link-button:hover { text-decoration: underline; }
+
+/* Save location: the path field, the picker button, and the folder browser the
+   button opens. The browser reads folders through the gateway, because a page
+   cannot see the host's filesystem. */
+.qv-path-row { display: flex; gap: 8px; align-items: stretch; }
+.qv-path-row .qv-file { flex: 1 1 auto; min-width: 0; }
+/* Where the film will land, spelled out under the two fields that compose it. */
+.qv-output-preview { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; font-size: 12px; }
+.qv-output-preview-label { color: var(--qv-dim); }
+.qv-output-preview-path { flex: 1 1 320px; min-width: 0; overflow-wrap: anywhere; color: var(--qv-text); }
+.qv-output-preview-state { color: var(--qv-dim); }
+.qv-output-preview[data-state="ready"] .qv-output-preview-state { color: #6cc48c; }
+.qv-output-preview[data-state="invalid"] .qv-output-preview-path,
+.qv-output-preview[data-state="invalid"] .qv-output-preview-state { color: #e0725f; }
+/* What the optimiser wrote: two labelled blocks in the rail, each scrollable on its own so a
+   long Chinese sentence cannot push the flow bar out of the fixed monitor frame. */
+.qv-prompt-result { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--qv-line); }
+.qv-prompt-label { display: block; margin: 6px 0 2px; color: var(--qv-dim); font-size: 11.5px; }
+.qv-prompt-text { margin: 0; max-height: 88px; overflow: auto; font-size: 12.5px; line-height: 1.55;
+  overflow-wrap: anywhere; }
+.qv-prompt-rewritten { color: var(--qv-text); }
+.qv-browse {
+  flex: 0 0 auto; padding: 8px 14px; border: 1px solid var(--qv-line); border-radius: 9px;
+  background: #232830; color: var(--qv-text); font: inherit; font-weight: 600; cursor: pointer;
+}
+.qv-browse:hover, .qv-browse[aria-pressed="true"] { border-color: var(--qv-accent); color: var(--qv-accent); }
+.qv-browser {
+  margin-top: 8px; padding: 10px; border: 1px solid var(--qv-line); border-radius: 9px; background: #12151a;
+}
+.qv-browser[hidden] { display: none; }
+.qv-browser-roots { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.qv-browser-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.qv-browser-path {
+  flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--qv-dim); font: 12px/1.5 ui-monospace, Consolas, monospace;
+}
+.qv-browser-button {
+  flex: 0 0 auto; padding: 5px 10px; border: 1px solid var(--qv-line); border-radius: 7px;
+  background: #20242b; color: var(--qv-text); font: inherit; font-size: 12.5px; cursor: pointer;
+}
+.qv-browser-button:hover:not(:disabled) { border-color: var(--qv-accent); }
+.qv-browser-button:disabled { opacity: .5; cursor: default; }
+.qv-browser-button[aria-pressed="true"] { border-color: var(--qv-accent); color: var(--qv-accent); }
+.qv-browser-use { border-color: transparent; background: var(--qv-accent); color: #0d1117; font-weight: 600; }
+.qv-browser-list { display: flex; flex-direction: column; gap: 2px; max-height: 220px; overflow-y: auto; }
+.qv-browser-folder {
+  padding: 6px 8px; border: 0; border-radius: 6px; background: transparent; color: var(--qv-text);
+  font: inherit; text-align: left; cursor: pointer;
+}
+.qv-browser-folder:hover { background: #232830; }
+.qv-browser-empty { padding: 4px 8px; color: var(--qv-dim); font-size: 12.5px; }
+
+.qv-field { display: block; margin-bottom: 14px; }
+.qv-label { display: block; margin-bottom: 4px; font-weight: 600; }
+.qv-hint { display: block; margin-bottom: 8px; color: var(--qv-dim); font-size: 12.5px; }
+.qv-textarea, .qv-file {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--qv-line); border-radius: 9px;
+  background: #12151a; color: var(--qv-text); font: inherit; resize: vertical;
+}
+.qv-textarea:focus, .qv-file:focus { outline: 1px solid var(--qv-accent); border-color: var(--qv-accent); }
+.qv-file { padding: 8px; }
+.qv-file-name { display: block; margin-top: 6px; color: var(--qv-dim); font-size: 12.5px; }
+
+.qv-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+/* A run's progress, repeated next to the buttons: the status card is at the top of a long
+   page and is easy to miss while the button sits at the bottom.
+ *
+ * Truly fixed, not sticky. The panel root is itself the scroll container
+ * (`.qv-root { position: fixed; overflow-y: auto }`), so a sticky element only ever
+ * "caught" while its own row was on screen and travelled with the wheel otherwise — the
+ * complaint this fixes. Being a fixed child of the scroller is what makes it stay put
+ * while everything else moves, and the bottom inset keeps it clear of the card beneath.
+ */
+.qv-action-status {
+  position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%);
+  width: min(760px, calc(100vw - 2 * clamp(16px, 4vw, 48px)));
+  z-index: 30;
+  padding: 10px 12px; border: 1px solid var(--qv-line); border-radius: 10px;
+  background: #171b22; box-shadow: 0 10px 28px rgba(0, 0, 0, .5);
+}
+.qv-action-track { height: 6px; border-radius: 999px; background: #262b33; overflow: hidden; }
+.qv-action-track[hidden] { display: none; }
+.qv-action-fill { height: 100%; width: 0; background: var(--qv-accent); transition: width .4s ease; }
+.qv-action-note { display: flex; align-items: baseline; gap: 10px; margin: 8px 0 0; color: var(--qv-dim); font-size: 12.5px; }
+.qv-action-note[data-tone="error"] { color: var(--qv-danger); }
+.qv-action-note[hidden] { display: none; }
+.qv-button {
+  padding: 10px 18px; border: 1px solid var(--qv-line); border-radius: 9px;
+  background: #232830; color: var(--qv-text); font: inherit; font-weight: 600; cursor: pointer;
+}
+.qv-button:disabled { opacity: .55; cursor: default; }
+.qv-primary { border-color: transparent; background: var(--qv-accent); color: #0d1117; }
+.qv-danger { border-color: var(--qv-danger); color: var(--qv-danger); background: transparent; }
+
+.qv-status { margin: 0; font-weight: 600; }
+.qv-track { height: 8px; border-radius: 999px; background: #262b33; overflow: hidden; }
+.qv-track-fill { height: 100%; width: 0; background: var(--qv-accent); transition: width .4s ease; }
+.qv-meta { display: flex; gap: 16px; margin-top: 8px; color: var(--qv-dim); font-size: 12.5px; flex-wrap: wrap; }
+
+/* The monitor is its own rail: it stays where it is while the settings scroll. It
+   follows the generate view's language — titled card, label+value tiles, sampler
+   preview — plus the per-shot plan and the process log a chained run needs. */
+.qv-monitor { background: #1b1e24; box-shadow: 0 10px 24px rgba(0, 0, 0, .35); }
+.qv-monitor-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.qv-monitor-head .qv-card-title { margin: 0; }
+.qv-monitor-badge {
+  padding: 3px 9px; border: 1px solid var(--qv-line); border-radius: 999px;
+  color: var(--qv-dim); font-size: 11.5px; white-space: nowrap; max-width: 100%;
+  overflow: hidden; text-overflow: ellipsis;
+}
+.qv-monitor-badge[data-state="running"] { border-color: var(--qv-accent); color: var(--qv-accent); }
+.qv-monitor-badge[data-state="done"] { border-color: #4f9c74; color: #74c69d; }
+.qv-monitor-badge[data-state="error"] { border-color: var(--qv-danger); color: var(--qv-danger); }
+.qv-card-hint { margin: 8px 0 0; color: var(--qv-dim); font-size: 11.5px; line-height: 1.55; }
+.qv-card-hint[hidden] { display: none; }
+
+.qv-progress-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 12px 0 6px; }
+.qv-progress-row .qv-status { margin: 0; font-size: 12.5px; font-weight: 600; }
+.qv-progress-percent { color: var(--qv-text); font-size: 15px; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+/* Tiles: compact rows — label on the left, tabular value on the right — so the whole
+   monitor still fits a pinned rail without scrolling. */
+.qv-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+.qv-metric {
+  display: flex; flex-direction: row; align-items: baseline; justify-content: space-between;
+  gap: 6px; padding: 6px 8px;
+  border: 1px solid var(--qv-line); border-radius: 10px; background: #171a20;
+}
+.qv-metric:first-child { grid-column: span 2; }
+/* Odd tile count after the full-width first tile: let the last one fill the row
+   instead of leaving a hole (the GPU grid has four tiles, the stats grid five). */
+.qv-metrics > .qv-metric:last-child:nth-child(even) { grid-column: span 2; }
+.qv-metric-label {
+  flex: 0 1 auto; min-width: 0; color: var(--qv-dim); font-size: 11px; line-height: 1.4;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.qv-metric-value { flex: 0 0 auto; font-size: 13.5px; font-weight: 620; font-variant-numeric: tabular-nums; }
+.qv-metric-tipped { cursor: help; }
+.qv-metric-tipped .qv-metric-label { border-bottom: 1px dotted var(--qv-line); }
+
+/* Sampler preview, shaped like the generate view's figure. */
+.qv-preview { margin: 8px 0 0; }
+.qv-preview[hidden] { display: none; }
+.qv-preview-image {
+  width: 100%; max-height: 124px; object-fit: contain;
+  border: 1px solid var(--qv-line); border-radius: 10px; background: #000; display: block;
+}
+.qv-preview-caption { margin-top: 4px; color: var(--qv-text); font-size: 11.5px; font-weight: 600; }
+/* The preview's explanation lives in the caption's tooltip: the rail has no room for
+   a second line of prose. */
+.qv-preview-hint { display: none; }
+.qv-monitor-line {
+  margin-top: 4px; color: var(--qv-dim); font-size: 11.5px; line-height: 1.45;
+  font-family: ui-monospace, Consolas, monospace; overflow-wrap: anywhere;
+}
+/* An empty telemetry line keeps its slot instead of collapsing: the four of them fill in one by
+   one during a run, and reserving the room means the values below do not step downward each
+   time one appears. (The frame is locked either way — this keeps the *inside* still too.) */
+.qv-monitor-line:empty { visibility: hidden; }
+.qv-monitor-subtitle { margin: 8px 0 4px; color: var(--qv-dim); font-size: 12px; font-weight: 600; }
+.qv-monitor-shots { display: flex; flex-direction: column; gap: 3px; }
+.qv-shot-row {
+  display: grid; grid-template-columns: 4.6em minmax(0, 1fr) auto auto; gap: 8px; align-items: baseline;
+  padding: 6px 8px; border: 1px solid var(--qv-line); border-radius: 7px; font-size: 12px;
+}
+.qv-shot-row[data-state="running"] { border-color: var(--qv-accent); }
+.qv-shot-row[data-state="done"] { opacity: .75; }
+.qv-shot-row[data-state="error"] { border-color: var(--qv-danger); color: var(--qv-danger); }
+.qv-shot-row-index { font-weight: 600; }
+.qv-shot-row-spec, .qv-shot-row-time { color: var(--qv-dim); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qv-shot-row-time { text-align: right; }
+.qv-shot-row-state { color: var(--qv-dim); }
+.qv-shot-row[data-state="running"] .qv-shot-row-state { color: var(--qv-accent); }
+/* The whole flow as one bar plus a compact checklist — the scrolling log is gone, so
+   nothing in the rail moves on its own. */
+.qv-flow { flex: 0 1 auto; min-height: 0; overflow: hidden; margin-top: 8px; }
+.qv-flow-head { display: flex; justify-content: flex-end; }
+.qv-flow-percent { color: var(--qv-text); font-size: 12px; font-weight: 620; font-variant-numeric: tabular-nums; }
+.qv-flow-track {
+  display: flex; gap: 2px; height: 8px; margin-top: 4px;
+  border-radius: 5px; overflow: hidden; background: #12151a;
+}
+.qv-flow-segment { flex: 1 1 0; background: #262b34; border-radius: 3px; }
+.qv-flow-segment[data-state="active"] { background: var(--qv-accent); }
+.qv-flow-segment[data-state="done"] { background: #3f7d5a; }
+.qv-flow-steps { display: flex; flex-wrap: wrap; gap: 4px 8px; margin-top: 6px; }
+.qv-flow-step { color: var(--qv-dim); font-size: 11px; }
+.qv-flow-step[data-state="active"] { color: var(--qv-accent); font-weight: 600; }
+.qv-flow-step[data-state="done"] { color: var(--qv-text); }
+.qv-flow-step[data-state="done"]::before { content: "✓ "; }
+.qv-flow-step[data-state="active"]::before { content: "● "; }
+.qv-flow-step[data-state="pending"]::before { content: "○ "; }
+/* Narrow rail: each shot is two lines — heading plus spec, then state and time — so a
+   four-shot plan still fits the pinned rail. */
+.qv-column-monitor .qv-shot-row {
+  grid-template-columns: auto minmax(0, 1fr); column-gap: 6px; row-gap: 0; padding: 5px 8px;
+}
+.qv-column-monitor .qv-shot-row-index { grid-area: 1 / 1; }
+.qv-column-monitor .qv-shot-row-spec {
+  grid-area: 1 / 2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.qv-column-monitor .qv-shot-row-state { grid-area: 2 / 1; }
+.qv-column-monitor .qv-shot-row-time { grid-area: 2 / 2; text-align: right; }
+.qv-video { width: 100%; border-radius: 9px; background: #000; }
+/* The director report stays in the DOM for diagnostics but is never shown. */
+.qv-report { display: none; }
+/* VRAM and queue under the film: the same compact tiles as the progress card. */
+.qv-gpu-card .qv-metrics { margin-top: 0; }
+
+.qv-history { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.qv-history-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--qv-line); border-radius: 8px; font-size: 12.5px; }
+.qv-history-recipe { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.qv-history-state { color: var(--qv-dim); }
+.qv-link { color: var(--qv-accent); text-decoration: none; }
+.qv-link:hover { text-decoration: underline; }

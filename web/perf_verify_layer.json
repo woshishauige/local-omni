@@ -1,0 +1,48 @@
+{
+  "rewrite": true,
+  "scripts": [
+    "/agent-defaults.js?v=2",
+    "/local/mode-control.js?v=17",
+    "/local/image-panel.js?v=16",
+    "/local/video-panel.js?v=20",
+    "/local/usage-log.js?v=2",
+    "/local/context-control.js?v=3",
+    "/local/voice-input.js?v=7",
+    "/local/share-manager.js?v=3",
+    "/local/voice-panel.js?v=21"
+  ],
+  "loaded": [
+    {
+      "url": "/local/usage-log.js?v=2",
+      "size": 44751
+    },
+    {
+      "url": "/local/mode-control.js?v=17",
+      "size": 71986
+    },
+    {
+      "url": "/local/image-panel.js?v=16",
+      "size": 81578
+    },
+    {
+      "url": "/local/video-panel.js?v=20",
+      "size": 104065
+    },
+    {
+      "url": "/local/context-control.js?v=3",
+      "size": 19995
+    },
+    {
+      "url": "/local/share-manager.js?v=3",
+      "size": 41316
+    },
+    {
+      "url": "/local/voice-input.js?v=7",
+      "size": 39894
+    },
+    {
+      "url": "/local/voice-panel.js?v=21",
+      "size": 103114
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "tag": "before",
+  "settle": 2500,
+  "steps": [
+    {
+      "index": 0,
+      "mode": "text",
+      "clickedAt": 6442.2,
+      "disabled": false,
+      "label": "纯文本快",
+      "requests": 1,
+      "bytes": 2807,
+      "paths": [
+        "1x /local/status"
+      ],
+      "longTasks": 0,
+      "blockingMs": 0,
+      "mutations": 54,
+      "mutationBatches": 0,
+      "panelState": {
+        "image": {
+          "active": false,
+          "box": {
+            "w": 0,
+            "h": 0
+          }
+        },
+        "video": {
+          "active": false,
+          "box": {
+            "w": 0,
+            "h": 0
+          }
+        },
+        "voice": {
+          "active": false,
+          "box": {
+            "w": 0,
+            "h": 0
+          }
+        },
+        "chatHidden": "grid",
+        "pressed": "text=true vision=false voice=false generate=false video=false"
+      }
+    },
+    {
+      "index": 1,
+      "mode": "vision",
+      "clickedAt": 8964.1,
+      "disabled": true,
+      "label": "识图投影",
+      "requests": 0,
+      "bytes": 0,
+      "paths": [],
+      "longTasks": 1,
+      "blockingMs": 106,
+      "mutations": -361,
+      "mutationBatches": 0
+    },
+    {
+      "mode": "image",
+      "error": "no button for image"
+    },
+    {
+      "index": 3,
+      "mode": "video",
+      "clickedAt": 1702.3,
+      "disabled": false,
+      "label": "视频生成H3",
+      "requests": 22,
+      "bytes": 138528,
+      "paths": [
+        "6x /local/video/history",
+        "6x /local/video/comfy",
+        "3x /local/video/progress",
+        "2x /local/image/gpu",
+        "2x /local/status",
+        "1x /local/video/recipes",
+        "1x /local/video/output",
+        "1x /local/image/progress"
+      ],
+      "longTasks": 1,
+      "blockingMs": 68,
+      "mutations": 0,
+      "mutationBatches": 0
+    },
+    {
+      "index": 4,
+      "mode": "text",
+      "clickedAt": 4291.8,
+      "disabled": true,
+      "label": "纯文本快",
+      "requests": 0,
+      "bytes": 0,
+      "paths": [],
+      "longTasks": -2,
+      "blockingMs": -198,
+      "mutations": 0,
+      "mutationBatches": 0
+    }
+  ],
+  "mountLatency": [
+    {
+      "mode": "text",
+      "requests": 1,
+      "bytes": 2807,
+      "longTasks": 0,
+      "blockingMs": 0
+    },
+    {
+      "mode": "video",
+      "requests": 22,
+      "bytes": 138528,
+      "longTasks": 1,
+      "blockingMs": 68
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+/* 悬浮任务窗的样式：折叠态是一个小圆圈，展开态是一张卡片。
+ *
+ * 它属于壳层而不是某个面板，所以这里不写任何依赖面板结构的规则（没有 .qg-* / .qv-*）。
+ * z-index 取 42：在注入面板（40）与共享入口（41）之上，在两处提示条（45）之下。
+ */
+.qt-root {
+  position: fixed;
+  z-index: 42;
+  font: 13px/1.45 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: #e8eaed;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: none;
+}
+
+/* ---- 折叠态：小圆圈 ---- */
+.qt-bubble {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #3c4043;
+  background: #1b1e23ee;
+  color: #c8ccd2;
+  box-shadow: 0 6px 18px #00000059;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  position: relative;
+  transition: border-color .15s, color .15s, transform .15s;
+  backdrop-filter: blur(6px);
+}
+
+.qt-bubble:hover { border-color: #8ab4f8; color: #e8eaed; }
+.qt-root[data-dragging="true"] .qt-bubble { cursor: grabbing; transform: scale(1.04); }
+
+.qt-bubble svg { width: 26px; height: 26px; }
+.qt-root[data-busy="true"] .qt-bubble svg { animation: qt-spin 2.6s linear infinite; }
+.qt-root[data-busy="true"] .qt-bubble { border-color: #8ab4f8; color: #8ab4f8; }
+.qt-root[data-busy="true"] .qt-bubble[data-tone="queued"] { border-color: #fdd663; color: #fdd663; }
+
+@keyframes qt-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .qt-root[data-busy="true"] .qt-bubble svg { animation: none; }
+}
+
+/* 运行时圆圈右上角的计数 */
+.qt-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: #8ab4f8;
+  color: #101216;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+
+.qt-root[data-busy="false"] .qt-count { display: none; }
+
+/* ---- 展开态：卡片 ---- */
+.qt-panel {
+  width: min(280px, calc(100vw - 24px));
+  border-radius: 14px;
+  border: 1px solid #3c4043;
+  background: #1b1e23f2;
+  box-shadow: 0 12px 32px #00000073;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+.qt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px 9px 12px;
+  background: #23262c;
+  cursor: grab;
+}
+
+.qt-root[data-dragging="true"] .qt-head { cursor: grabbing; }
+
+.qt-grip {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: #9aa0a6;
+}
+
+.qt-close {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #9aa0a6;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qt-close:hover { background: #33373d; color: #e8eaed; }
+
+.qt-list {
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: min(320px, 50vh);
+  overflow: auto;
+}
+
+.qt-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #23262caa;
+  border-left: 3px solid #8ab4f8;
+}
+
+.qt-item[data-tone="queued"] { border-left-color: #fdd663; }
+
+.qt-item-title { color: #e8eaed; }
+.qt-item-detail { color: #9aa0a6; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.qt-empty {
+  margin: 0;
+  padding: 4px 12px 12px;
+  color: #9aa0a6;
+  font-size: 12px;
+}
+
+/* 展开时圆圈让位：卡片就在圆圈的位置，圆圈自身隐藏 */
+.qt-root[data-open="true"] .qt-bubble { display: none; }
+.qt-root[data-open="false"] .qt-panel { display: none; }

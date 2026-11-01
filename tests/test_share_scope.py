@@ -1,4 +1,4 @@
-﻿"""Sharing settings must not disappear out from under a running gateway.
+"""Sharing settings must not disappear out from under a running gateway.
 
 实测：手工启动的网关（没有 QWEN_SHARE_CONFIG）在运行期被某个库 `import unittest` 之后，
 `tests_are_running()` 由 False 变 True，整个共享覆盖层随之消失——允许的访问名、监听地址、

@@ -41,7 +41,7 @@
 ### 1. 取代码
 
 ```powershell
-git clone <this-repo> qwenweb
+git clone https://github.com/woshishauige/qwenweb.git
 cd qwenweb
 ```
 

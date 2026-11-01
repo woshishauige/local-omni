@@ -450,9 +450,24 @@ def gateway_port(settings=None):
     """Port the browser gateway listens on, shared by the server and its watchdog.
 
     The launcher probes and restarts the gateway by port, so both sides have to
-    resolve it the same way: the sharing override wins over settings.json, and an
-    unusable value falls back to the default rather than breaking the watchdog.
+    resolve it the same way: ``QWEN_GATEWAY_PORT`` wins outright, then the sharing
+    override over settings.json, and an unusable value falls back to the default
+    rather than breaking the watchdog.
+
+    The dedicated variable exists because ``QWEN_LISTEN_PORT`` belongs to the
+    sharing overlay: a local-only start (``QWEN_SHARE_SCOPE=local``) hides that
+    overlay on purpose, which used to make the port impossible to move for a test
+    instance or a second copy — it silently took 8081 and collided with whatever
+    was already serving there.
     """
+    override = os.environ.get("QWEN_GATEWAY_PORT", "").strip()
+    if override:
+        try:
+            override_port = int(override)
+        except ValueError:
+            override_port = 0
+        if 1 <= override_port <= 65535:
+            return override_port
     try:
         port = int(str(share_setting("listen_port", settings)).strip())
     except (TypeError, ValueError):

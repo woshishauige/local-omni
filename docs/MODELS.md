@@ -9,7 +9,7 @@
 & $env:QWEN_PYTHON -X utf8 tools\fetch_hf_file.py --help    # 单文件、断点续传、可走 hf-mirror
 & $env:QWEN_PYTHON -X utf8 deployment\download_models.py     # MiniMax-H3 五个文件（带 sha256 校验）
 & $env:QWEN_PYTHON -X utf8 deployment\download_image_models.py  # 生图 checkpoint / VAE
-& $env:QWEN_PYTHON -X utf8 fetch_asr_model.py small          # whisper（走 ModelScope）
+& $env:QWEN_PYTHON -X utf8 scripts/fetch_asr_model.py small          # whisper（走 ModelScope）
 ```
 
 HF 对单连接限速明显，并发才是有效加速手段（`$env:DSH_FETCH_WORKERS=24` 之类，见各下载器说明）。
@@ -42,7 +42,7 @@ HF 对单连接限速明显，并发才是有效加速手段（`$env:DSH_FETCH_W
 | `Qwen3-ASR-0.6B-Q8_0.gguf` + `mmproj-Qwen3-ASR-0.6B-Q8_0.gguf` → `models/asr/qwen3-asr-0.6b/` | 0.77 + 0.20 GB | `ggml-org/Qwen3-ASR-0.6B-GGUF` |
 | `Qwen3-TTS-12Hz-1.7B-CustomVoice/`（整个目录）→ `models/tts/` | 3.66 GB | `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` |
 | `Qwen3-TTS-Tokenizer-12Hz/model.safetensors` → `models/tts/Qwen3-TTS-Tokenizer-12Hz/` | 0.65 GB | `Qwen/Qwen3-TTS-Tokenizer-12Hz` |
-| whisper `small`（`model.bin` 等）→ `models/asr/small/` | 0.46 GB | ModelScope `pengzhendong/faster-whisper-small`（脚本 `fetch_asr_model.py`） |
+| whisper `small`（`model.bin` 等）→ `models/asr/small/` | 0.46 GB | ModelScope `pengzhendong/faster-whisper-small`（脚本 `scripts/fetch_asr_model.py`） |
 
 TTS worker 还需要一个第三方引擎 checkout（`tools/Qwen3-TTS-GGUF`，含 `qwen3_tts_gguf` 包）
 与它自己的 venv（`tools/tts-venv`，`window` 下由网关按需创建/复用）。

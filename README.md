@@ -1,7 +1,9 @@
-# 本地部署 AI 文字语音对话、图像视频生成一键式网站
+﻿# LocalOmni · 本地部署 AI 文字语音对话、图像视频生成一键式网站
 
 把 AI 装进自己的电脑，浏览器打开一个网页就能用：聊天、看图、画图、做视频、说话，全在这一个页面里。
 模型跑在本地，对话和文件不出这台机器。
+
+> 英文名 **LocalOmni** = local（全在这台机器上）+ omni（文字、语音、图像、视频全模态），一个页面全包。
 
 ![对话界面](docs/screenshots/chat.png)
 
@@ -27,6 +29,22 @@
 </tr>
 </table>
 
+## 代码都在哪
+
+```
+app/               运行时代码
+  app/mode_server.py     网关（8081）：网页和所有接口都在这
+  app/qwen_service.py    看护进程：起停、心跳、崩溃后自动恢复
+  image/ video/ voice/   生图、视频、语音三块能力
+  context/ usage/ share/ 上下文压缩、用量统计、分享
+tests/             830 条回归测试（不加载模型、不占显卡）
+scripts/           验收 / 探针 / 下载 / 诊断脚本，按需手动跑
+web/               前端（免构建），workflows/ 是 ComfyUI 工作流
+docs/              模型清单、ComfyUI 要求、架构、测试、许可
+app/mode_server.py     入口（两行，转进 app/；进程记录按这个路径认）
+app/qwen_service.py    入口（同上）
+```
+
 ## 用的是哪些模型，从哪下
 
 全是公开的开源权重，**仓库里不放权重**，得自己下（点仓库名就是下载页）。下面是这份代码实际跑过的那一套：
@@ -49,8 +67,8 @@
 1. **装依赖**（Python 3.12）
 
    ```powershell
-   git clone https://github.com/woshishauige/local-ai-studio.git
-   cd local-ai-studio
+   git clone https://github.com/woshishauige/local-omni.git
+   cd local-omni
    $env:QWEN_PYTHON = "C:\Python312\python.exe"
    & $env:QWEN_PYTHON -m pip install -r requirements.txt
    powershell -ExecutionPolicy Bypass -File .\setup.ps1   # 检查环境缺什么
@@ -83,3 +101,4 @@ Windows 10/11 + NVIDIA 显卡。**12 GB 显存**能跑默认的 27B（三元量�
 
 English: a local-first AI website for one Windows PC with one GPU — chat/vision, ComfyUI image and video
 generation, and offline speech, all in one page. Weights are not bundled; see `docs/MODELS.md`. MIT (code only).
+

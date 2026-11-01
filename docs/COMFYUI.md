@@ -17,8 +17,8 @@
    └─ ComfyUI/user/default/workflows/MiniMax-H3/   ← 工作流 JSON（本仓库 workflows/ 覆盖过去）
 ```
 
-代码位置：`image_comfy.py:39`（`COMFY_ROOT`）、`video_jobs.py:32`（`WORKFLOW_ROOT`）、
-`mode_server.py:102`（`COMFY_INPUT`）。
+代码位置：`app/image/image_comfy.py:39`（`COMFY_ROOT`）、`app/video/video_jobs.py:32`（`WORKFLOW_ROOT`）、
+`app/mode_server.py:102`（`COMFY_INPUT`）。
 
 ## 启动参数（网关自动用，不需要手点）
 
@@ -52,9 +52,9 @@
 
 1. **改名的包不会被加载**：本机 RIFE 那个包目录叫 `comfyui-frame-interpolation_cudafull`（cudafull 变体），
    与白名单里的 `ComfyUI-Frame-Interpolation` 不同名 → 网关拉起 ComfyUI 时补帧节点会缺失，
-   `video_interpolate.py` 提交的 `RIFE VFI` 会被 ComfyUI 拒绝。装成标准目录名即可。
+   `app/video/video_interpolate.py` 提交的 `RIFE VFI` 会被 ComfyUI 拒绝。装成标准目录名即可。
 2. **超分（SeedVR2）不在白名单里**：`ComfyUI-SeedVR2_VideoUpscaler` 提供 `SeedVR2Preprocess` 等节点，
-   当前白名单没有它，`check_comfy_node_packs.py` 会报缺。两种解法：把它加进 `COMFY_FLAGS` 的白名单，
+   当前白名单没有它，`scripts/check_comfy_node_packs.py` 会报缺。两种解法：把它加进 `COMFY_FLAGS` 的白名单，
    或超分时手工启动 ComfyUI（不带 `--disable-all-custom-nodes`）。**这条在发布版里仍待决定。**
 
 ## 工作流
@@ -72,7 +72,7 @@
 
 ```powershell
 # 起一个临时实例（8191 端口、与生产同一套 flag），逐个核对工作流用到的 class_type 是否存在
-& $env:QWEN_PYTHON -X utf8 check_comfy_node_packs.py
+& $env:QWEN_PYTHON -X utf8 scripts/check_comfy_node_packs.py
 # 加 --dump-schema 可以打印关键节点的输入契约
 ```
 

@@ -1,20 +1,20 @@
 # 本地部署 AI 文字语音对话、图像视频生成一键式网站
 
-> 一台 Windows + 一张显卡就能跑起来的本地 AI 站点：**文字/识图对话、智能体工具、生图、视频、语音**全在一个页面里，
-> 权重、对话、语音都不出这台机器。
+把 AI 装进自己的电脑，浏览器打开一个网页就能用：聊天、看图、画图、做视频、说话，全在这一个页面里。
+模型跑在本地，对话和文件不出这台机器。
 
 ![对话界面](docs/screenshots/chat.png)
 
-## 它能做什么
+## 打开网页后，你能干这些事
 
-| 页面 | 能力 |
-| --- | --- |
-| **纯文本 / 识图** | 本地 GGUF 模型对话，支持图片输入、思考档位、工具调用（智能体）、上下文自动压缩 |
-| **生图** | 接 ComfyUI：提示词、负面词、尺寸、步数、种子、参考图、一键工作流、LoRA 预设、生成记录 |
-| **视频生成** | MiniMax-H3 逐段生成 → 自动拼接成片；4 条配方（3/6/12/20 步）、段落规划、超分重建、降噪、补帧、拼接 |
-| **语音对话** | 本地 ASR + 本地 TTS，按住说话、识别、思考、朗读全部离线完成 |
-| **使用日志** | 请求明细、Token/费用估算、延迟与吞吐统计（只存指标，不存正文） |
-| **共享管理器** | 可选：生成口令 + 隧道，把站点临时分享给别人，访客能力可逐项开关 |
+- **聊天、看图** —— 打字问它，或者直接丢一张图片让它读内容。回答是一段段蹦出来的，中途可以停。
+- **让它画图** —— 写一句画面描述，选尺寸、步数、种子，等一两分钟出图。可以挂参考图，可以套 LoRA 加速，出过的图有记录。
+- **让它做视频** —— 写一段画面描述，它自己拆成几个镜头逐段生成，最后拼成一条片子。**很慢**，三段的小片子按小时算，显卡要一直占着。
+- **跟它说话** —— 按住麦克风说，本地识别成文字，它回答完再用本地语音念出来，中间不联网。
+- **看自己用了多少** —— 每次请求的 token 数、耗时、每秒多少字，都有记录（只记数字，不记你说的话）。
+- **临时分享给别人** —— 可选功能，生成一个口令发给朋友，他在浏览器里就能用，而且你能限制他能不能传图、能不能看别人的东西。
+
+生图、视频、语音三块面板，和聊天共用一个网关、一份模型：
 
 <table>
 <tr>
@@ -23,87 +23,63 @@
 </tr>
 <tr>
 <td><img src="docs/screenshots/voice.png" alt="语音"></td>
-<td><em>生图 / 视频 / 语音三块面板，和聊天共用一个网关、一份模型。</em></td>
+<td><em>生图 / 视频 / 语音，都是网页里直接操作。</em></td>
 </tr>
 </table>
 
-## 三步跑起来
+## 用的是哪些模型，从哪下
 
-### 1. 装依赖
+全是公开的开源权重，**仓库里不放权重**，得自己下（点仓库名就是下载页）。下面是这份代码实际跑过的那一套：
 
-```powershell
-git clone https://github.com/woshishauige/local-ai-studio.git
-cd local-ai-studio
-$env:QWEN_PYTHON = "C:\Python312\python.exe"      # 也可以复用 ComfyUI 自带的解释器
-& $env:QWEN_PYTHON -m pip install -r requirements.txt
-powershell -ExecutionPolicy Bypass -File .\setup.ps1   # 检查解释器/依赖/目录/权重
-```
+| 用来干什么 | 模型文件 | 大小 | 从哪下 |
+| --- | --- | --- | --- |
+| 聊天 + 看图（默认） | `Bonsai-2-27B-PQ2_0-CRACK.gguf` + `Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf` | 6.7 + 0.6 GB | [dealignai/Bonsai-2-27B-Ternary-CRACK-GGUF](https://huggingface.co/dealignai/Bonsai-2-27B-Ternary-CRACK-GGUF)、[prism-ml/Ternary-Bonsai-2-27B-gguf](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf) |
+| 聊天（省显存的备选） | `Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-Q6_K.gguf` + `mmproj-…-BF16.gguf` | 6.9 + 0.9 GB | [HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive](https://huggingface.co/HauhauCS/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive) |
+| 语音识别（你说的话转文字） | `Qwen3-ASR-0.6B-Q8_0.gguf` + `mmproj-Qwen3-ASR-0.6B-Q8_0.gguf` | 0.8 + 0.2 GB | [ggml-org/Qwen3-ASR-0.6B-GGUF](https://huggingface.co/ggml-org/Qwen3-ASR-0.6B-GGUF) |
+| 语音朗读（文字转人声） | `Qwen3-TTS-12Hz-1.7B-CustomVoice` + `Qwen3-TTS-Tokenizer-12Hz` | 3.7 + 0.7 GB | [Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice)、[Qwen/Qwen3-TTS-Tokenizer-12Hz](https://huggingface.co/Qwen/Qwen3-TTS-Tokenizer-12Hz) |
+| 画图 | `CyberRealisticPony_V18.0_F16` + `t5xxl_fp8_e4m3fn` + `Chroma ae` | 6.9 + 4.9 + 0.3 GB | [cyberdelia/CyberRealisticPony](https://huggingface.co/cyberdelia/CyberRealisticPony)、[comfyanonymous/flux_text_encoders](https://huggingface.co/comfyanonymous/flux_text_encoders)、[lodestones/Chroma](https://huggingface.co/lodestones/Chroma) |
+| 做视频 | `MiniMax-H3-ref2va-curve-Q4_0.gguf` + 文本编码器 + VAE + 8 步加速 LoRA | 11.5 + 15.7 + 5.8 + 2 GB | [joeygambino/MiniMax-H3-curve-GGUF](https://huggingface.co/joeygambino/MiniMax-H3-curve-GGUF)、[Comfy-Org/MiniMax-H3](https://huggingface.co/Comfy-Org/MiniMax-H3) |
+| 跑模型的后端 | llama.cpp 两份构建：原版 `b11935`、Prism fork `b10826` | — | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp/releases)、[PrismML-Eng/llama.cpp](https://github.com/PrismML-Eng/llama.cpp/releases) 的 Windows CUDA 包 |
 
-### 2. 放权重和运行时
+画图和做视频还需要 [ComfyUI](https://github.com/comfyanonymous/ComfyUI)；`ffmpeg.exe` 放进 `runtime\` 用来拼接和降噪。
+**每个文件该放哪个目录、哪些是必须的、仓库自带的下载脚本怎么用，都写在 [docs/MODELS.md](docs/MODELS.md)。**
 
-只聊天：下一个 GGUF 语言模型就够。要生图/视频再加 ComfyUI 与对应权重。
-**完整清单与下载地址见 [docs/MODELS.md](docs/MODELS.md)**，最省事的组合是 9B：
+## 怎么跑起来
 
-```
-models/Qwen3.5-9B-Uncensored/Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-Q6_K.gguf
-models/Qwen3.5-9B-Uncensored/mmproj-Qwen3.5-9B-Uncensored-HauhauCS-Aggressive-BF16.gguf
-```
+1. **装依赖**（Python 3.12）
 
-运行时放在项目目录里：`runtime-stock-11935\`、`runtime-prism-10826\`（llama.cpp 两份构建），
-`runtime\ffmpeg.exe`。ComfyUI 放在**兄弟目录** `..\ComfyUI-BSAI_v010\`。
+   ```powershell
+   git clone https://github.com/woshishauige/local-ai-studio.git
+   cd local-ai-studio
+   $env:QWEN_PYTHON = "C:\Python312\python.exe"
+   & $env:QWEN_PYTHON -m pip install -r requirements.txt
+   powershell -ExecutionPolicy Bypass -File .\setup.ps1   # 检查环境缺什么
+   ```
 
-### 3. 启动
+2. **放模型**：按上面那张表下载，放进 `models\` 下对应目录（比如 `models\Bonsai-2-27B-CRACK\`）；
+   llama.cpp 解压到 `runtime-stock-11935\` 和 `runtime-prism-10826\`，`ffmpeg.exe` 放 `runtime\`。
 
-```powershell
-.\Start-Qwen.bat          # 或 .\Start-Qwen.ps1
-# 浏览器打开 http://127.0.0.1:8081
-.\Stop-Qwen.bat           # 停止并释放显存
-```
+3. **启动**：双击 `Start-Qwen.bat`，浏览器会自动打开 <http://127.0.0.1:8081>。
+   第一次要等模型加载（几十秒），顶栏显示"已载入"就能用。停止用 `Stop-Qwen.bat`，会把显存还回来。
 
-## 目录与端口
+## 需要什么机器
 
-```
-mode_server.py   网关（8081）：网页 + /v1/chat/completions + 所有 /local/* 接口
-qwen_service.py  看护进程：起停、心跳、崩溃恢复；llama-server 在 8082
-image_*.py       生图：任务状态机、管线注册表、ComfyUI 进程与图注入（8188）
-video_*.py       视频：逐段提交/拼接、代价模型、降噪、补帧
-voice_*.py       语音：ASR 输入、语音对话、TTS worker
-web/             前端（免构建，直接由网关提供）
-docs/            模型清单、ComfyUI 要求、架构、测试、许可
-```
+Windows 10/11 + NVIDIA 显卡。**12 GB 显存**能跑默认的 27B（三元量化，全部塞进显卡）；
+显存小就用 9B。内存 32 GB 更舒服，硬盘要留几十 GB 给模型。
 
-## 配置
+## 现在还做不到 / 要注意
 
-`settings.json` 控制上下文、显存层数、线程、自动启动 ComfyUI 等，样例见 `settings.example.json`。
-常用环境变量：
-
-| 变量 | 作用 |
-| --- | --- |
-| `QWEN_PYTHON` | 用哪个解释器跑网关（默认复用兄弟目录 ComfyUI 的解释器） |
-| `QWEN_GATEWAY_PORT` | 网关端口，默认 8081；换端口后仍受 `Start-Qwen.ps1` 探测 |
-| `QWEN_TTS_PROJECT` | 语音 TTS 引擎 checkout 的位置（可选功能） |
-| `QWEN_SHARE_CONFIG` / `QWEN_ACCESS_TOKEN` | 共享模式的口令与配置 |
-
-## 已知限制
-
-- 只在 **Windows + NVIDIA CUDA** 上验证过；脚本按 Windows 写。
-- ComfyUI 节点包按**目录名精确匹配**白名单（见 [docs/COMFYUI.md](docs/COMFYUI.md)），
-  名字不对就不会加载；RIFE 与 SeedVR2 两条缺口该文档里写明了。
-- 同一台机器**只跑一个实例**：后端端口固定 8082，两个实例会各自加载模型、一起抢显存。
-  `QWEN_GATEWAY_PORT` 只是把网关挪到别的端口，自检前请先停掉正在跑的那个。
-- 仓库不含任何权重、聊天记录、声音样本。
-
-## 文档
-
-[模型与下载](docs/MODELS.md) · [ComfyUI 要求](docs/COMFYUI.md) · [架构](docs/ARCHITECTURE.md) ·
-[测试与验收](docs/TESTING.md) · [第三方与许可](docs/NOTICE.md)
+- 只在 **Windows + NVIDIA** 上验证过，别的平台没试。
+- **视频很慢**，一段按分钟算，一条片子按小时算，跑的时候显卡基本别想干别的。
+- 一台机器**只能开一个**：两个实例会同时加载模型、抢显存。
+- ComfyUI 的节点包是按**目录名**精确加载的，名字装错对应的节点就不会出现（细节见 [docs/COMFYUI.md](docs/COMFYUI.md)）。
+- 仓库里没有权重、没有你的聊天记录、没有声音样本；装好之后也不会向任何地方上传东西。
 
 ## 许可
 
-代码 [MIT](LICENSE)；模型权重不在本仓库，许可见各上游。
+代码是 MIT，随便用。模型和 ComfyUI 是别人家的，许可各自看上游，见 [docs/NOTICE.md](docs/NOTICE.md)。
 
 ---
 
-**English**: QwenWeb is a local-first AI site for a single Windows machine with one GPU — chat/vision/agent
-tools, ComfyUI image and video generation, and offline speech, all behind one FastAPI gateway and a
-build-free web UI. Weights and runtimes are not bundled; see `docs/MODELS.md`. MIT licensed (code only).
+English: a local-first AI website for one Windows PC with one GPU — chat/vision, ComfyUI image and video
+generation, and offline speech, all in one page. Weights are not bundled; see `docs/MODELS.md`. MIT (code only).

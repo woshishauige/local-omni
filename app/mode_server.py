@@ -4885,6 +4885,10 @@ async def proxy(path: str, request: Request):
 
 
 def main():
+    # The uvicorn server is published at module scope (line ~1150) because the shutdown
+    # routes flip ``server.should_exit``; without this declaration the assignment below would
+    # create a local and every stop request would hit None.
+    global server
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     bind_host = listening_host()
     bind_port = listening_port()
